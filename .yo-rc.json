@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.landexp",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "monolith",
+    "baseName": "landexp",
+    "packageName": "com.landexp",
+    "packageFolder": "com/landexp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mariadb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "M2Q2MzAxZTk5ODZiY2RkYzk1OTc0NTQwNWZkMzk3MTJmYWExZWUyZmRjNjcxZTAzMWFmODQ3ZDI4OWJkNTVkM2I0ODQzNzc4ZjdhZTQ3ZDgzMjQ0ODQwMDA3NjllNjYyMDAyN2I1MjBkZjQzMDdhMzUyOWFlYmExOWI1M2U3ZWI=",
+    "clientFramework": "react",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "vi"
+    ]
+  }
+}
