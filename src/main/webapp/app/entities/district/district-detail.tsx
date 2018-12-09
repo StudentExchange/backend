@@ -6,6 +6,9 @@ import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './district.reducer';
 import { IDistrict } from 'app/shared/model/district.model';
@@ -22,8 +25,10 @@ export class DistrictDetail extends React.Component<IDistrictDetailProps> {
   render() {
     const { districtEntity } = this.props;
     return (
-      <Row>
-        <Col md="8">
+      <div>
+        <Sidebar activeMenu="manager-management" activeSubMenu="district" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
           <h2>
             <Translate contentKey="studentexchangeApp.district.detail.title">District</Translate> [<b>{districtEntity.id}</b>]
           </h2>
@@ -78,8 +83,8 @@ export class DistrictDetail extends React.Component<IDistrictDetailProps> {
               <Translate contentKey="entity.action.edit">Edit</Translate>
             </span>
           </Button>
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }

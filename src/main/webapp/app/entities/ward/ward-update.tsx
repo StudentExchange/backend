@@ -8,6 +8,9 @@ import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IDistrict } from 'app/shared/model/district.model';
 import { getEntities as getDistricts } from 'app/entities/district/district.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './ward.reducer';
@@ -74,83 +77,87 @@ export class WardUpdate extends React.Component<IWardUpdateProps, IWardUpdateSta
 
     return (
       <div>
-        <Row className="justify-content-center">
-          <Col md="8">
-            <h2 id="studentexchangeApp.ward.home.createOrEditLabel">
-              <Translate contentKey="studentexchangeApp.ward.home.createOrEditLabel">Create or edit a Ward</Translate>
-            </h2>
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
-          <Col md="8">
-            {loading ? (
-              <p>Loading...</p>
-            ) : (
-              <AvForm model={isNew ? {} : wardEntity} onSubmit={this.saveEntity}>
-                {!isNew ? (
+        <Sidebar activeMenu="manager-management" activeSubMenu="ward" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
+          <Row className="justify-content-center">
+            <Col md="8">
+              <h2 id="studentexchangeApp.ward.home.createOrEditLabel">
+                <Translate contentKey="studentexchangeApp.ward.home.createOrEditLabel">Create or edit a Ward</Translate>
+              </h2>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md="8">
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                <AvForm model={isNew ? {} : wardEntity} onSubmit={this.saveEntity}>
+                  {!isNew ? (
+                    <AvGroup>
+                      <Label for="id">
+                        <Translate contentKey="global.field.id">ID</Translate>
+                      </Label>
+                      <AvInput id="ward-id" type="text" className="form-control" name="id" required readOnly />
+                    </AvGroup>
+                  ) : null}
                   <AvGroup>
-                    <Label for="id">
-                      <Translate contentKey="global.field.id">ID</Translate>
+                    <Label id="nameLabel" for="name">
+                      <Translate contentKey="studentexchangeApp.ward.name">Name</Translate>
                     </Label>
-                    <AvInput id="ward-id" type="text" className="form-control" name="id" required readOnly />
+                    <AvField id="ward-name" type="text" name="name" />
                   </AvGroup>
-                ) : null}
-                <AvGroup>
-                  <Label id="nameLabel" for="name">
-                    <Translate contentKey="studentexchangeApp.ward.name">Name</Translate>
-                  </Label>
-                  <AvField id="ward-name" type="text" name="name" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="enabledLabel" check>
-                    <AvInput id="ward-enabled" type="checkbox" className="form-control" name="enabled" />
-                    <Translate contentKey="studentexchangeApp.ward.enabled">Enabled</Translate>
-                  </Label>
-                </AvGroup>
-                <AvGroup>
-                  <Label id="createAtLabel" for="createAt">
-                    <Translate contentKey="studentexchangeApp.ward.createAt">Create At</Translate>
-                  </Label>
-                  <AvField id="ward-createAt" type="date" className="form-control" name="createAt" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="updateAtLabel" for="updateAt">
-                    <Translate contentKey="studentexchangeApp.ward.updateAt">Update At</Translate>
-                  </Label>
-                  <AvField id="ward-updateAt" type="date" className="form-control" name="updateAt" />
-                </AvGroup>
-                <AvGroup>
-                  <Label for="district.id">
-                    <Translate contentKey="studentexchangeApp.ward.district">District</Translate>
-                  </Label>
-                  <AvInput id="ward-district" type="select" className="form-control" name="districtId">
-                    <option value="" key="0" />
-                    {districts
-                      ? districts.map(otherEntity => (
-                          <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.id}
-                          </option>
-                        ))
-                      : null}
-                  </AvInput>
-                </AvGroup>
-                <Button tag={Link} id="cancel-save" to="/entity/ward" replace color="info">
-                  <FontAwesomeIcon icon="arrow-left" />
+                  <AvGroup>
+                    <Label id="enabledLabel" check>
+                      <AvInput id="ward-enabled" type="checkbox" className="form-control" name="enabled" />
+                      <Translate contentKey="studentexchangeApp.ward.enabled">Enabled</Translate>
+                    </Label>
+                  </AvGroup>
+                  <AvGroup>
+                    <Label id="createAtLabel" for="createAt">
+                      <Translate contentKey="studentexchangeApp.ward.createAt">Create At</Translate>
+                    </Label>
+                    <AvField id="ward-createAt" type="date" className="form-control" name="createAt" />
+                  </AvGroup>
+                  <AvGroup>
+                    <Label id="updateAtLabel" for="updateAt">
+                      <Translate contentKey="studentexchangeApp.ward.updateAt">Update At</Translate>
+                    </Label>
+                    <AvField id="ward-updateAt" type="date" className="form-control" name="updateAt" />
+                  </AvGroup>
+                  <AvGroup>
+                    <Label for="district.id">
+                      <Translate contentKey="studentexchangeApp.ward.district">District</Translate>
+                    </Label>
+                    <AvInput id="ward-district" type="select" className="form-control" name="districtId">
+                      <option value="" key="0" />
+                      {districts
+                        ? districts.map(otherEntity => (
+                            <option value={otherEntity.id} key={otherEntity.id}>
+                              {otherEntity.id}
+                            </option>
+                          ))
+                        : null}
+                    </AvInput>
+                  </AvGroup>
+                  <Button tag={Link} id="cancel-save" to="/entity/ward" replace color="info">
+                    <FontAwesomeIcon icon="arrow-left" />
+                    &nbsp;
+                    <span className="d-none d-md-inline">
+                      <Translate contentKey="entity.action.back">Back</Translate>
+                    </span>
+                  </Button>
                   &nbsp;
-                  <span className="d-none d-md-inline">
-                    <Translate contentKey="entity.action.back">Back</Translate>
-                  </span>
-                </Button>
-                &nbsp;
-                <Button color="primary" id="save-entity" type="submit" disabled={updating}>
-                  <FontAwesomeIcon icon="save" />
-                  &nbsp;
-                  <Translate contentKey="entity.action.save">Save</Translate>
-                </Button>
-              </AvForm>
-            )}
-          </Col>
-        </Row>
+                  <Button color="primary" id="save-entity" type="submit" disabled={updating}>
+                    <FontAwesomeIcon icon="save" />
+                    &nbsp;
+                    <Translate contentKey="entity.action.save">Save</Translate>
+                  </Button>
+                </AvForm>
+              )}
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }

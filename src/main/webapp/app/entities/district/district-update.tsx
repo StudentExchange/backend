@@ -8,6 +8,9 @@ import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRegion } from 'app/shared/model/region.model';
 import { getEntities as getRegions } from 'app/entities/region/region.reducer';
 import { ICity } from 'app/shared/model/city.model';
@@ -79,98 +82,102 @@ export class DistrictUpdate extends React.Component<IDistrictUpdateProps, IDistr
 
     return (
       <div>
-        <Row className="justify-content-center">
-          <Col md="8">
-            <h2 id="studentexchangeApp.district.home.createOrEditLabel">
-              <Translate contentKey="studentexchangeApp.district.home.createOrEditLabel">Create or edit a District</Translate>
-            </h2>
-          </Col>
-        </Row>
-        <Row className="justify-content-center">
-          <Col md="8">
-            {loading ? (
-              <p>Loading...</p>
-            ) : (
-              <AvForm model={isNew ? {} : districtEntity} onSubmit={this.saveEntity}>
-                {!isNew ? (
+        <Sidebar activeMenu="manager-management" activeSubMenu="district" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
+          <Row className="justify-content-center">
+            <Col md="8">
+              <h2 id="studentexchangeApp.district.home.createOrEditLabel">
+                <Translate contentKey="studentexchangeApp.district.home.createOrEditLabel">Create or edit a District</Translate>
+              </h2>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md="8">
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                <AvForm model={isNew ? {} : districtEntity} onSubmit={this.saveEntity}>
+                  {!isNew ? (
+                    <AvGroup>
+                      <Label for="id">
+                        <Translate contentKey="global.field.id">ID</Translate>
+                      </Label>
+                      <AvInput id="district-id" type="text" className="form-control" name="id" required readOnly />
+                    </AvGroup>
+                  ) : null}
                   <AvGroup>
-                    <Label for="id">
-                      <Translate contentKey="global.field.id">ID</Translate>
+                    <Label id="nameLabel" for="name">
+                      <Translate contentKey="studentexchangeApp.district.name">Name</Translate>
                     </Label>
-                    <AvInput id="district-id" type="text" className="form-control" name="id" required readOnly />
+                    <AvField id="district-name" type="text" name="name" />
                   </AvGroup>
-                ) : null}
-                <AvGroup>
-                  <Label id="nameLabel" for="name">
-                    <Translate contentKey="studentexchangeApp.district.name">Name</Translate>
-                  </Label>
-                  <AvField id="district-name" type="text" name="name" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="enabledLabel" check>
-                    <AvInput id="district-enabled" type="checkbox" className="form-control" name="enabled" />
-                    <Translate contentKey="studentexchangeApp.district.enabled">Enabled</Translate>
-                  </Label>
-                </AvGroup>
-                <AvGroup>
-                  <Label id="createAtLabel" for="createAt">
-                    <Translate contentKey="studentexchangeApp.district.createAt">Create At</Translate>
-                  </Label>
-                  <AvField id="district-createAt" type="date" className="form-control" name="createAt" />
-                </AvGroup>
-                <AvGroup>
-                  <Label id="updateAtLabel" for="updateAt">
-                    <Translate contentKey="studentexchangeApp.district.updateAt">Update At</Translate>
-                  </Label>
-                  <AvField id="district-updateAt" type="date" className="form-control" name="updateAt" />
-                </AvGroup>
-                <AvGroup>
-                  <Label for="region.id">
-                    <Translate contentKey="studentexchangeApp.district.region">Region</Translate>
-                  </Label>
-                  <AvInput id="district-region" type="select" className="form-control" name="regionId">
-                    <option value="" key="0" />
-                    {regions
-                      ? regions.map(otherEntity => (
-                          <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.id}
-                          </option>
-                        ))
-                      : null}
-                  </AvInput>
-                </AvGroup>
-                <AvGroup>
-                  <Label for="city.id">
-                    <Translate contentKey="studentexchangeApp.district.city">City</Translate>
-                  </Label>
-                  <AvInput id="district-city" type="select" className="form-control" name="cityId">
-                    <option value="" key="0" />
-                    {cities
-                      ? cities.map(otherEntity => (
-                          <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.id}
-                          </option>
-                        ))
-                      : null}
-                  </AvInput>
-                </AvGroup>
-                <Button tag={Link} id="cancel-save" to="/entity/district" replace color="info">
-                  <FontAwesomeIcon icon="arrow-left" />
+                  <AvGroup>
+                    <Label id="enabledLabel" check>
+                      <AvInput id="district-enabled" type="checkbox" className="form-control" name="enabled" />
+                      <Translate contentKey="studentexchangeApp.district.enabled">Enabled</Translate>
+                    </Label>
+                  </AvGroup>
+                  <AvGroup>
+                    <Label id="createAtLabel" for="createAt">
+                      <Translate contentKey="studentexchangeApp.district.createAt">Create At</Translate>
+                    </Label>
+                    <AvField id="district-createAt" type="date" className="form-control" name="createAt" />
+                  </AvGroup>
+                  <AvGroup>
+                    <Label id="updateAtLabel" for="updateAt">
+                      <Translate contentKey="studentexchangeApp.district.updateAt">Update At</Translate>
+                    </Label>
+                    <AvField id="district-updateAt" type="date" className="form-control" name="updateAt" />
+                  </AvGroup>
+                  <AvGroup>
+                    <Label for="region.id">
+                      <Translate contentKey="studentexchangeApp.district.region">Region</Translate>
+                    </Label>
+                    <AvInput id="district-region" type="select" className="form-control" name="regionId">
+                      <option value="" key="0" />
+                      {regions
+                        ? regions.map(otherEntity => (
+                            <option value={otherEntity.id} key={otherEntity.id}>
+                              {otherEntity.id}
+                            </option>
+                          ))
+                        : null}
+                    </AvInput>
+                  </AvGroup>
+                  <AvGroup>
+                    <Label for="city.id">
+                      <Translate contentKey="studentexchangeApp.district.city">City</Translate>
+                    </Label>
+                    <AvInput id="district-city" type="select" className="form-control" name="cityId">
+                      <option value="" key="0" />
+                      {cities
+                        ? cities.map(otherEntity => (
+                            <option value={otherEntity.id} key={otherEntity.id}>
+                              {otherEntity.id}
+                            </option>
+                          ))
+                        : null}
+                    </AvInput>
+                  </AvGroup>
+                  <Button tag={Link} id="cancel-save" to="/entity/district" replace color="info">
+                    <FontAwesomeIcon icon="arrow-left" />
+                    &nbsp;
+                    <span className="d-none d-md-inline">
+                      <Translate contentKey="entity.action.back">Back</Translate>
+                    </span>
+                  </Button>
                   &nbsp;
-                  <span className="d-none d-md-inline">
-                    <Translate contentKey="entity.action.back">Back</Translate>
-                  </span>
-                </Button>
-                &nbsp;
-                <Button color="primary" id="save-entity" type="submit" disabled={updating}>
-                  <FontAwesomeIcon icon="save" />
-                  &nbsp;
-                  <Translate contentKey="entity.action.save">Save</Translate>
-                </Button>
-              </AvForm>
-            )}
-          </Col>
-        </Row>
+                  <Button color="primary" id="save-entity" type="submit" disabled={updating}>
+                    <FontAwesomeIcon icon="save" />
+                    &nbsp;
+                    <Translate contentKey="entity.action.save">Save</Translate>
+                  </Button>
+                </AvForm>
+              )}
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }

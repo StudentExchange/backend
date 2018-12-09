@@ -14,6 +14,9 @@ import {
 } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './city.reducer';
 import { ICity } from 'app/shared/model/city.model';
@@ -60,91 +63,95 @@ export class City extends React.Component<ICityProps, ICityState> {
     const { cityList, match, totalItems } = this.props;
     return (
       <div>
-        <h2 id="city-heading">
-          <Translate contentKey="studentexchangeApp.city.home.title">Cities</Translate>
-          <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-            <FontAwesomeIcon icon="plus" />
-            &nbsp;
-            <Translate contentKey="studentexchangeApp.city.home.createLabel">Create new City</Translate>
-          </Link>
-        </h2>
-        <div className="table-responsive">
-          <Table responsive>
-            <thead>
-              <tr>
-                <th className="hand" onClick={this.sort('id')}>
-                  <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={this.sort('name')}>
-                  <Translate contentKey="studentexchangeApp.city.name">Name</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={this.sort('index')}>
-                  <Translate contentKey="studentexchangeApp.city.index">Index</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={this.sort('enabled')}>
-                  <Translate contentKey="studentexchangeApp.city.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={this.sort('createAt')}>
-                  <Translate contentKey="studentexchangeApp.city.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={this.sort('updateAt')}>
-                  <Translate contentKey="studentexchangeApp.city.updateAt">Update At</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {cityList.map((city, i) => (
-                <tr key={`entity-${i}`}>
-                  <td>
-                    <Button tag={Link} to={`${match.url}/${city.id}`} color="link" size="sm">
-                      {city.id}
-                    </Button>
-                  </td>
-                  <td>{city.name}</td>
-                  <td>{city.index}</td>
-                  <td>{city.enabled ? 'true' : 'false'}</td>
-                  <td>
-                    <TextFormat type="date" value={city.createAt} format={APP_LOCAL_DATE_FORMAT} />
-                  </td>
-                  <td>
-                    <TextFormat type="date" value={city.updateAt} format={APP_LOCAL_DATE_FORMAT} />
-                  </td>
-                  <td className="text-right">
-                    <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`${match.url}/${city.id}`} color="info" size="sm">
-                        <FontAwesomeIcon icon="eye" />{' '}
-                        <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.view">View</Translate>
-                        </span>
-                      </Button>
-                      <Button tag={Link} to={`${match.url}/${city.id}/edit`} color="primary" size="sm">
-                        <FontAwesomeIcon icon="pencil-alt" />{' '}
-                        <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
-                        </span>
-                      </Button>
-                      <Button tag={Link} to={`${match.url}/${city.id}/delete`} color="danger" size="sm">
-                        <FontAwesomeIcon icon="trash" />{' '}
-                        <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
-                        </span>
-                      </Button>
-                    </div>
-                  </td>
+        <Sidebar activeMenu="manager-management" activeSubMenu="city" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
+          <h2 id="city-heading">
+            <Translate contentKey="studentexchangeApp.city.home.title">Cities</Translate>
+            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+              <FontAwesomeIcon icon="plus" />
+              &nbsp;
+              <Translate contentKey="studentexchangeApp.city.home.createLabel">Create new City</Translate>
+            </Link>
+          </h2>
+          <div className="table-responsive">
+            <Table responsive>
+              <thead>
+                <tr>
+                  <th className="hand" onClick={this.sort('id')}>
+                    <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th className="hand" onClick={this.sort('name')}>
+                    <Translate contentKey="studentexchangeApp.city.name">Name</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th className="hand" onClick={this.sort('index')}>
+                    <Translate contentKey="studentexchangeApp.city.index">Index</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th className="hand" onClick={this.sort('enabled')}>
+                    <Translate contentKey="studentexchangeApp.city.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th className="hand" onClick={this.sort('createAt')}>
+                    <Translate contentKey="studentexchangeApp.city.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th className="hand" onClick={this.sort('updateAt')}>
+                    <Translate contentKey="studentexchangeApp.city.updateAt">Update At</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th />
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {cityList.map((city, i) => (
+                  <tr key={`entity-${i}`}>
+                    <td>
+                      <Button tag={Link} to={`${match.url}/${city.id}`} color="link" size="sm">
+                        {city.id}
+                      </Button>
+                    </td>
+                    <td>{city.name}</td>
+                    <td>{city.index}</td>
+                    <td>{city.enabled ? 'true' : 'false'}</td>
+                    <td>
+                      <TextFormat type="date" value={city.createAt} format={APP_LOCAL_DATE_FORMAT} />
+                    </td>
+                    <td>
+                      <TextFormat type="date" value={city.updateAt} format={APP_LOCAL_DATE_FORMAT} />
+                    </td>
+                    <td className="text-right">
+                      <div className="btn-group flex-btn-group-container">
+                        <Button tag={Link} to={`${match.url}/${city.id}`} color="info" size="sm">
+                          <FontAwesomeIcon icon="eye" />{' '}
+                          <span className="d-none d-md-inline">
+                            <Translate contentKey="entity.action.view">View</Translate>
+                          </span>
+                        </Button>
+                        <Button tag={Link} to={`${match.url}/${city.id}/edit`} color="primary" size="sm">
+                          <FontAwesomeIcon icon="pencil-alt" />{' '}
+                          <span className="d-none d-md-inline">
+                            <Translate contentKey="entity.action.edit">Edit</Translate>
+                          </span>
+                        </Button>
+                        <Button tag={Link} to={`${match.url}/${city.id}/delete`} color="danger" size="sm">
+                          <FontAwesomeIcon icon="trash" />{' '}
+                          <span className="d-none d-md-inline">
+                            <Translate contentKey="entity.action.delete">Delete</Translate>
+                          </span>
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+          <Row className="justify-content-center">
+            <JhiPagination
+              items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
+              activePage={this.state.activePage}
+              onSelect={this.handlePagination}
+              maxButtons={5}
+            />
+          </Row>
         </div>
-        <Row className="justify-content-center">
-          <JhiPagination
-            items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
-            activePage={this.state.activePage}
-            onSelect={this.handlePagination}
-            maxButtons={5}
-          />
-        </Row>
       </div>
     );
   }

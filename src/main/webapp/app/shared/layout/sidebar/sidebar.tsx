@@ -73,7 +73,7 @@ export default class Sidebar extends React.Component<ISidebarProps> {
     return (
       <li className={`${activeMenu === 'manager-management' ? 'active' : ''}`}>
         <Link to={'/entity/city'}>
-          <i className="fa fa-user" /> <span className="nav-label">Manager management</span> <span className="fa arrow" />
+          <i className="fa fa-shield" /> <span className="nav-label">Manager management</span> <span className="fa arrow" />
         </Link>
         <ul className={`${activeMenu === 'manager-management' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}`}>
           <li className={`${activeSubMenu === 'city' ? 'active' : ''}`}>

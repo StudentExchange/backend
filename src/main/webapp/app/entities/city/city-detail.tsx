@@ -6,6 +6,9 @@ import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './city.reducer';
 import { ICity } from 'app/shared/model/city.model';
@@ -22,8 +25,10 @@ export class CityDetail extends React.Component<ICityDetailProps> {
   render() {
     const { cityEntity } = this.props;
     return (
-      <Row>
-        <Col md="8">
+      <div>
+        <Sidebar activeMenu="manager-management" activeSubMenu="city" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
           <h2>
             <Translate contentKey="studentexchangeApp.city.detail.title">City</Translate> [<b>{cityEntity.id}</b>]
           </h2>
@@ -76,8 +81,8 @@ export class CityDetail extends React.Component<ICityDetailProps> {
               <Translate contentKey="entity.action.edit">Edit</Translate>
             </span>
           </Button>
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }

@@ -6,6 +6,9 @@ import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './category.reducer';
 import { ICategory } from 'app/shared/model/category.model';
@@ -22,8 +25,10 @@ export class CategoryDetail extends React.Component<ICategoryDetailProps> {
   render() {
     const { categoryEntity } = this.props;
     return (
-      <Row>
-        <Col md="8">
+      <div>
+        <Sidebar activeMenu="manager-management" activeSubMenu="category" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
           <h2>
             <Translate contentKey="studentexchangeApp.category.detail.title">Category</Translate> [<b>{categoryEntity.id}</b>]
           </h2>
@@ -64,8 +69,8 @@ export class CategoryDetail extends React.Component<ICategoryDetailProps> {
               <Translate contentKey="entity.action.edit">Edit</Translate>
             </span>
           </Button>
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }

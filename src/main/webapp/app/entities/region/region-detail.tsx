@@ -6,6 +6,9 @@ import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './region.reducer';
 import { IRegion } from 'app/shared/model/region.model';
@@ -22,8 +25,10 @@ export class RegionDetail extends React.Component<IRegionDetailProps> {
   render() {
     const { regionEntity } = this.props;
     return (
-      <Row>
-        <Col md="8">
+      <div>
+        <Sidebar activeMenu="manager-management" activeSubMenu="region" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
           <h2>
             <Translate contentKey="studentexchangeApp.region.detail.title">Region</Translate> [<b>{regionEntity.id}</b>]
           </h2>
@@ -83,8 +88,8 @@ export class RegionDetail extends React.Component<IRegionDetailProps> {
               <Translate contentKey="entity.action.edit">Edit</Translate>
             </span>
           </Button>
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }

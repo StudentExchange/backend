@@ -6,6 +6,9 @@ import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRootState } from 'app/shared/reducers';
 import { getEntity } from './service-fee.reducer';
 import { IServiceFee } from 'app/shared/model/service-fee.model';
@@ -22,8 +25,10 @@ export class ServiceFeeDetail extends React.Component<IServiceFeeDetailProps> {
   render() {
     const { serviceFeeEntity } = this.props;
     return (
-      <Row>
-        <Col md="8">
+      <div>
+        <Sidebar activeMenu="manager-management" activeSubMenu="service-fee" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
           <h2>
             <Translate contentKey="studentexchangeApp.serviceFee.detail.title">ServiceFee</Translate> [<b>{serviceFeeEntity.id}</b>]
           </h2>
@@ -54,8 +59,8 @@ export class ServiceFeeDetail extends React.Component<IServiceFeeDetailProps> {
               <Translate contentKey="entity.action.edit">Edit</Translate>
             </span>
           </Button>
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }
