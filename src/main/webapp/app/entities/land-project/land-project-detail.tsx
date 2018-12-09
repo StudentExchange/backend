@@ -26,7 +26,7 @@ export class LandProjectDetail extends React.Component<ILandProjectDetailProps> 
     const { landProjectEntity } = this.props;
     return (
       <div>
-        <Sidebar activeMenu="staff-management" activeSubMenu="article" />
+        <Sidebar activeMenu="staff-management" activeSubMenu="project" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>

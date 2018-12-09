@@ -86,7 +86,7 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
 
     return (
       <div>
-        <Sidebar activeMenu="staff-management" activeSubMenu="project" />
+        <Sidebar activeMenu="staff-management" activeSubMenu="payment" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <Row className="justify-content-center">

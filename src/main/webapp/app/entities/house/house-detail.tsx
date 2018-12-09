@@ -26,7 +26,7 @@ export class HouseDetail extends React.Component<IHouseDetailProps> {
     const { houseEntity } = this.props;
     return (
       <div>
-        <Sidebar activeMenu="staff-management" activeSubMenu="project" />
+        <Sidebar activeMenu="staff-management" activeSubMenu="house" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>

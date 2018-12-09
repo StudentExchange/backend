@@ -26,7 +26,7 @@ export class ArticleDetail extends React.Component<IArticleDetailProps> {
     const { articleEntity } = this.props;
     return (
       <div>
-        <Sidebar activeMenu="staff-management" activeSubMenu="project" />
+        <Sidebar activeMenu="staff-management" activeSubMenu="article" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>

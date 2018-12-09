@@ -109,7 +109,7 @@ export class HouseUpdate extends React.Component<IHouseUpdateProps, IHouseUpdate
 
     return (
       <div>
-        <Sidebar activeMenu="staff-management" activeSubMenu="project" />
+        <Sidebar activeMenu="staff-management" activeSubMenu="house" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <Row className="justify-content-center">

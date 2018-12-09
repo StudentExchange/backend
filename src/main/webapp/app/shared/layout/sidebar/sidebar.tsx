@@ -52,14 +52,58 @@ export default class Sidebar extends React.Component<ISidebarProps> {
               <FontAwesomeIcon icon="clock" fixedWidth /> Land projects
             </Link>
           </li>
-          <li className={`${activeSubMenu === 'project' ? 'active' : ''}`}>
+          <li className={`${activeSubMenu === 'payment' ? 'active' : ''}`}>
             <Link to={'/entity/payment'}>
               <FontAwesomeIcon icon="clock" fixedWidth /> Payment
             </Link>
           </li>
-          <li className={`${activeSubMenu === 'project' ? 'active' : ''}`}>
+          <li className={`${activeSubMenu === 'house' ? 'active' : ''}`}>
             <Link to={'/entity/house'}>
               <FontAwesomeIcon icon="clock" fixedWidth /> Houses
+            </Link>
+          </li>
+        </ul>
+      </li>
+    );
+  }
+
+  managerMenu() {
+    const { activeMenu, activeSubMenu } = this.props;
+
+    return (
+      <li className={`${activeMenu === 'manager-management' ? 'active' : ''}`}>
+        <Link to={'/entity/city'}>
+          <i className="fa fa-user" /> <span className="nav-label">Manager management</span> <span className="fa arrow" />
+        </Link>
+        <ul className={`${activeMenu === 'manager-management' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}`}>
+          <li className={`${activeSubMenu === 'city' ? 'active' : ''}`}>
+            <Link to={'/entity/city'}>
+              <FontAwesomeIcon icon="wrench" fixedWidth /> Cities
+            </Link>
+          </li>
+          <li className={`${activeSubMenu === 'district' ? 'active' : ''}`}>
+            <Link to={'/entity/district'}>
+              <FontAwesomeIcon icon="clock" fixedWidth /> Districts
+            </Link>
+          </li>
+          <li className={`${activeSubMenu === 'ward' ? 'active' : ''}`}>
+            <Link to={'/entity/ward'}>
+              <FontAwesomeIcon icon="clock" fixedWidth /> Wards
+            </Link>
+          </li>
+          <li className={`${activeSubMenu === 'region' ? 'active' : ''}`}>
+            <Link to={'/entity/region'}>
+              <FontAwesomeIcon icon="clock" fixedWidth /> Regions
+            </Link>
+          </li>
+          <li className={`${activeSubMenu === 'service-fee' ? 'active' : ''}`}>
+            <Link to={'/entity/service-fee'}>
+              <FontAwesomeIcon icon="clock" fixedWidth /> Service Fee
+            </Link>
+          </li>
+          <li className={`${activeSubMenu === 'category' ? 'active' : ''}`}>
+            <Link to={'/entity/category'}>
+              <FontAwesomeIcon icon="clock" fixedWidth /> Categories
             </Link>
           </li>
         </ul>
@@ -162,6 +206,7 @@ export default class Sidebar extends React.Component<ISidebarProps> {
             </li>
             {this.userMenu()}
             {this.staffMenu()}
+            {this.managerMenu()}
             {this.adminMenu()}
           </ul>
         </div>

@@ -65,7 +65,7 @@ export class House extends React.Component<IHouseProps, IHouseState> {
     const { houseList, match, totalItems } = this.props;
     return (
       <div>
-        <Sidebar activeMenu="staff-management" activeSubMenu="article" />
+        <Sidebar activeMenu="staff-management" activeSubMenu="house" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="house-heading">
