@@ -7,6 +7,22 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "region": "Region",
+        "city": "City",
+        "district": "District",
+        "ward": "Ward",
+        "house": "House",
+        "serviceFee": "Service Fee",
+        "housePhoto": "House Photo",
+        "landProject": "Land Project",
+        "landProjectPhoto": "Land Project Photo",
+        "article": "Article",
+        "category": "Category",
+        "userSubscription": "User Subscription",
+        "userLike": "User Like",
+        "userFinancial": "User Financial",
+        "potentialCustomer": "Potential Customer",
+        "payment": "Payment",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -130,7 +146,12 @@
     "userexists": "Login name already used!",
     "emailexists": "Email is already in use!",
     "idexists": "A new {{ entityName }} cannot already have an ID",
-    "idnull": "Invalid ID"
+    "notfound": "Not found",
+    "nopermission": "No permission",
+    "idnull": "Invalid Id",
+    "http": {
+      "401": "Unauthorized"
+    }
   },
   "footer": "This is your footer"
 }

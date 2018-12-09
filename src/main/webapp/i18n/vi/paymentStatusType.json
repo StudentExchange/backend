@@ -1,0 +1,10 @@
+{
+  "studentexchangeApp": {
+    "PaymentStatusType": {
+      "null": "",
+      "PENDING": "PENDING",
+      "PAID": "PAID",
+      "CANCELED": "CANCELED"
+    }
+  }
+}

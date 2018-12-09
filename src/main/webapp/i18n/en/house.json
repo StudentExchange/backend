@@ -1,0 +1,60 @@
+{
+  "studentexchangeApp": {
+    "house": {
+      "home": {
+        "title": "Houses",
+        "createLabel": "Create a new House",
+        "createOrEditLabel": "Create or edit a House"
+      },
+      "created": "A new House is created with identifier {{ param }}",
+      "updated": "A House is updated with identifier {{ param }}",
+      "deleted": "A House is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete House {{ id }}?"
+      },
+      "detail": {
+        "title": "House"
+      },
+      "avatar": "Avatar",
+      "avatarLink": "Avatar Link",
+      "actionType": "Action Type",
+      "address": "Address",
+      "money": "Money",
+      "acreage": "Acreage",
+      "acreageStreetSide": "Acreage Street Side",
+      "discount": "Discount",
+      "direction": "Direction",
+      "directionBalcony": "Direction Balcony",
+      "floor": "Floor",
+      "numberOfFloor": "Number Of Floor",
+      "bathRoom": "Bath Room",
+      "bedRoom": "Bed Room",
+      "parking": "Parking",
+      "summary": "Summary",
+      "landType": "Land Type",
+      "saleType": "Sale Type",
+      "fee": "Fee",
+      "feeMax": "Fee Max",
+      "present": "Present",
+      "hits": "Hits",
+      "customer": "Customer",
+      "mobile": "Mobile",
+      "email": "Email",
+      "facebook": "Facebook",
+      "zalo": "Zalo",
+      "statusType": "Status Type",
+      "googleId": "Google Id",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "createAt": "Create At",
+      "updateAt": "Update At",
+      "photos": "Photos",
+      "city": "City",
+      "district": "District",
+      "ward": "Ward",
+      "project": "Project",
+      "createBy": "Create By",
+      "updateBy": "Update By"
+    }
+  }
+}

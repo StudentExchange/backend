@@ -62,7 +62,7 @@ export class ConfigurationPage extends React.Component<IConfigurationPageProps, 
     const env = configuration && configuration.env ? configuration.env : {};
     return (
       <div>
-        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="administration" activeSubMenu="configuration" />
+        <Sidebar activeMenu="administration" activeSubMenu="configuration" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="configuration-page-heading">

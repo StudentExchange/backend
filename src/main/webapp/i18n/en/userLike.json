@@ -1,0 +1,23 @@
+{
+  "studentexchangeApp": {
+    "userLike": {
+      "home": {
+        "title": "User Likes",
+        "createLabel": "Create a new User Like",
+        "createOrEditLabel": "Create or edit a User Like"
+      },
+      "created": "A new User Like is created with identifier {{ param }}",
+      "updated": "A User Like is updated with identifier {{ param }}",
+      "deleted": "A User Like is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Like {{ id }}?"
+      },
+      "detail": {
+        "title": "User Like"
+      },
+      "createAt": "Create At",
+      "house": "House",
+      "user": "User"
+    }
+  }
+}

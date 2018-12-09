@@ -269,7 +269,7 @@ export class MetricsPage extends React.Component<IMetricsPageProps, IMetricsPage
     const { servicesStats, cachesStats } = this.getStats(data);
     return (
       <div>
-        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="administration" activeSubMenu="metrics" />
+        <Sidebar activeMenu="administration" activeSubMenu="metrics" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="metrics-page-heading">Application Metrics</h2>

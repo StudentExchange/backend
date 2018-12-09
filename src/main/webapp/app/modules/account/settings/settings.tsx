@@ -42,7 +42,7 @@ export class SettingsPage extends React.Component<IUserSettingsProps, IUserSetti
 
     return (
       <div>
-        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="user-management" activeSubMenu="setting" />
+        <Sidebar activeMenu="user-management" activeSubMenu="setting" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <Row className="justify-content-center">

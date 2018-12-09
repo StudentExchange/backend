@@ -1,0 +1,13 @@
+{
+  "studentexchangeApp": {
+    "StatusType": {
+      "null": "",
+      "OPEN": "OPEN",
+      "PENDING": "PENDING",
+      "PAID": "PAID",
+      "CANCELED": "CANCELED",
+      "EXPIRED": "EXPIRED",
+      "SOLD": "SOLD"
+    }
+  }
+}

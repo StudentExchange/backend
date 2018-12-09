@@ -1,0 +1,14 @@
+{
+  "studentexchangeApp": {
+    "PresentType": {
+      "null": "",
+      "NONE": "NONE",
+      "BASIC_FURNITURE": "BASIC_FURNITURE",
+      "FULL_FURNITURE": "FULL_FURNITURE",
+      "DISCOUNT_PRICE": "DISCOUNT_PRICE",
+      "SUPPORT_EXHIBIT": "SUPPORT_EXHIBIT",
+      "SUPPORT_FEE": "SUPPORT_FEE",
+      "HAVE_PRESENT": "HAVE_PRESENT"
+    }
+  }
+}

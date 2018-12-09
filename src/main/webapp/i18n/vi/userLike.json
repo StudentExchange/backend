@@ -1,0 +1,23 @@
+{
+  "studentexchangeApp": {
+    "userLike": {
+      "home": {
+        "title": "User Likes",
+        "createLabel": "Thêm mới một User Like",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật User Like"
+      },
+      "created": "Một User Like mới được tạo với định danh {{ param }}",
+      "updated": "Một User Like cập nhật với định danh {{ param }}",
+      "deleted": "Một User Like đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa User Like {{ id }}?"
+      },
+      "detail": {
+        "title": "User Like"
+      },
+      "createAt": "Create At",
+      "house": "House",
+      "user": "User"
+    }
+  }
+}

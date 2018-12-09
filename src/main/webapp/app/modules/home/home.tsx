@@ -23,7 +23,7 @@ export class Home extends React.Component<IHomeProp> {
     const { account } = this.props;
     return (
       <div>
-        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="dashboard" activeSubMenu="" />
+        <Sidebar activeMenu="dashboard" activeSubMenu="" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>

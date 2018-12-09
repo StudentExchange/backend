@@ -49,7 +49,7 @@ export class LogsPage extends React.Component<ILogsPageProps, ILogsPageState> {
     const loggers = logs ? logs.loggers : [];
     return (
       <div>
-        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="administration" activeSubMenu="logs" />
+        <Sidebar activeMenu="administration" activeSubMenu="logs" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="logs-page-heading">

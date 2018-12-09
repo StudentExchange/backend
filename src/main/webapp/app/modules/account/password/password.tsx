@@ -45,7 +45,7 @@ export class PasswordPage extends React.Component<IUserPasswordProps, IUserPassw
 
     return (
       <div>
-        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="user-management" activeSubMenu="change-password" />
+        <Sidebar activeMenu="user-management" activeSubMenu="change-password" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <Row className="justify-content-center">

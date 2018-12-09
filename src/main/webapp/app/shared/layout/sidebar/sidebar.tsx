@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Translate, translate } from 'react-jhipster';
 
 export interface ISidebarProps {
-  isAuthenticated: boolean;
   activeMenu: string;
   activeSubMenu: string;
 }
@@ -27,6 +26,40 @@ export default class Sidebar extends React.Component<ISidebarProps> {
           <li className={`${activeSubMenu === 'change-password' ? 'active' : ''}`}>
             <Link to={'/account/password'}>
               <FontAwesomeIcon icon="clock" fixedWidth /> Password
+            </Link>
+          </li>
+        </ul>
+      </li>
+    );
+  }
+
+  staffMenu() {
+    const { activeMenu, activeSubMenu } = this.props;
+
+    return (
+      <li className={`${activeMenu === 'staff-management' ? 'active' : ''}`}>
+        <Link to={'/entity/article'}>
+          <i className="fa fa-user" /> <span className="nav-label">Staff management</span> <span className="fa arrow" />
+        </Link>
+        <ul className={`${activeMenu === 'staff-management' ? 'nav nav-second-level collapse in' : 'nav nav-second-level collapse'}`}>
+          <li className={`${activeSubMenu === 'article' ? 'active' : ''}`}>
+            <Link to={'/entity/article'}>
+              <FontAwesomeIcon icon="wrench" fixedWidth /> Articles
+            </Link>
+          </li>
+          <li className={`${activeSubMenu === 'project' ? 'active' : ''}`}>
+            <Link to={'/entity/land-project'}>
+              <FontAwesomeIcon icon="clock" fixedWidth /> Land projects
+            </Link>
+          </li>
+          <li className={`${activeSubMenu === 'project' ? 'active' : ''}`}>
+            <Link to={'/entity/payment'}>
+              <FontAwesomeIcon icon="clock" fixedWidth /> Payment
+            </Link>
+          </li>
+          <li className={`${activeSubMenu === 'project' ? 'active' : ''}`}>
+            <Link to={'/entity/house'}>
+              <FontAwesomeIcon icon="clock" fixedWidth /> Houses
             </Link>
           </li>
         </ul>
@@ -80,7 +113,7 @@ export default class Sidebar extends React.Component<ISidebarProps> {
   }
 
   render() {
-    const { isAuthenticated, activeMenu, activeSubMenu } = this.props;
+    const { activeMenu, activeSubMenu } = this.props;
     // if (isAuthenticated !== true) return (<div />);
     return (
       <nav className="navbar-default navbar-static-side" role="navigation">
@@ -128,6 +161,7 @@ export default class Sidebar extends React.Component<ISidebarProps> {
               </Link>
             </li>
             {this.userMenu()}
+            {this.staffMenu()}
             {this.adminMenu()}
           </ul>
         </div>

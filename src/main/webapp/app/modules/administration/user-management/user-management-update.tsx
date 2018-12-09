@@ -55,7 +55,7 @@ export class UserManagementUpdate extends React.Component<IUserManagementUpdateP
     const { user, loading, updating, roles } = this.props;
     return (
       <div>
-        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="administration" activeSubMenu="user-management" />
+        <Sidebar activeMenu="administration" activeSubMenu="user-management" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <Row className="justify-content-center">

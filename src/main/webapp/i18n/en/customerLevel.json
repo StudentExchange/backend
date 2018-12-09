@@ -1,0 +1,11 @@
+{
+  "studentexchangeApp": {
+    "CustomerLevel": {
+      "null": "",
+      "NORMAL": "NORMAL",
+      "SILVER": "SILVER",
+      "GOLD": "GOLD",
+      "PLATINUM": "PLATINUM"
+    }
+  }
+}

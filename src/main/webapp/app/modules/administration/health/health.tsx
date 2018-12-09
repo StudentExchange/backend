@@ -60,7 +60,7 @@ export class HealthPage extends React.Component<IHealthPageProps, IHealthPageSta
     const data = (health || {}).details || {};
     return (
       <div>
-        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="administration" activeSubMenu="health" />
+        <Sidebar activeMenu="administration" activeSubMenu="health" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="health-page-heading">Health Checks</h2>

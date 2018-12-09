@@ -1,0 +1,60 @@
+{
+  "studentexchangeApp": {
+    "house": {
+      "home": {
+        "title": "Houses",
+        "createLabel": "Thêm mới một House",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật House"
+      },
+      "created": "Một House mới được tạo với định danh {{ param }}",
+      "updated": "Một House cập nhật với định danh {{ param }}",
+      "deleted": "Một House đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa House {{ id }}?"
+      },
+      "detail": {
+        "title": "House"
+      },
+      "avatar": "Avatar",
+      "avatarLink": "Avatar Link",
+      "actionType": "Action Type",
+      "address": "Address",
+      "money": "Money",
+      "acreage": "Acreage",
+      "acreageStreetSide": "Acreage Street Side",
+      "discount": "Discount",
+      "direction": "Direction",
+      "directionBalcony": "Direction Balcony",
+      "floor": "Floor",
+      "numberOfFloor": "Number Of Floor",
+      "bathRoom": "Bath Room",
+      "bedRoom": "Bed Room",
+      "parking": "Parking",
+      "summary": "Summary",
+      "landType": "Land Type",
+      "saleType": "Sale Type",
+      "fee": "Fee",
+      "feeMax": "Fee Max",
+      "present": "Present",
+      "hits": "Hits",
+      "customer": "Customer",
+      "mobile": "Mobile",
+      "email": "Email",
+      "facebook": "Facebook",
+      "zalo": "Zalo",
+      "statusType": "Status Type",
+      "googleId": "Google Id",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "createAt": "Create At",
+      "updateAt": "Update At",
+      "photos": "Photos",
+      "city": "City",
+      "district": "District",
+      "ward": "Ward",
+      "project": "Project",
+      "createBy": "Create By",
+      "updateBy": "Update By"
+    }
+  }
+}

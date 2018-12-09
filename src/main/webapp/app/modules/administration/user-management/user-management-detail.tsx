@@ -24,7 +24,7 @@ export class UserManagementDetail extends React.Component<IUserManagementDetailP
     const { user } = this.props;
     return (
       <div>
-        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="administration" activeSubMenu="user-management" />
+        <Sidebar activeMenu="administration" activeSubMenu="user-management" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
