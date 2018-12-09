@@ -5,6 +5,9 @@ import { Input, Row, Table } from 'reactstrap';
 import { Translate, TextFormat, JhiPagination, getPaginationItemsNumber, getSortState, IPaginationBaseState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { APP_TIMESTAMP_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 
@@ -90,57 +93,61 @@ export class AuditsPage extends React.Component<IAuditsPageProps, IAuditsPageSta
     const { fromDate, toDate } = this.state;
     return (
       <div>
-        <h2 id="audits-page-heading">Audits</h2>
-        <span>
-          <Translate contentKey="audits.filter.from">from</Translate>
-        </span>
-        <Input type="date" value={fromDate} onChange={this.onChangeFromDate} name="fromDate" id="fromDate" />
-        <span>
-          <Translate contentKey="audits.filter.to">to</Translate>
-        </span>
-        <Input type="date" value={toDate} onChange={this.onChangeToDate} name="toDate" id="toDate" />
-        <Table striped responsive>
-          <thead>
-            <tr>
-              <th onClick={this.sort('auditEventDate')}>
-                <Translate contentKey="audits.table.header.date">Date</Translate>
-                <FontAwesomeIcon icon="sort" />
-              </th>
-              <th onClick={this.sort('principal')}>
-                <Translate contentKey="audits.table.header.principal">User</Translate>
-                <FontAwesomeIcon icon="sort" />
-              </th>
-              <th onClick={this.sort('auditEventType')}>
-                <Translate contentKey="audits.table.header.status">State</Translate>
-                <FontAwesomeIcon icon="sort" />
-              </th>
-              <th>
-                <Translate contentKey="audits.table.header.data">Extra data</Translate>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {audits.map((audit, i) => (
-              <tr key={`audit-${i}`}>
-                <td>{<TextFormat value={audit.timestamp} type="date" format={APP_TIMESTAMP_FORMAT} />}</td>
-                <td>{audit.principal}</td>
-                <td>{audit.type}</td>
-                <td>
-                  {audit.data ? audit.data.message : null}
-                  {audit.data ? audit.data.remoteAddress : null}
-                </td>
+        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="administration" activeSubMenu="audits" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
+          <h2 id="audits-page-heading">Audits</h2>
+          <span>
+            <Translate contentKey="audits.filter.from">from</Translate>
+          </span>
+          <Input type="date" value={fromDate} onChange={this.onChangeFromDate} name="fromDate" id="fromDate" />
+          <span>
+            <Translate contentKey="audits.filter.to">to</Translate>
+          </span>
+          <Input type="date" value={toDate} onChange={this.onChangeToDate} name="toDate" id="toDate" />
+          <Table striped responsive>
+            <thead>
+              <tr>
+                <th onClick={this.sort('auditEventDate')}>
+                  <Translate contentKey="audits.table.header.date">Date</Translate>
+                  <FontAwesomeIcon icon="sort" />
+                </th>
+                <th onClick={this.sort('principal')}>
+                  <Translate contentKey="audits.table.header.principal">User</Translate>
+                  <FontAwesomeIcon icon="sort" />
+                </th>
+                <th onClick={this.sort('auditEventType')}>
+                  <Translate contentKey="audits.table.header.status">State</Translate>
+                  <FontAwesomeIcon icon="sort" />
+                </th>
+                <th>
+                  <Translate contentKey="audits.table.header.data">Extra data</Translate>
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </Table>
-        <Row className="justify-content-center">
-          <JhiPagination
-            items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
-            activePage={this.state.activePage}
-            onSelect={this.handlePagination}
-            maxButtons={5}
-          />
-        </Row>
+            </thead>
+            <tbody>
+              {audits.map((audit, i) => (
+                <tr key={`audit-${i}`}>
+                  <td>{<TextFormat value={audit.timestamp} type="date" format={APP_TIMESTAMP_FORMAT} />}</td>
+                  <td>{audit.principal}</td>
+                  <td>{audit.type}</td>
+                  <td>
+                    {audit.data ? audit.data.message : null}
+                    {audit.data ? audit.data.remoteAddress : null}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+          <Row className="justify-content-center">
+            <JhiPagination
+              items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
+              activePage={this.state.activePage}
+              onSelect={this.handlePagination}
+              maxButtons={5}
+            />
+          </Row>
+        </div>
       </div>
     );
   }
@@ -148,7 +155,8 @@ export class AuditsPage extends React.Component<IAuditsPageProps, IAuditsPageSta
 
 const mapStateToProps = (storeState: IRootState) => ({
   audits: storeState.administration.audits,
-  totalItems: storeState.administration.totalItems
+  totalItems: storeState.administration.totalItems,
+  isAuthenticated: storeState.authentication.isAuthenticated
 });
 
 const mapDispatchToProps = { getAudits };

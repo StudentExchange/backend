@@ -21,35 +21,36 @@ export class PasswordResetInit extends React.Component<IPasswordResetInitProps> 
 
   render() {
     return (
-      <div>
-        <Row className="justify-content-center">
-          <Col md="8">
-            <h1>
-              <Translate contentKey="reset.request.title">Reset your password</Translate>
-            </h1>
-            <Alert color="warning">
-              <p>
-                <Translate contentKey="reset.request.messages.info">Enter the email address you used to register</Translate>
-              </p>
-            </Alert>
-            <AvForm onValidSubmit={this.handleValidSubmit}>
-              <AvField
-                name="email"
-                label={translate('global.form.email')}
-                placeholder={translate('global.form.email.placeholder')}
-                type="email"
-                validate={{
-                  required: { value: true, errorMessage: translate('global.messages.validate.email.required') },
-                  minLength: { value: 5, errorMessage: translate('global.messages.validate.email.minlength') },
-                  maxLength: { value: 254, errorMessage: translate('global.messages.validate.email.maxlength') }
-                }}
-              />
-              <Button color="primary" type="submit">
-                <Translate contentKey="reset.request.form.button">Reset password</Translate>
-              </Button>
-            </AvForm>
-          </Col>
-        </Row>
+      <div className="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+          <div>
+            <h1 className="logo-name">IN+</h1>
+          </div>
+          <h2>
+            <Translate contentKey="reset.request.title">Reset your password</Translate>
+          </h2>
+          <Alert color="warning">
+            <p>
+              <Translate contentKey="reset.request.messages.info">Enter the email address you used to register</Translate>
+            </p>
+          </Alert>
+          <AvForm onValidSubmit={this.handleValidSubmit}>
+            <AvField
+              name="email"
+              label={translate('global.form.email')}
+              placeholder={translate('global.form.email.placeholder')}
+              type="email"
+              validate={{
+                required: { value: true, errorMessage: translate('global.messages.validate.email.required') },
+                minLength: { value: 5, errorMessage: translate('global.messages.validate.email.minlength') },
+                maxLength: { value: 254, errorMessage: translate('global.messages.validate.email.maxlength') }
+              }}
+            />
+            <Button color="primary" type="submit">
+              <Translate contentKey="reset.request.form.button">Reset password</Translate>
+            </Button>
+          </AvForm>
+        </div>
       </div>
     );
   }

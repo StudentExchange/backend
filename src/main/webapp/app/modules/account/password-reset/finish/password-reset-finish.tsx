@@ -73,15 +73,16 @@ export class PasswordResetFinishPage extends React.Component<IPasswordResetFinis
     const { key } = this.state;
 
     return (
-      <div>
-        <Row className="justify-content-center">
-          <Col md="4">
-            <h1>
-              <Translate contentKey="reset.finish.title">Reset password</Translate>
-            </h1>
-            <div>{key ? this.getResetForm() : null}</div>
-          </Col>
-        </Row>
+      <div className="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+          <div>
+            <h1 className="logo-name">IN+</h1>
+          </div>
+          <h2>
+            <Translate contentKey="reset.finish.title">Reset password</Translate>
+          </h2>
+          <div>{key ? this.getResetForm() : null}</div>
+        </div>
       </div>
     );
   }

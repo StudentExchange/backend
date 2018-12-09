@@ -4,6 +4,9 @@ import { Translate } from 'react-jhipster';
 import { Table, Badge, Col, Row, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRootState } from 'app/shared/reducers';
 import { systemHealth } from '../administration.reducer';
 import HealthModal from './health-modal';
@@ -57,50 +60,54 @@ export class HealthPage extends React.Component<IHealthPageProps, IHealthPageSta
     const data = (health || {}).details || {};
     return (
       <div>
-        <h2 id="health-page-heading">Health Checks</h2>
-        <p>
-          <Button onClick={this.getSystemHealth} color={isFetching ? 'btn btn-danger' : 'btn btn-primary'} disabled={isFetching}>
-            <FontAwesomeIcon icon="sync" />
-            &nbsp;
-            <Translate component="span" contentKey="health.refresh.button">
-              Refresh
-            </Translate>
-          </Button>
-        </p>
-        <Row>
-          <Col md="12">
-            <Table bordered>
-              <thead>
-                <tr>
-                  <th>Service Name</th>
-                  <th>Status</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Object.keys(data).map(
-                  (configPropKey, configPropIndex) =>
-                    configPropKey !== 'status' ? (
-                      <tr key={configPropIndex}>
-                        <td>{configPropKey}</td>
-                        <td>
-                          <Badge color={data[configPropKey].status !== 'UP' ? 'danger' : 'success'}>{data[configPropKey].status}</Badge>
-                        </td>
-                        <td>
-                          {data[configPropKey].details ? (
-                            <a onClick={this.getSystemHealthInfo(configPropKey, data[configPropKey])}>
-                              <FontAwesomeIcon icon="eye" />
-                            </a>
-                          ) : null}
-                        </td>
-                      </tr>
-                    ) : null
-                )}
-              </tbody>
-            </Table>
-          </Col>
-        </Row>
-        {this.renderModal()}
+        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="administration" activeSubMenu="health" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
+          <h2 id="health-page-heading">Health Checks</h2>
+          <p>
+            <Button onClick={this.getSystemHealth} color={isFetching ? 'btn btn-danger' : 'btn btn-primary'} disabled={isFetching}>
+              <FontAwesomeIcon icon="sync" />
+              &nbsp;
+              <Translate component="span" contentKey="health.refresh.button">
+                Refresh
+              </Translate>
+            </Button>
+          </p>
+          <Row>
+            <Col md="12">
+              <Table bordered>
+                <thead>
+                  <tr>
+                    <th>Service Name</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.keys(data).map(
+                    (configPropKey, configPropIndex) =>
+                      configPropKey !== 'status' ? (
+                        <tr key={configPropIndex}>
+                          <td>{configPropKey}</td>
+                          <td>
+                            <Badge color={data[configPropKey].status !== 'UP' ? 'danger' : 'success'}>{data[configPropKey].status}</Badge>
+                          </td>
+                          <td>
+                            {data[configPropKey].details ? (
+                              <a onClick={this.getSystemHealthInfo(configPropKey, data[configPropKey])}>
+                                <FontAwesomeIcon icon="eye" />
+                              </a>
+                            ) : null}
+                          </td>
+                        </tr>
+                      ) : null
+                  )}
+                </tbody>
+              </Table>
+            </Col>
+          </Row>
+          {this.renderModal()}
+        </div>
       </div>
     );
   }
@@ -108,7 +115,8 @@ export class HealthPage extends React.Component<IHealthPageProps, IHealthPageSta
 
 const mapStateToProps = (storeState: IRootState) => ({
   health: storeState.administration.health,
-  isFetching: storeState.administration.loading
+  isFetching: storeState.administration.loading,
+  isAuthenticated: storeState.authentication.isAuthenticated
 });
 
 const mapDispatchToProps = { systemHealth };

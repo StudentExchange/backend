@@ -6,6 +6,9 @@ import { Translate } from 'react-jhipster';
 import { connect } from 'react-redux';
 import { Row, Col, Alert } from 'reactstrap';
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRootState } from 'app/shared/reducers';
 import { getSession } from 'app/shared/reducers/authentication';
 
@@ -19,8 +22,10 @@ export class Home extends React.Component<IHomeProp> {
   render() {
     const { account } = this.props;
     return (
-      <Row>
-        <Col md="9">
+      <div>
+        <Sidebar isAuthenticated={this.props.isAuthenticated} activeMenu="dashboard" activeSubMenu="" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
           <h2>
             <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
           </h2>
@@ -97,11 +102,8 @@ export class Home extends React.Component<IHomeProp> {
             </a>
             !
           </p>
-        </Col>
-        <Col md="3" className="pad">
-          <span className="hipster rounded" />
-        </Col>
-      </Row>
+        </div>
+      </div>
     );
   }
 }

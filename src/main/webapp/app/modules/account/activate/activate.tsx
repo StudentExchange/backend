@@ -43,16 +43,17 @@ export class ActivatePage extends React.Component<IActivateProps> {
     const { activationSuccess, activationFailure } = this.props;
 
     return (
-      <div>
-        <Row className="justify-content-center">
-          <Col md="8">
-            <h1>
-              <Translate contentKey="activate.title">Activation</Translate>
-            </h1>
-            {activationSuccess ? successAlert : undefined}
-            {activationFailure ? failureAlert : undefined}
-          </Col>
-        </Row>
+      <div className="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+          <div>
+            <h1 className="logo-name">IN+</h1>
+          </div>
+          <h2>
+            <Translate contentKey="activate.title">Activation</Translate>
+          </h2>
+          {activationSuccess ? successAlert : undefined}
+          {activationFailure ? failureAlert : undefined}
+        </div>
       </div>
     );
   }

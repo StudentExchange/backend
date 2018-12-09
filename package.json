@@ -124,7 +124,7 @@
     ]
   },
   "scripts": {
-    "prettier:format": "prettier --write \"src/**/*.{json,ts,tsx,css,scss}\"",
+    "prettier:format": "prettier --write \"src/main/webapp/app/**/*.{json,ts,tsx,css,scss}\"",
     "lint": "tslint --project tsconfig.json -e 'node_modules/**'",
     "lint:fix": "npm run lint -- --fix",
     "cleanup": "rimraf target/www",
