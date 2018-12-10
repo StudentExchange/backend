@@ -30,24 +30,24 @@ export class DistrictDetail extends React.Component<IDistrictDetailProps> {
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
-            <Translate contentKey="studentexchangeApp.district.detail.title">District</Translate> [<b>{districtEntity.id}</b>]
+            <Translate contentKey="landexpApp.district.detail.title">District</Translate> [<b>{districtEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="name">
-                <Translate contentKey="studentexchangeApp.district.name">Name</Translate>
+                <Translate contentKey="landexpApp.district.name">Name</Translate>
               </span>
             </dt>
             <dd>{districtEntity.name}</dd>
             <dt>
               <span id="enabled">
-                <Translate contentKey="studentexchangeApp.district.enabled">Enabled</Translate>
+                <Translate contentKey="landexpApp.district.enabled">Enabled</Translate>
               </span>
             </dt>
             <dd>{districtEntity.enabled ? 'true' : 'false'}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.district.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.district.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
@@ -55,18 +55,18 @@ export class DistrictDetail extends React.Component<IDistrictDetailProps> {
             </dd>
             <dt>
               <span id="updateAt">
-                <Translate contentKey="studentexchangeApp.district.updateAt">Update At</Translate>
+                <Translate contentKey="landexpApp.district.updateAt">Update At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={districtEntity.updateAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.district.region">Region</Translate>
+              <Translate contentKey="landexpApp.district.region">Region</Translate>
             </dt>
             <dd>{districtEntity.regionId ? districtEntity.regionId : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.district.city">City</Translate>
+              <Translate contentKey="landexpApp.district.city">City</Translate>
             </dt>
             <dd>{districtEntity.cityId ? districtEntity.cityId : ''}</dd>
           </dl>

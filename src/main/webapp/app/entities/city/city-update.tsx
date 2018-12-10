@@ -75,6 +75,13 @@ export class CityUpdate extends React.Component<ICityUpdateProps, ICityUpdateSta
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <Row className="justify-content-center">
+            <Col md="8">
+              <h2 id="landexpApp.city.home.createOrEditLabel">
+                <Translate contentKey="landexpApp.city.home.createOrEditLabel">Create or edit a City</Translate>
+              </h2>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
             <Card title="Thông tin tỉnh thành">
               <Col md="12">
                 <AvForm model={isNew ? {} : cityEntity} onSubmit={this.saveEntity}>

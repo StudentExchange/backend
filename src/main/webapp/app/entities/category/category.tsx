@@ -67,13 +67,16 @@ export class Category extends React.Component<ICategoryProps, ICategoryState> {
         <Sidebar activeMenu="manager-management" activeSubMenu="category" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
+          <h2>
+            <Translate contentKey="landexpApp.category.home.title">Categories</Translate>
+            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+              <FontAwesomeIcon icon="plus" />
+              &nbsp;
+              <Translate contentKey="landexpApp.category.home.createLabel">Create new Category</Translate>
+            </Link>
+          </h2>
           <Row>
             <Card title="Danh mục tin tức">
-              <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-                <FontAwesomeIcon icon="plus" />
-                &nbsp;
-                <Translate contentKey="landexpApp.category.home.createLabel">Create new Category</Translate>
-              </Link>
               <Table style={{ marginTop: 20 }} responsive striped>
                 <thead>
                   <tr>

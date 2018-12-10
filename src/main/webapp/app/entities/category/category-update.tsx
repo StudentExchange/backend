@@ -75,6 +75,13 @@ export class CategoryUpdate extends React.Component<ICategoryUpdateProps, ICateg
         <Sidebar activeMenu="manager-management" activeSubMenu="category" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
+          <Row className="justify-content-center">
+            <Col md="8">
+              <h2 id="landexpApp.category.home.createOrEditLabel">
+                <Translate contentKey="landexpApp.category.home.createOrEditLabel">Create or edit a Category</Translate>
+              </h2>
+            </Col>
+          </Row>
           <Row>
             <Card title="Danh mục tin tức">
               <AvForm model={isNew ? {} : categoryEntity} onSubmit={this.saveEntity}>

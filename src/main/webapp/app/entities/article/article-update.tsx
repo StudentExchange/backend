@@ -170,6 +170,13 @@ export class ArticleUpdate extends React.Component<IArticleUpdateProps, IArticle
         <Sidebar activeMenu="staff-management" activeSubMenu="article" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
+          <Row className="justify-content-center">
+            <Col md="8">
+              <h2 id="landexpApp.article.home.createOrEditLabel">
+                <Translate contentKey="landexpApp.article.home.createOrEditLabel">Create or edit a Article</Translate>
+              </h2>
+            </Col>
+          </Row>
           <Row>
             <Card title="Nội dung tin tức">
               <Col md="12" style={{ marginBottom: 20 }}>

@@ -76,49 +76,47 @@ export class City extends React.Component<ICityProps, ICityState> {
           </h2>
           <Row>
             <Card title="Danh sách tỉnh thành">
-              <div className="table-responsive">
-                <Table responsive>
-                  <thead>
-                    <tr>
-                      <th className="hand" onClick={this.sort('name')}>
-                        <Translate contentKey="landexpApp.city.name">Name</Translate> <FontAwesomeIcon icon="sort" />
-                      </th>
-                      <th className="hand" onClick={this.sort('index')}>
-                        <Translate contentKey="landexpApp.city.index">Index</Translate> <FontAwesomeIcon icon="sort" />
-                      </th>
-                      <th className="hand" onClick={this.sort('enabled')}>
-                        <Translate contentKey="landexpApp.city.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
-                      </th>
-                      <th />
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th className="hand" onClick={this.sort('name')}>
+                      <Translate contentKey="landexpApp.city.name">Name</Translate> <FontAwesomeIcon icon="sort" />
+                    </th>
+                    <th className="hand" onClick={this.sort('index')}>
+                      <Translate contentKey="landexpApp.city.index">Index</Translate> <FontAwesomeIcon icon="sort" />
+                    </th>
+                    <th className="hand" onClick={this.sort('enabled')}>
+                      <Translate contentKey="landexpApp.city.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
+                    </th>
+                    <th />
+                  </tr>
+                </thead>
+                <tbody>
+                  {cityList.map((city, i) => (
+                    <tr key={`entity-${i}`}>
+                      <td>{city.name}</td>
+                      <td>{city.index}</td>
+                      <td>
+                        {city.enabled ? (
+                          <Icon type="check-square" style={{ color: 'green' }} />
+                        ) : (
+                          <Icon type="close-square" style={{ color: 'red' }} />
+                        )}
+                      </td>
+                      <td className="text-right">
+                        <div className="btn-group flex-btn-group-container">
+                          <Button tag={Link} to={`${match.url}/${city.id}/edit`} color="primary" size="sm">
+                            <FontAwesomeIcon icon="pencil-alt" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.edit">Edit</Translate>
+                            </span>
+                          </Button>
+                        </div>
+                      </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {cityList.map((city, i) => (
-                      <tr key={`entity-${i}`}>
-                        <td>{city.name}</td>
-                        <td>{city.index}</td>
-                        <td>
-                          {city.enabled ? (
-                            <Icon type="check-square" style={{ color: 'green' }} />
-                          ) : (
-                            <Icon type="close-square" style={{ color: 'red' }} />
-                          )}
-                        </td>
-                        <td className="text-right">
-                          <div className="btn-group flex-btn-group-container">
-                            <Button tag={Link} to={`${match.url}/${city.id}/edit`} color="primary" size="sm">
-                              <FontAwesomeIcon icon="pencil-alt" />{' '}
-                              <span className="d-none d-md-inline">
-                                <Translate contentKey="entity.action.edit">Edit</Translate>
-                              </span>
-                            </Button>
-                          </div>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              </div>
+                  ))}
+                </tbody>
+              </Table>
               <Row className="justify-content-center">
                 <JhiPagination
                   items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
