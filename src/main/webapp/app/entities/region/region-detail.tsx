@@ -30,24 +30,24 @@ export class RegionDetail extends React.Component<IRegionDetailProps> {
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
-            <Translate contentKey="studentexchangeApp.region.detail.title">Region</Translate> [<b>{regionEntity.id}</b>]
+            <Translate contentKey="landexpApp.region.detail.title">Region</Translate> [<b>{regionEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="name">
-                <Translate contentKey="studentexchangeApp.region.name">Name</Translate>
+                <Translate contentKey="landexpApp.region.name">Name</Translate>
               </span>
             </dt>
             <dd>{regionEntity.name}</dd>
             <dt>
               <span id="enabled">
-                <Translate contentKey="studentexchangeApp.region.enabled">Enabled</Translate>
+                <Translate contentKey="landexpApp.region.enabled">Enabled</Translate>
               </span>
             </dt>
             <dd>{regionEntity.enabled ? 'true' : 'false'}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.region.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.region.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
@@ -55,14 +55,14 @@ export class RegionDetail extends React.Component<IRegionDetailProps> {
             </dd>
             <dt>
               <span id="updateAt">
-                <Translate contentKey="studentexchangeApp.region.updateAt">Update At</Translate>
+                <Translate contentKey="landexpApp.region.updateAt">Update At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={regionEntity.updateAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.region.user">User</Translate>
+              <Translate contentKey="landexpApp.region.user">User</Translate>
             </dt>
             <dd>
               {regionEntity.users

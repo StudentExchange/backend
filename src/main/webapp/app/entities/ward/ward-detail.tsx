@@ -30,24 +30,24 @@ export class WardDetail extends React.Component<IWardDetailProps> {
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
-            <Translate contentKey="studentexchangeApp.ward.detail.title">Ward</Translate> [<b>{wardEntity.id}</b>]
+            <Translate contentKey="landexpApp.ward.detail.title">Ward</Translate> [<b>{wardEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="name">
-                <Translate contentKey="studentexchangeApp.ward.name">Name</Translate>
+                <Translate contentKey="landexpApp.ward.name">Name</Translate>
               </span>
             </dt>
             <dd>{wardEntity.name}</dd>
             <dt>
               <span id="enabled">
-                <Translate contentKey="studentexchangeApp.ward.enabled">Enabled</Translate>
+                <Translate contentKey="landexpApp.ward.enabled">Enabled</Translate>
               </span>
             </dt>
             <dd>{wardEntity.enabled ? 'true' : 'false'}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.ward.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.ward.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
@@ -55,14 +55,14 @@ export class WardDetail extends React.Component<IWardDetailProps> {
             </dd>
             <dt>
               <span id="updateAt">
-                <Translate contentKey="studentexchangeApp.ward.updateAt">Update At</Translate>
+                <Translate contentKey="landexpApp.ward.updateAt">Update At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={wardEntity.updateAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.ward.district">District</Translate>
+              <Translate contentKey="landexpApp.ward.district">District</Translate>
             </dt>
             <dd>{wardEntity.districtId ? wardEntity.districtId : ''}</dd>
           </dl>

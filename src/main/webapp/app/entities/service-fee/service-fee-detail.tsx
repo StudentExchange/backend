@@ -30,18 +30,18 @@ export class ServiceFeeDetail extends React.Component<IServiceFeeDetailProps> {
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
-            <Translate contentKey="studentexchangeApp.serviceFee.detail.title">ServiceFee</Translate> [<b>{serviceFeeEntity.id}</b>]
+            <Translate contentKey="landexpApp.serviceFee.detail.title">ServiceFee</Translate> [<b>{serviceFeeEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="saleType">
-                <Translate contentKey="studentexchangeApp.serviceFee.saleType">Sale Type</Translate>
+                <Translate contentKey="landexpApp.serviceFee.saleType">Sale Type</Translate>
               </span>
             </dt>
             <dd>{serviceFeeEntity.saleType}</dd>
             <dt>
               <span id="fee">
-                <Translate contentKey="studentexchangeApp.serviceFee.fee">Fee</Translate>
+                <Translate contentKey="landexpApp.serviceFee.fee">Fee</Translate>
               </span>
             </dt>
             <dd>{serviceFeeEntity.fee}</dd>

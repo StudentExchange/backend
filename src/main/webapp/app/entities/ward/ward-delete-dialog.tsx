@@ -33,8 +33,8 @@ export class WardDeleteDialog extends React.Component<IWardDeleteDialogProps> {
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.ward.delete.question">
-          <Translate contentKey="studentexchangeApp.ward.delete.question" interpolate={{ id: wardEntity.id }}>
+        <ModalBody id="landexpApp.ward.delete.question">
+          <Translate contentKey="landexpApp.ward.delete.question" interpolate={{ id: wardEntity.id }}>
             Are you sure you want to delete this Ward?
           </Translate>
         </ModalBody>

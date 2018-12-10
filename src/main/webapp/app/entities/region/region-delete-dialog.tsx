@@ -33,8 +33,8 @@ export class RegionDeleteDialog extends React.Component<IRegionDeleteDialogProps
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.region.delete.question">
-          <Translate contentKey="studentexchangeApp.region.delete.question" interpolate={{ id: regionEntity.id }}>
+        <ModalBody id="landexpApp.region.delete.question">
+          <Translate contentKey="landexpApp.region.delete.question" interpolate={{ id: regionEntity.id }}>
             Are you sure you want to delete this Region?
           </Translate>
         </ModalBody>

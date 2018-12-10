@@ -6,6 +6,7 @@ import { AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validatio
 // tslint:disable-next-line:no-unused-variable
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Card, Icon } from 'antd';
 import { IRootState } from 'app/shared/reducers';
 
 import Header from 'app/shared/layout/header/header';
@@ -72,6 +73,38 @@ export class RegionUpdate extends React.Component<IRegionUpdateProps, IRegionUpd
     this.props.history.push('/entity/region');
   };
 
+  userUpdate = element => {
+    const selected = Array.from(element.target.selectedOptions).map((e: any) => e.value);
+    this.setState({
+      idsuser: keysToValues(selected, this.props.users, 'login')
+    });
+  };
+
+  displayuser(value: any) {
+    if (this.state.idsuser && this.state.idsuser.length !== 0) {
+      const list = [];
+      for (const i in this.state.idsuser) {
+        if (this.state.idsuser[i]) {
+          list.push(this.state.idsuser[i].login);
+        }
+      }
+      return list;
+    }
+    if (value.users && value.users.length !== 0) {
+      const list = [];
+      for (const i in value.users) {
+        if (value.users[i]) {
+          list.push(value.users[i].login);
+        }
+      }
+      this.setState({
+        idsuser: keysToValues(list, this.props.users, 'login')
+      });
+      return list;
+    }
+    return null;
+  }
+
   render() {
     const { regionEntity, users, loading, updating } = this.props;
     const { isNew } = this.state;
@@ -83,87 +116,75 @@ export class RegionUpdate extends React.Component<IRegionUpdateProps, IRegionUpd
           <Header />
           <Row className="justify-content-center">
             <Col md="8">
-              <h2 id="studentexchangeApp.region.home.createOrEditLabel">
-                <Translate contentKey="studentexchangeApp.region.home.createOrEditLabel">Create or edit a Region</Translate>
+              <h2 id="landexpApp.region.home.createOrEditLabel">
+                <Translate contentKey="landexpApp.region.home.createOrEditLabel">Create or edit a Region</Translate>
               </h2>
             </Col>
           </Row>
-          <Row className="justify-content-center">
-            <Col md="8">
-              {loading ? (
-                <p>Loading...</p>
-              ) : (
-                <AvForm model={isNew ? {} : regionEntity} onSubmit={this.saveEntity}>
-                  {!isNew ? (
-                    <AvGroup>
-                      <Label for="id">
-                        <Translate contentKey="global.field.id">ID</Translate>
-                      </Label>
-                      <AvInput id="region-id" type="text" className="form-control" name="id" required readOnly />
-                    </AvGroup>
-                  ) : null}
+          <Row>
+            <Card title="Thông tin khu vực">
+              <AvForm model={isNew ? {} : regionEntity} onSubmit={this.saveEntity}>
+                {!isNew ? (
                   <AvGroup>
-                    <Label id="nameLabel" for="name">
-                      <Translate contentKey="studentexchangeApp.region.name">Name</Translate>
-                    </Label>
-                    <AvField id="region-name" type="text" name="name" />
+                    <AvInput id="region-id" type="hidden" className="form-control" name="id" required readOnly />
                   </AvGroup>
-                  <AvGroup>
-                    <Label id="enabledLabel" check>
-                      <AvInput id="region-enabled" type="checkbox" className="form-control" name="enabled" />
-                      <Translate contentKey="studentexchangeApp.region.enabled">Enabled</Translate>
-                    </Label>
-                  </AvGroup>
-                  <AvGroup>
-                    <Label id="createAtLabel" for="createAt">
-                      <Translate contentKey="studentexchangeApp.region.createAt">Create At</Translate>
-                    </Label>
-                    <AvField id="region-createAt" type="date" className="form-control" name="createAt" />
-                  </AvGroup>
-                  <AvGroup>
-                    <Label id="updateAtLabel" for="updateAt">
-                      <Translate contentKey="studentexchangeApp.region.updateAt">Update At</Translate>
-                    </Label>
-                    <AvField id="region-updateAt" type="date" className="form-control" name="updateAt" />
-                  </AvGroup>
-                  <AvGroup>
-                    <Label for="users">
-                      <Translate contentKey="studentexchangeApp.region.user">User</Translate>
-                    </Label>
-                    <AvInput
-                      id="region-user"
-                      type="select"
-                      multiple
-                      className="form-control"
-                      name="users"
-                      value={regionEntity.users && regionEntity.users.map(e => e.id)}
-                    >
-                      <option value="" key="0" />
-                      {users
-                        ? users.map(otherEntity => (
-                            <option value={otherEntity.id} key={otherEntity.id}>
-                              {otherEntity.login}
-                            </option>
-                          ))
-                        : null}
-                    </AvInput>
-                  </AvGroup>
-                  <Button tag={Link} id="cancel-save" to="/entity/region" replace color="info">
-                    <FontAwesomeIcon icon="arrow-left" />
-                    &nbsp;
-                    <span className="d-none d-md-inline">
-                      <Translate contentKey="entity.action.back">Back</Translate>
-                    </span>
-                  </Button>
+                ) : null}
+                <AvGroup>
+                  <Label id="nameLabel" for="name">
+                    <Translate contentKey="landexpApp.region.name">Name</Translate>
+                  </Label>
+                  <AvField id="region-name" type="text" name="name" />
+                </AvGroup>
+                <AvGroup>
+                  <Label id="enabledLabel" check>
+                    <AvInput id="region-enabled" type="checkbox" className="form-control" name="enabled" />
+                    <Translate contentKey="landexpApp.region.enabled">Enabled</Translate>
+                  </Label>
+                </AvGroup>
+                <AvGroup>
+                  <Label for="users">
+                    <Translate contentKey="landexpApp.region.user">User</Translate>
+                  </Label>
+                  <AvInput
+                    id="region-user"
+                    type="select"
+                    multiple
+                    className="form-control"
+                    name="fakeusers"
+                    value={this.displayuser(regionEntity)}
+                    onChange={this.userUpdate}
+                  >
+                    <option value="" key="0" />
+                    {users
+                      ? users.map(
+                          otherEntity =>
+                            otherEntity.authorities.includes('ROLE_STAFF') ? (
+                              <option value={otherEntity.login} key={otherEntity.id}>
+                                {otherEntity.login}
+                              </option>
+                            ) : (
+                              ''
+                            )
+                        )
+                      : null}
+                  </AvInput>
+                  <AvInput id="region-user" type="hidden" name="users" value={this.state.idsuser} />
+                </AvGroup>
+                <Button tag={Link} id="cancel-save" to="/quan-ly/khu-vuc" replace color="info">
+                  <FontAwesomeIcon icon="arrow-left" />
                   &nbsp;
-                  <Button color="primary" id="save-entity" type="submit" disabled={updating}>
-                    <FontAwesomeIcon icon="save" />
-                    &nbsp;
-                    <Translate contentKey="entity.action.save">Save</Translate>
-                  </Button>
-                </AvForm>
-              )}
-            </Col>
+                  <span className="d-none d-md-inline">
+                    <Translate contentKey="entity.action.back">Back</Translate>
+                  </span>
+                </Button>
+                &nbsp;
+                <Button color="primary" id="save-entity" type="submit" disabled={updating}>
+                  <FontAwesomeIcon icon="save" />
+                  &nbsp;
+                  <Translate contentKey="entity.action.save">Save</Translate>
+                </Button>
+              </AvForm>
+            </Card>
           </Row>
         </div>
       </div>

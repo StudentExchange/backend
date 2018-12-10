@@ -13,7 +13,7 @@ import {
   JhiPagination
 } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { Card, Icon } from 'antd';
 import Header from 'app/shared/layout/header/header';
 import Sidebar from 'app/shared/layout/sidebar/sidebar';
 
@@ -67,89 +67,91 @@ export class Ward extends React.Component<IWardProps, IWardState> {
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="ward-heading">
-            <Translate contentKey="studentexchangeApp.ward.home.title">Wards</Translate>
+            <Translate contentKey="landexpApp.ward.home.title">Wards</Translate>
             <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
               <FontAwesomeIcon icon="plus" />
               &nbsp;
-              <Translate contentKey="studentexchangeApp.ward.home.createLabel">Create new Ward</Translate>
+              <Translate contentKey="landexpApp.ward.home.createLabel">Create new Ward</Translate>
             </Link>
           </h2>
-          <div className="table-responsive">
-            <Table responsive>
-              <thead>
-                <tr>
-                  <th className="hand" onClick={this.sort('id')}>
-                    <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('name')}>
-                    <Translate contentKey="studentexchangeApp.ward.name">Name</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('enabled')}>
-                    <Translate contentKey="studentexchangeApp.ward.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('createAt')}>
-                    <Translate contentKey="studentexchangeApp.ward.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('updateAt')}>
-                    <Translate contentKey="studentexchangeApp.ward.updateAt">Update At</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.ward.district">District</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-                {wardList.map((ward, i) => (
-                  <tr key={`entity-${i}`}>
-                    <td>
-                      <Button tag={Link} to={`${match.url}/${ward.id}`} color="link" size="sm">
-                        {ward.id}
-                      </Button>
-                    </td>
-                    <td>{ward.name}</td>
-                    <td>{ward.enabled ? 'true' : 'false'}</td>
-                    <td>
-                      <TextFormat type="date" value={ward.createAt} format={APP_LOCAL_DATE_FORMAT} />
-                    </td>
-                    <td>
-                      <TextFormat type="date" value={ward.updateAt} format={APP_LOCAL_DATE_FORMAT} />
-                    </td>
-                    <td>{ward.districtId ? <Link to={`district/${ward.districtId}`}>{ward.districtId}</Link> : ''}</td>
-                    <td className="text-right">
-                      <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`${match.url}/${ward.id}`} color="info" size="sm">
-                          <FontAwesomeIcon icon="eye" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.view">View</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${ward.id}/edit`} color="primary" size="sm">
-                          <FontAwesomeIcon icon="pencil-alt" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.edit">Edit</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${ward.id}/delete`} color="danger" size="sm">
-                          <FontAwesomeIcon icon="trash" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.delete">Delete</Translate>
-                          </span>
-                        </Button>
-                      </div>
-                    </td>
+          <Row>
+            <Card title="Danh sách xã phường">
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th className="hand" onClick={this.sort('id')}>
+                      <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    </th>
+                    <th className="hand" onClick={this.sort('name')}>
+                      <Translate contentKey="landexpApp.ward.name">Name</Translate> <FontAwesomeIcon icon="sort" />
+                    </th>
+                    <th className="hand" onClick={this.sort('enabled')}>
+                      <Translate contentKey="landexpApp.ward.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
+                    </th>
+                    <th className="hand" onClick={this.sort('createAt')}>
+                      <Translate contentKey="landexpApp.ward.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
+                    </th>
+                    <th className="hand" onClick={this.sort('updateAt')}>
+                      <Translate contentKey="landexpApp.ward.updateAt">Update At</Translate> <FontAwesomeIcon icon="sort" />
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.ward.district">District</Translate> <FontAwesomeIcon icon="sort" />
+                    </th>
+                    <th />
                   </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-          <Row className="justify-content-center">
-            <JhiPagination
-              items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
-              activePage={this.state.activePage}
-              onSelect={this.handlePagination}
-              maxButtons={5}
-            />
+                </thead>
+                <tbody>
+                  {wardList.map((ward, i) => (
+                    <tr key={`entity-${i}`}>
+                      <td>
+                        <Button tag={Link} to={`${match.url}/${ward.id}`} color="link" size="sm">
+                          {ward.id}
+                        </Button>
+                      </td>
+                      <td>{ward.name}</td>
+                      <td>{ward.enabled ? 'true' : 'false'}</td>
+                      <td>
+                        <TextFormat type="date" value={ward.createAt} format={APP_LOCAL_DATE_FORMAT} />
+                      </td>
+                      <td>
+                        <TextFormat type="date" value={ward.updateAt} format={APP_LOCAL_DATE_FORMAT} />
+                      </td>
+                      <td>{ward.districtId ? <Link to={`district/${ward.districtId}`}>{ward.districtId}</Link> : ''}</td>
+                      <td className="text-right">
+                        <div className="btn-group flex-btn-group-container">
+                          <Button tag={Link} to={`${match.url}/${ward.id}`} color="info" size="sm">
+                            <FontAwesomeIcon icon="eye" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.view">View</Translate>
+                            </span>
+                          </Button>
+                          <Button tag={Link} to={`${match.url}/${ward.id}/edit`} color="primary" size="sm">
+                            <FontAwesomeIcon icon="pencil-alt" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.edit">Edit</Translate>
+                            </span>
+                          </Button>
+                          <Button tag={Link} to={`${match.url}/${ward.id}/delete`} color="danger" size="sm">
+                            <FontAwesomeIcon icon="trash" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.delete">Delete</Translate>
+                            </span>
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+              <Row className="justify-content-center">
+                <JhiPagination
+                  items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
+                  activePage={this.state.activePage}
+                  onSelect={this.handlePagination}
+                  maxButtons={5}
+                />
+              </Row>
+            </Card>
           </Row>
         </div>
       </div>

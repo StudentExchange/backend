@@ -33,8 +33,8 @@ export class ServiceFeeDeleteDialog extends React.Component<IServiceFeeDeleteDia
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.serviceFee.delete.question">
-          <Translate contentKey="studentexchangeApp.serviceFee.delete.question" interpolate={{ id: serviceFeeEntity.id }}>
+        <ModalBody id="landexpApp.serviceFee.delete.question">
+          <Translate contentKey="landexpApp.serviceFee.delete.question" interpolate={{ id: serviceFeeEntity.id }}>
             Are you sure you want to delete this ServiceFee?
           </Translate>
         </ModalBody>
