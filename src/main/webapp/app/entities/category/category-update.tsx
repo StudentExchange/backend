@@ -6,6 +6,7 @@ import { AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validatio
 // tslint:disable-next-line:no-unused-variable
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Card } from 'antd';
 import { IRootState } from 'app/shared/reducers';
 
 import Header from 'app/shared/layout/header/header';
@@ -74,61 +75,41 @@ export class CategoryUpdate extends React.Component<ICategoryUpdateProps, ICateg
         <Sidebar activeMenu="manager-management" activeSubMenu="category" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
-          <Row className="justify-content-center">
-            <Col md="8">
-              <h2 id="studentexchangeApp.category.home.createOrEditLabel">
-                <Translate contentKey="studentexchangeApp.category.home.createOrEditLabel">Create or edit a Category</Translate>
-              </h2>
-            </Col>
-          </Row>
-          <Row className="justify-content-center">
-            <Col md="8">
-              {loading ? (
-                <p>Loading...</p>
-              ) : (
-                <AvForm model={isNew ? {} : categoryEntity} onSubmit={this.saveEntity}>
-                  {!isNew ? (
-                    <AvGroup>
-                      <Label for="id">
-                        <Translate contentKey="global.field.id">ID</Translate>
-                      </Label>
-                      <AvInput id="category-id" type="text" className="form-control" name="id" required readOnly />
-                    </AvGroup>
-                  ) : null}
+          <Row>
+            <Card title="Danh mục tin tức">
+              <AvForm model={isNew ? {} : categoryEntity} onSubmit={this.saveEntity}>
+                {!isNew ? (
                   <AvGroup>
-                    <Label id="nameLabel" for="name">
-                      <Translate contentKey="studentexchangeApp.category.name">Name</Translate>
-                    </Label>
-                    <AvField id="category-name" type="text" name="name" />
+                    <AvInput id="category-id" type="hidden" className="form-control" name="id" required readOnly />
                   </AvGroup>
-                  <AvGroup>
-                    <Label id="createAtLabel" for="createAt">
-                      <Translate contentKey="studentexchangeApp.category.createAt">Create At</Translate>
-                    </Label>
-                    <AvField id="category-createAt" type="date" className="form-control" name="createAt" />
-                  </AvGroup>
-                  <AvGroup>
-                    <Label id="updateAtLabel" for="updateAt">
-                      <Translate contentKey="studentexchangeApp.category.updateAt">Update At</Translate>
-                    </Label>
-                    <AvField id="category-updateAt" type="date" className="form-control" name="updateAt" />
-                  </AvGroup>
-                  <Button tag={Link} id="cancel-save" to="/entity/category" replace color="info">
-                    <FontAwesomeIcon icon="arrow-left" />
-                    &nbsp;
-                    <span className="d-none d-md-inline">
-                      <Translate contentKey="entity.action.back">Back</Translate>
-                    </span>
-                  </Button>
+                ) : null}
+                <AvGroup>
+                  <Label id="nameLabel" for="name">
+                    <Translate contentKey="landexpApp.category.name">Name</Translate>
+                  </Label>
+                  <AvField id="category-name" type="text" name="name" />
+                </AvGroup>
+                <AvGroup>
+                  <Label id="enabledLabel" check>
+                    <AvInput id="category-enabled" type="checkbox" className="form-control" name="enabled" />
+                    Danh mục tin tức (Tin tức hiển thị trên trang web thuộc danh mục này)
+                  </Label>
+                </AvGroup>
+                <Button tag={Link} id="cancel-save" to="/quan-ly/danh-muc-tin-tuc" replace color="info">
+                  <FontAwesomeIcon icon="arrow-left" />
                   &nbsp;
-                  <Button color="primary" id="save-entity" type="submit" disabled={updating}>
-                    <FontAwesomeIcon icon="save" />
-                    &nbsp;
-                    <Translate contentKey="entity.action.save">Save</Translate>
-                  </Button>
-                </AvForm>
-              )}
-            </Col>
+                  <span className="d-none d-md-inline">
+                    <Translate contentKey="entity.action.back">Back</Translate>
+                  </span>
+                </Button>
+                &nbsp;
+                <Button color="primary" id="save-entity" type="submit" disabled={updating}>
+                  <FontAwesomeIcon icon="save" />
+                  &nbsp;
+                  <Translate contentKey="entity.action.save">Save</Translate>
+                </Button>
+              </AvForm>
+            </Card>
           </Row>
         </div>
       </div>

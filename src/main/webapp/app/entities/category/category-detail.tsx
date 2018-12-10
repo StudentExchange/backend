@@ -30,18 +30,18 @@ export class CategoryDetail extends React.Component<ICategoryDetailProps> {
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
-            <Translate contentKey="studentexchangeApp.category.detail.title">Category</Translate> [<b>{categoryEntity.id}</b>]
+            <Translate contentKey="landexpApp.category.detail.title">Category</Translate> [<b>{categoryEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="name">
-                <Translate contentKey="studentexchangeApp.category.name">Name</Translate>
+                <Translate contentKey="landexpApp.category.name">Name</Translate>
               </span>
             </dt>
             <dd>{categoryEntity.name}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.category.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.category.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
@@ -49,7 +49,7 @@ export class CategoryDetail extends React.Component<ICategoryDetailProps> {
             </dd>
             <dt>
               <span id="updateAt">
-                <Translate contentKey="studentexchangeApp.category.updateAt">Update At</Translate>
+                <Translate contentKey="landexpApp.category.updateAt">Update At</Translate>
               </span>
             </dt>
             <dd>

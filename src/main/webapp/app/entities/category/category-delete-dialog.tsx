@@ -33,8 +33,8 @@ export class CategoryDeleteDialog extends React.Component<ICategoryDeleteDialogP
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.category.delete.question">
-          <Translate contentKey="studentexchangeApp.category.delete.question" interpolate={{ id: categoryEntity.id }}>
+        <ModalBody id="landexpApp.category.delete.question">
+          <Translate contentKey="landexpApp.category.delete.question" interpolate={{ id: categoryEntity.id }}>
             Are you sure you want to delete this Category?
           </Translate>
         </ModalBody>
