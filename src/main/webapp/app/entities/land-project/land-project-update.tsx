@@ -109,8 +109,8 @@ export class LandProjectUpdate extends React.Component<ILandProjectUpdateProps, 
           <Header />
           <Row className="justify-content-center">
             <Col md="8">
-              <h2 id="studentexchangeApp.landProject.home.createOrEditLabel">
-                <Translate contentKey="studentexchangeApp.landProject.home.createOrEditLabel">Create or edit a LandProject</Translate>
+              <h2 id="landexpApp.landProject.home.createOrEditLabel">
+                <Translate contentKey="landexpApp.landProject.home.createOrEditLabel">Create or edit a LandProject</Translate>
               </h2>
             </Col>
           </Row>
@@ -130,14 +130,14 @@ export class LandProjectUpdate extends React.Component<ILandProjectUpdateProps, 
                   ) : null}
                   <AvGroup>
                     <Label id="nameLabel" for="name">
-                      <Translate contentKey="studentexchangeApp.landProject.name">Name</Translate>
+                      <Translate contentKey="landexpApp.landProject.name">Name</Translate>
                     </Label>
                     <AvField id="land-project-name" type="text" name="name" />
                   </AvGroup>
                   <AvGroup>
                     <AvGroup>
                       <Label id="imageLabel" for="image">
-                        <Translate contentKey="studentexchangeApp.landProject.image">Image</Translate>
+                        <Translate contentKey="landexpApp.landProject.image">Image</Translate>
                       </Label>
                       <br />
                       {image ? (
@@ -166,7 +166,7 @@ export class LandProjectUpdate extends React.Component<ILandProjectUpdateProps, 
                   </AvGroup>
                   <AvGroup>
                     <Label for="city.name">
-                      <Translate contentKey="studentexchangeApp.landProject.city">City</Translate>
+                      <Translate contentKey="landexpApp.landProject.city">City</Translate>
                     </Label>
                     <AvInput id="land-project-city" type="select" className="form-control" name="cityId">
                       <option value="" key="0" />
@@ -181,7 +181,7 @@ export class LandProjectUpdate extends React.Component<ILandProjectUpdateProps, 
                   </AvGroup>
                   <AvGroup>
                     <Label for="district.name">
-                      <Translate contentKey="studentexchangeApp.landProject.district">District</Translate>
+                      <Translate contentKey="landexpApp.landProject.district">District</Translate>
                     </Label>
                     <AvInput id="land-project-district" type="select" className="form-control" name="districtId">
                       <option value="" key="0" />
@@ -196,7 +196,7 @@ export class LandProjectUpdate extends React.Component<ILandProjectUpdateProps, 
                   </AvGroup>
                   <AvGroup>
                     <Label for="ward.name">
-                      <Translate contentKey="studentexchangeApp.landProject.ward">Ward</Translate>
+                      <Translate contentKey="landexpApp.landProject.ward">Ward</Translate>
                     </Label>
                     <AvInput id="land-project-ward" type="select" className="form-control" name="wardId">
                       <option value="" key="0" />
@@ -211,7 +211,7 @@ export class LandProjectUpdate extends React.Component<ILandProjectUpdateProps, 
                   </AvGroup>
                   <AvGroup>
                     <Label for="createBy.login">
-                      <Translate contentKey="studentexchangeApp.landProject.createBy">Create By</Translate>
+                      <Translate contentKey="landexpApp.landProject.createBy">Create By</Translate>
                     </Label>
                     <AvInput id="land-project-createBy" type="select" className="form-control" name="createById">
                       <option value="" key="0" />
@@ -226,7 +226,7 @@ export class LandProjectUpdate extends React.Component<ILandProjectUpdateProps, 
                   </AvGroup>
                   <AvGroup>
                     <Label for="updateBy.login">
-                      <Translate contentKey="studentexchangeApp.landProject.updateBy">Update By</Translate>
+                      <Translate contentKey="landexpApp.landProject.updateBy">Update By</Translate>
                     </Label>
                     <AvInput id="land-project-updateBy" type="select" className="form-control" name="updateById">
                       <option value="" key="0" />

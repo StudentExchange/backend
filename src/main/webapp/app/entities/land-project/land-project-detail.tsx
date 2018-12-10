@@ -30,18 +30,18 @@ export class LandProjectDetail extends React.Component<ILandProjectDetailProps> 
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
-            <Translate contentKey="studentexchangeApp.landProject.detail.title">LandProject</Translate> [<b>{landProjectEntity.id}</b>]
+            <Translate contentKey="landexpApp.landProject.detail.title">LandProject</Translate> [<b>{landProjectEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="name">
-                <Translate contentKey="studentexchangeApp.landProject.name">Name</Translate>
+                <Translate contentKey="landexpApp.landProject.name">Name</Translate>
               </span>
             </dt>
             <dd>{landProjectEntity.name}</dd>
             <dt>
               <span id="image">
-                <Translate contentKey="studentexchangeApp.landProject.image">Image</Translate>
+                <Translate contentKey="landexpApp.landProject.image">Image</Translate>
               </span>
             </dt>
             <dd>
@@ -60,23 +60,23 @@ export class LandProjectDetail extends React.Component<ILandProjectDetailProps> 
               ) : null}
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.landProject.city">City</Translate>
+              <Translate contentKey="landexpApp.landProject.city">City</Translate>
             </dt>
             <dd>{landProjectEntity.cityName ? landProjectEntity.cityName : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.landProject.district">District</Translate>
+              <Translate contentKey="landexpApp.landProject.district">District</Translate>
             </dt>
             <dd>{landProjectEntity.districtName ? landProjectEntity.districtName : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.landProject.ward">Ward</Translate>
+              <Translate contentKey="landexpApp.landProject.ward">Ward</Translate>
             </dt>
             <dd>{landProjectEntity.wardName ? landProjectEntity.wardName : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.landProject.createBy">Create By</Translate>
+              <Translate contentKey="landexpApp.landProject.createBy">Create By</Translate>
             </dt>
             <dd>{landProjectEntity.createByLogin ? landProjectEntity.createByLogin : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.landProject.updateBy">Update By</Translate>
+              <Translate contentKey="landexpApp.landProject.updateBy">Update By</Translate>
             </dt>
             <dd>{landProjectEntity.updateByLogin ? landProjectEntity.updateByLogin : ''}</dd>
           </dl>

@@ -14,7 +14,7 @@ import {
   JhiPagination
 } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { Card } from 'antd';
 import Header from 'app/shared/layout/header/header';
 import Sidebar from 'app/shared/layout/sidebar/sidebar';
 
@@ -67,108 +67,78 @@ export class LandProject extends React.Component<ILandProjectProps, ILandProject
         <Sidebar activeMenu="staff-management" activeSubMenu="project" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
-          <h2 id="land-project-heading">
-            <Translate contentKey="studentexchangeApp.landProject.home.title">Land Projects</Translate>
-            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-              <FontAwesomeIcon icon="plus" />
-              &nbsp;
-              <Translate contentKey="studentexchangeApp.landProject.home.createLabel">Create new Land Project</Translate>
-            </Link>
-          </h2>
-          <div className="table-responsive">
-            <Table responsive>
-              <thead>
-                <tr>
-                  <th className="hand" onClick={this.sort('id')}>
-                    <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('name')}>
-                    <Translate contentKey="studentexchangeApp.landProject.name">Name</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('image')}>
-                    <Translate contentKey="studentexchangeApp.landProject.image">Image</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.landProject.city">City</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.landProject.district">District</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.landProject.ward">Ward</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.landProject.createBy">Create By</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.landProject.updateBy">Update By</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-                {landProjectList.map((landProject, i) => (
-                  <tr key={`entity-${i}`}>
-                    <td>
-                      <Button tag={Link} to={`${match.url}/${landProject.id}`} color="link" size="sm">
-                        {landProject.id}
-                      </Button>
-                    </td>
-                    <td>{landProject.name}</td>
-                    <td>
-                      {landProject.image ? (
-                        <div>
-                          <a onClick={openFile(landProject.imageContentType, landProject.image)}>
-                            <img src={`data:${landProject.imageContentType};base64,${landProject.image}`} style={{ maxHeight: '30px' }} />
-                            &nbsp;
-                          </a>
-                          <span>
-                            {landProject.imageContentType}, {byteSize(landProject.image)}
-                          </span>
-                        </div>
-                      ) : null}
-                    </td>
-                    <td>{landProject.cityName ? <Link to={`city/${landProject.cityId}`}>{landProject.cityName}</Link> : ''}</td>
-                    <td>
-                      {landProject.districtName ? <Link to={`district/${landProject.districtId}`}>{landProject.districtName}</Link> : ''}
-                    </td>
-                    <td>{landProject.wardName ? <Link to={`ward/${landProject.wardId}`}>{landProject.wardName}</Link> : ''}</td>
-                    <td>{landProject.createByLogin ? landProject.createByLogin : ''}</td>
-                    <td>{landProject.updateByLogin ? landProject.updateByLogin : ''}</td>
-                    <td className="text-right">
-                      <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`${match.url}/${landProject.id}`} color="info" size="sm">
-                          <FontAwesomeIcon icon="eye" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.view">View</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${landProject.id}/edit`} color="primary" size="sm">
-                          <FontAwesomeIcon icon="pencil-alt" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.edit">Edit</Translate>
-                          </span>
-                        </Button>
-                        <Button tag={Link} to={`${match.url}/${landProject.id}/delete`} color="danger" size="sm">
-                          <FontAwesomeIcon icon="trash" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.delete">Delete</Translate>
-                          </span>
-                        </Button>
-                      </div>
-                    </td>
+          <Row>
+            <h2 id="land-project-heading">
+              <Translate contentKey="landexpApp.landProject.home.title">Land Projects</Translate>
+              <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+                <FontAwesomeIcon icon="plus" />
+                &nbsp;
+                <Translate contentKey="landexpApp.landProject.home.createLabel">Create new Land Project</Translate>
+              </Link>
+            </h2>
+          </Row>
+          <Row>
+            <Card>
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th>
+                      <Translate contentKey="landexpApp.landProject.name">Name</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.landProject.image">Image</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.landProject.city">City</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.landProject.district">District</Translate>
+                    </th>
+                    <th />
                   </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-          <Row className="justify-content-center">
-            <JhiPagination
-              items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
-              activePage={this.state.activePage}
-              onSelect={this.handlePagination}
-              maxButtons={5}
-            />
+                </thead>
+                <tbody>
+                  {landProjectList.map((landProject, i) => (
+                    <tr key={`entity-${i}`}>
+                      <td>{landProject.name}</td>
+                      <td>
+                        {landProject.image ? (
+                          <div>
+                            <a onClick={openFile(landProject.imageContentType, landProject.image)}>
+                              <img src={`data:${landProject.imageContentType};base64,${landProject.image}`} style={{ maxHeight: '30px' }} />
+                              &nbsp;
+                            </a>
+                            <span>
+                              {landProject.imageContentType}, {byteSize(landProject.image)}
+                            </span>
+                          </div>
+                        ) : null}
+                      </td>
+                      <td>{landProject.cityName}</td>
+                      <td>{landProject.districtName}</td>
+                      <td className="text-right">
+                        <div className="btn-group flex-btn-group-container">
+                          <Button tag={Link} to={`${match.url}/${landProject.id}/edit`} color="primary" size="sm">
+                            <FontAwesomeIcon icon="pencil-alt" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.edit">Edit</Translate>
+                            </span>
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+              <Row className="justify-content-center">
+                <JhiPagination
+                  items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
+                  activePage={this.state.activePage}
+                  onSelect={this.handlePagination}
+                  maxButtons={5}
+                />
+              </Row>
+            </Card>
           </Row>
         </div>
       </div>
