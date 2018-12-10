@@ -84,13 +84,13 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
     const id = element.target.value.toString();
     if (id === '') {
       this.setState({
-        houseId: -1
+        houseId: '-1'
       });
     } else {
       for (const i in this.props.houses) {
         if (id === this.props.houses[i].id.toString()) {
           this.setState({
-            houseId: this.props.houses[i].id
+            houseId: this.props.houses[i].id.toString()
           });
         }
       }
@@ -101,7 +101,7 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
     const login = element.target.value.toString();
     if (login === '') {
       this.setState({
-        customerId: -1
+        customerId: '-1'
       });
     } else {
       for (const i in this.props.users) {
@@ -118,7 +118,7 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
     const login = element.target.value.toString();
     if (login === '') {
       this.setState({
-        createById: -1
+        createById: '-1'
       });
     } else {
       for (const i in this.props.users) {
@@ -135,7 +135,7 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
     const login = element.target.value.toString();
     if (login === '') {
       this.setState({
-        updateById: -1
+        updateById: '-1'
       });
     } else {
       for (const i in this.props.users) {

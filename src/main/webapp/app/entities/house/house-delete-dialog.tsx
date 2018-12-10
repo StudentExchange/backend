@@ -33,8 +33,8 @@ export class HouseDeleteDialog extends React.Component<IHouseDeleteDialogProps> 
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.house.delete.question">
-          <Translate contentKey="studentexchangeApp.house.delete.question" interpolate={{ id: houseEntity.id }}>
+        <ModalBody id="landexpApp.house.delete.question">
+          <Translate contentKey="landexpApp.house.delete.question" interpolate={{ id: houseEntity.id }}>
             Are you sure you want to delete this House?
           </Translate>
         </ModalBody>

@@ -33,8 +33,8 @@ export class LandProjectPhotoDeleteDialog extends React.Component<ILandProjectPh
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.landProjectPhoto.delete.question">
-          <Translate contentKey="studentexchangeApp.landProjectPhoto.delete.question" interpolate={{ id: landProjectPhotoEntity.id }}>
+        <ModalBody id="landexpApp.landProjectPhoto.delete.question">
+          <Translate contentKey="landexpApp.landProjectPhoto.delete.question" interpolate={{ id: landProjectPhotoEntity.id }}>
             Are you sure you want to delete this LandProjectPhoto?
           </Translate>
         </ModalBody>

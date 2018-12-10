@@ -33,8 +33,8 @@ export class UserFinancialDeleteDialog extends React.Component<IUserFinancialDel
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.userFinancial.delete.question">
-          <Translate contentKey="studentexchangeApp.userFinancial.delete.question" interpolate={{ id: userFinancialEntity.id }}>
+        <ModalBody id="landexpApp.userFinancial.delete.question">
+          <Translate contentKey="landexpApp.userFinancial.delete.question" interpolate={{ id: userFinancialEntity.id }}>
             Are you sure you want to delete this UserFinancial?
           </Translate>
         </ModalBody>

@@ -33,8 +33,8 @@ export class UserLikeDeleteDialog extends React.Component<IUserLikeDeleteDialogP
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.userLike.delete.question">
-          <Translate contentKey="studentexchangeApp.userLike.delete.question" interpolate={{ id: userLikeEntity.id }}>
+        <ModalBody id="landexpApp.userLike.delete.question">
+          <Translate contentKey="landexpApp.userLike.delete.question" interpolate={{ id: userLikeEntity.id }}>
             Are you sure you want to delete this UserLike?
           </Translate>
         </ModalBody>

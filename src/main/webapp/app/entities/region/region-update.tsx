@@ -159,7 +159,7 @@ export class RegionUpdate extends React.Component<IRegionUpdateProps, IRegionUpd
                       ? users.map(
                           otherEntity =>
                             otherEntity.authorities.includes('ROLE_STAFF') ? (
-                              <option value={otherEntity.login} key={otherEntity.id}>
+                              <option value={otherEntity.login} key={`${otherEntity.id}`}>
                                 {otherEntity.login}
                               </option>
                             ) : (

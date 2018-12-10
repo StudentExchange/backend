@@ -25,23 +25,23 @@ export class UserLikeDetail extends React.Component<IUserLikeDetailProps> {
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="studentexchangeApp.userLike.detail.title">UserLike</Translate> [<b>{userLikeEntity.id}</b>]
+            <Translate contentKey="landexpApp.userLike.detail.title">UserLike</Translate> [<b>{userLikeEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.userLike.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.userLike.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={userLikeEntity.createAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.userLike.house">House</Translate>
+              <Translate contentKey="landexpApp.userLike.house">House</Translate>
             </dt>
             <dd>{userLikeEntity.houseId ? userLikeEntity.houseId : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.userLike.user">User</Translate>
+              <Translate contentKey="landexpApp.userLike.user">User</Translate>
             </dt>
             <dd>{userLikeEntity.userLogin ? userLikeEntity.userLogin : ''}</dd>
           </dl>

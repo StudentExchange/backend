@@ -24,11 +24,11 @@ export class LandProjectPhoto extends React.Component<ILandProjectPhotoProps> {
     return (
       <div>
         <h2 id="land-project-photo-heading">
-          <Translate contentKey="studentexchangeApp.landProjectPhoto.home.title">Land Project Photos</Translate>
+          <Translate contentKey="landexpApp.landProjectPhoto.home.title">Land Project Photos</Translate>
           <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="studentexchangeApp.landProjectPhoto.home.createLabel">Create new Land Project Photo</Translate>
+            <Translate contentKey="landexpApp.landProjectPhoto.home.createLabel">Create new Land Project Photo</Translate>
           </Link>
         </h2>
         <div className="table-responsive">
@@ -39,19 +39,19 @@ export class LandProjectPhoto extends React.Component<ILandProjectPhotoProps> {
                   <Translate contentKey="global.field.id">ID</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.landProjectPhoto.image">Image</Translate>
+                  <Translate contentKey="landexpApp.landProjectPhoto.image">Image</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.landProjectPhoto.createAt">Create At</Translate>
+                  <Translate contentKey="landexpApp.landProjectPhoto.createAt">Create At</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.landProjectPhoto.landProject">Land Project</Translate>
+                  <Translate contentKey="landexpApp.landProjectPhoto.landProject">Land Project</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.landProjectPhoto.createBy">Create By</Translate>
+                  <Translate contentKey="landexpApp.landProjectPhoto.createBy">Create By</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.landProjectPhoto.updateBy">Update By</Translate>
+                  <Translate contentKey="landexpApp.landProjectPhoto.updateBy">Update By</Translate>
                 </th>
                 <th />
               </tr>

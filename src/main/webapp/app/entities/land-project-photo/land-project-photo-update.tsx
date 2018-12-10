@@ -93,10 +93,8 @@ export class LandProjectPhotoUpdate extends React.Component<ILandProjectPhotoUpd
       <div>
         <Row className="justify-content-center">
           <Col md="8">
-            <h2 id="studentexchangeApp.landProjectPhoto.home.createOrEditLabel">
-              <Translate contentKey="studentexchangeApp.landProjectPhoto.home.createOrEditLabel">
-                Create or edit a LandProjectPhoto
-              </Translate>
+            <h2 id="landexpApp.landProjectPhoto.home.createOrEditLabel">
+              <Translate contentKey="landexpApp.landProjectPhoto.home.createOrEditLabel">Create or edit a LandProjectPhoto</Translate>
             </h2>
           </Col>
         </Row>
@@ -117,7 +115,7 @@ export class LandProjectPhotoUpdate extends React.Component<ILandProjectPhotoUpd
                 <AvGroup>
                   <AvGroup>
                     <Label id="imageLabel" for="image">
-                      <Translate contentKey="studentexchangeApp.landProjectPhoto.image">Image</Translate>
+                      <Translate contentKey="landexpApp.landProjectPhoto.image">Image</Translate>
                     </Label>
                     <br />
                     {image ? (
@@ -146,13 +144,13 @@ export class LandProjectPhotoUpdate extends React.Component<ILandProjectPhotoUpd
                 </AvGroup>
                 <AvGroup>
                   <Label id="createAtLabel" for="createAt">
-                    <Translate contentKey="studentexchangeApp.landProjectPhoto.createAt">Create At</Translate>
+                    <Translate contentKey="landexpApp.landProjectPhoto.createAt">Create At</Translate>
                   </Label>
                   <AvField id="land-project-photo-createAt" type="date" className="form-control" name="createAt" />
                 </AvGroup>
                 <AvGroup>
                   <Label for="landProject.id">
-                    <Translate contentKey="studentexchangeApp.landProjectPhoto.landProject">Land Project</Translate>
+                    <Translate contentKey="landexpApp.landProjectPhoto.landProject">Land Project</Translate>
                   </Label>
                   <AvInput id="land-project-photo-landProject" type="select" className="form-control" name="landProjectId">
                     <option value="" key="0" />
@@ -167,7 +165,7 @@ export class LandProjectPhotoUpdate extends React.Component<ILandProjectPhotoUpd
                 </AvGroup>
                 <AvGroup>
                   <Label for="createBy.login">
-                    <Translate contentKey="studentexchangeApp.landProjectPhoto.createBy">Create By</Translate>
+                    <Translate contentKey="landexpApp.landProjectPhoto.createBy">Create By</Translate>
                   </Label>
                   <AvInput id="land-project-photo-createBy" type="select" className="form-control" name="createById">
                     <option value="" key="0" />
@@ -182,7 +180,7 @@ export class LandProjectPhotoUpdate extends React.Component<ILandProjectPhotoUpd
                 </AvGroup>
                 <AvGroup>
                   <Label for="updateBy.login">
-                    <Translate contentKey="studentexchangeApp.landProjectPhoto.updateBy">Update By</Translate>
+                    <Translate contentKey="landexpApp.landProjectPhoto.updateBy">Update By</Translate>
                   </Label>
                   <AvInput id="land-project-photo-updateBy" type="select" className="form-control" name="updateById">
                     <option value="" key="0" />

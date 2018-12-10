@@ -18,7 +18,7 @@ import { IRootState } from 'app/shared/reducers';
 import { getEntities as getCategories } from 'app/entities/category/category.reducer';
 import { getEntity, updateEntity, createEntity, setBlob, reset } from './article.reducer';
 
-export interface IArticleUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: number }> {}
+export interface IArticleUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: any }> {}
 
 export interface IArticleUpdateState {
   isNew: boolean;
@@ -239,7 +239,7 @@ export class ArticleUpdate extends React.Component<IArticleUpdateProps, IArticle
                 >
                   {categories
                     ? categories.map(otherEntity => (
-                        <Option value={otherEntity.id} key={otherEntity.id}>
+                        <Option value={otherEntity.id} key={`${otherEntity.id}`}>
                           {otherEntity.name}
                         </Option>
                       ))

@@ -25,54 +25,53 @@ export class UserFinancialDetail extends React.Component<IUserFinancialDetailPro
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="studentexchangeApp.userFinancial.detail.title">UserFinancial</Translate> [<b>{userFinancialEntity.id}</b>
-            ]
+            <Translate contentKey="landexpApp.userFinancial.detail.title">UserFinancial</Translate> [<b>{userFinancialEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="housePrice">
-                <Translate contentKey="studentexchangeApp.userFinancial.housePrice">House Price</Translate>
+                <Translate contentKey="landexpApp.userFinancial.housePrice">House Price</Translate>
               </span>
             </dt>
             <dd>{userFinancialEntity.housePrice}</dd>
             <dt>
               <span id="savingMoney">
-                <Translate contentKey="studentexchangeApp.userFinancial.savingMoney">Saving Money</Translate>
+                <Translate contentKey="landexpApp.userFinancial.savingMoney">Saving Money</Translate>
               </span>
             </dt>
             <dd>{userFinancialEntity.savingMoney}</dd>
             <dt>
               <span id="loanRate">
-                <Translate contentKey="studentexchangeApp.userFinancial.loanRate">Loan Rate</Translate>
+                <Translate contentKey="landexpApp.userFinancial.loanRate">Loan Rate</Translate>
               </span>
             </dt>
             <dd>{userFinancialEntity.loanRate}</dd>
             <dt>
               <span id="loanFromPeople">
-                <Translate contentKey="studentexchangeApp.userFinancial.loanFromPeople">Loan From People</Translate>
+                <Translate contentKey="landexpApp.userFinancial.loanFromPeople">Loan From People</Translate>
               </span>
             </dt>
             <dd>{userFinancialEntity.loanFromPeople}</dd>
             <dt>
               <span id="customerMoneyHave">
-                <Translate contentKey="studentexchangeApp.userFinancial.customerMoneyHave">Customer Money Have</Translate>
+                <Translate contentKey="landexpApp.userFinancial.customerMoneyHave">Customer Money Have</Translate>
               </span>
             </dt>
             <dd>{userFinancialEntity.customerMoneyHave}</dd>
             <dt>
               <span id="customerMobile">
-                <Translate contentKey="studentexchangeApp.userFinancial.customerMobile">Customer Mobile</Translate>
+                <Translate contentKey="landexpApp.userFinancial.customerMobile">Customer Mobile</Translate>
               </span>
             </dt>
             <dd>{userFinancialEntity.customerMobile}</dd>
             <dt>
               <span id="customerEmail">
-                <Translate contentKey="studentexchangeApp.userFinancial.customerEmail">Customer Email</Translate>
+                <Translate contentKey="landexpApp.userFinancial.customerEmail">Customer Email</Translate>
               </span>
             </dt>
             <dd>{userFinancialEntity.customerEmail}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.userFinancial.user">User</Translate>
+              <Translate contentKey="landexpApp.userFinancial.user">User</Translate>
             </dt>
             <dd>{userFinancialEntity.userLogin ? userFinancialEntity.userLogin : ''}</dd>
           </dl>

@@ -81,8 +81,8 @@ export class UserLikeUpdate extends React.Component<IUserLikeUpdateProps, IUserL
       <div>
         <Row className="justify-content-center">
           <Col md="8">
-            <h2 id="studentexchangeApp.userLike.home.createOrEditLabel">
-              <Translate contentKey="studentexchangeApp.userLike.home.createOrEditLabel">Create or edit a UserLike</Translate>
+            <h2 id="landexpApp.userLike.home.createOrEditLabel">
+              <Translate contentKey="landexpApp.userLike.home.createOrEditLabel">Create or edit a UserLike</Translate>
             </h2>
           </Col>
         </Row>
@@ -102,13 +102,13 @@ export class UserLikeUpdate extends React.Component<IUserLikeUpdateProps, IUserL
                 ) : null}
                 <AvGroup>
                   <Label id="createAtLabel" for="createAt">
-                    <Translate contentKey="studentexchangeApp.userLike.createAt">Create At</Translate>
+                    <Translate contentKey="landexpApp.userLike.createAt">Create At</Translate>
                   </Label>
                   <AvField id="user-like-createAt" type="date" className="form-control" name="createAt" />
                 </AvGroup>
                 <AvGroup>
                   <Label for="house.id">
-                    <Translate contentKey="studentexchangeApp.userLike.house">House</Translate>
+                    <Translate contentKey="landexpApp.userLike.house">House</Translate>
                   </Label>
                   <AvInput id="user-like-house" type="select" className="form-control" name="houseId">
                     <option value="" key="0" />
@@ -123,7 +123,7 @@ export class UserLikeUpdate extends React.Component<IUserLikeUpdateProps, IUserL
                 </AvGroup>
                 <AvGroup>
                   <Label for="user.login">
-                    <Translate contentKey="studentexchangeApp.userLike.user">User</Translate>
+                    <Translate contentKey="landexpApp.userLike.user">User</Translate>
                   </Label>
                   <AvInput id="user-like-user" type="select" className="form-control" name="userId">
                     <option value="" key="0" />

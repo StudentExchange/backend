@@ -1,336 +1,375 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Col, Row, Table } from 'reactstrap';
-// tslint:disable-next-line:no-unused-variable
-import {
-  openFile,
-  byteSize,
-  Translate,
-  ICrudGetAllAction,
-  TextFormat,
-  getSortState,
-  IPaginationBaseState,
-  getPaginationItemsNumber,
-  JhiPagination
-} from 'react-jhipster';
+import { RouteComponentProps } from 'react-router-dom';
+import { Col, Row, Container, Table } from 'reactstrap';
+import { getLandType, getSaleType, getStatusType, queryString, queryStringMapping, encodeId } from 'app/shared/util/utils';
+import { Translate, getSortState, IPaginationBaseState, getPaginationItemsNumber, JhiPagination } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import qs from 'query-string';
+import { Select, Input, Button, Modal, Card } from 'antd';
+const Option = Select.Option;
 
-import Header from 'app/shared/layout/header/header';
-import Sidebar from 'app/shared/layout/sidebar/sidebar';
+import Loading from 'app/shared/layout/loading/loading';
+import SearchPage from 'app/shared/layout/search/search-menu';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntities } from './house.reducer';
-import { IHouse } from 'app/shared/model/house.model';
-// tslint:disable-next-line:no-unused-variable
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { getHouses, getEntities, getItemEntities, getStaffEntities, deleteEntity } from './house.reducer';
+import { hasAnyAuthority } from 'app/shared/auth/private-route';
+import { AUTHORITIES } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 
 export interface IHouseProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
-export type IHouseState = IPaginationBaseState;
+export interface IHouseState extends IPaginationBaseState {
+  showDelete: any;
+  houseId: any;
+  parameters: any;
+}
 
 export class House extends React.Component<IHouseProps, IHouseState> {
   state: IHouseState = {
+    showDelete: false,
+    houseId: undefined,
+    parameters: {},
     ...getSortState(this.props.location, ITEMS_PER_PAGE)
   };
 
   componentDidMount() {
-    this.getEntities();
+    if (this.props.location) {
+      const parsed = qs.parse(this.props.location.search);
+      this.props.getItemEntities(queryStringMapping(parsed));
+    }
   }
 
-  sort = prop => () => {
-    this.setState(
-      {
-        order: this.state.order === 'asc' ? 'desc' : 'asc',
-        sort: prop
-      },
-      () => this.sortEntities()
-    );
-  };
-
-  sortEntities() {
-    this.getEntities();
-    this.props.history.push(`${this.props.location.pathname}?page=${this.state.activePage}&sort=${this.state.sort},${this.state.order}`);
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.location !== prevProps.location) {
+      const parsed = qs.parse(this.props.location.search);
+      this.props.getItemEntities(queryStringMapping(parsed));
+    }
   }
 
-  handlePagination = activePage => this.setState({ activePage }, () => this.sortEntities());
+  handlePagination = activePage => this.setState({ activePage }, () => this.getEntities());
 
   getEntities = () => {
-    const { activePage, itemsPerPage, sort, order } = this.state;
-    this.props.getEntities(activePage - 1, itemsPerPage, `${sort},${order}`);
+    const { activePage, itemsPerPage, sort } = this.state;
+    const nextParameter = {
+      ...this.state.parameters,
+      page: activePage - 1,
+      size: itemsPerPage,
+      sort: 'createAt,desc'
+    };
+    this.props.history.push(`${this.props.match.url}?${queryString(nextParameter)}`);
+  };
+
+  gotoEdit = id => {
+    this.props.history.push(`${this.props.match.url}/${id}/edit`);
+  };
+
+  gotoView = id => {
+    this.props.history.push(`/bat-dong-san/${encodeId(id)}/xem-truoc-tin-dang`);
+  };
+
+  showDeleteConfirm = houseId => {
+    this.setState({
+      showDelete: true,
+      houseId
+    });
+  };
+
+  handleDeleteOk = id => {
+    this.props.deleteEntity(id);
+    this.setState({
+      showDelete: false
+    });
+  };
+
+  handleDeleteCancel = () => {
+    this.setState({
+      showDelete: false
+    });
+  };
+
+  menuTypeClick = value => {
+    const parameters = { actionType: value };
+    const nextParameter = { ...this.state.parameters, ...parameters };
+    this.setState({
+      parameters: nextParameter
+    });
+  };
+
+  actionTypeForm() {
+    return (
+      <Select
+        style={{ width: 140, marginRight: 2 }}
+        value={this.state.parameters.actionType}
+        placeholder="Hình thức"
+        onChange={this.menuTypeClick}
+      >
+        <Option value="FOR_SELL">Bán</Option>
+        <Option value="FOR_RENT">Cho thuê</Option>
+      </Select>
+    );
+  }
+
+  menuLandTypeClick = value => {
+    const parameters = { landType: value };
+    const nextParameter = { ...this.state.parameters, ...parameters };
+    this.setState({
+      parameters: nextParameter
+    });
+  };
+
+  landTypeForm() {
+    return (
+      <Select
+        style={{ width: 180, marginRight: 2 }}
+        value={this.state.parameters.landType}
+        placeholder="Loại bất động sản"
+        onChange={this.menuLandTypeClick}
+      >
+        <Option value="APARTMENT">{getLandType('APARTMENT')}</Option>
+        <Option value="HOME">{getLandType('HOME')}</Option>
+        <Option value="HOME_VILLA">{getLandType('HOME_VILLA')}</Option>
+        <Option value="HOME_STREET_SIDE">{getLandType('HOME_STREET_SIDE')}</Option>
+        <Option value="LAND_SCAPE">{getLandType('LAND_SCAPE')}</Option>
+        <Option value="LAND_OF_PROJECT">{getLandType('LAND_OF_PROJECT')}</Option>
+        <Option value="LAND_FARM">{getLandType('LAND_FARM')}</Option>
+        <Option value="LAND_RESORT">{getLandType('LAND_RESORT')}</Option>
+        <Option value="MOTEL_ROOM">{getLandType('MOTEL_ROOM')}</Option>
+        <Option value="OFFICE">{getLandType('OFFICE')}</Option>
+        <Option value="WAREHOUSES">{getLandType('WAREHOUSES')}</Option>
+        <Option value="KIOSKS">{getLandType('KIOSKS')}</Option>
+      </Select>
+    );
+  }
+
+  menuSaleTypeClick = value => {
+    const parameters = { saleType: value };
+    const nextParameter = { ...this.state.parameters, ...parameters };
+    this.setState({
+      parameters: nextParameter
+    });
+  };
+
+  saleTypeForm() {
+    return (
+      <Select
+        style={{ width: 180, marginRight: 2 }}
+        value={this.state.parameters.saleType}
+        placeholder="Loại tin"
+        onChange={this.menuSaleTypeClick}
+      >
+        <Option value="SALE_BY_MYSELF">{getSaleType('SALE_BY_MYSELF')}</Option>
+        <Option value="SALE_BY_MYSELF_VIP">{getSaleType('SALE_BY_MYSELF_VIP')}</Option>
+        <Option value="SALE_SUPPORT">{getSaleType('SALE_SUPPORT')}</Option>
+        <Option value="SALE_SUPPORT_VIP">{getSaleType('SALE_SUPPORT_VIP')}</Option>
+      </Select>
+    );
+  }
+
+  menuStatusClick = value => {
+    const parameters = { statusType: value };
+    const nextParameter = { ...this.state.parameters, ...parameters };
+    this.setState({
+      parameters: nextParameter
+    });
+  };
+
+  statusForm() {
+    return (
+      <Select
+        style={{ width: 180, marginRight: 2 }}
+        value={this.state.parameters.statusType}
+        placeholder="Trạng thái"
+        onChange={this.menuStatusClick}
+      >
+        <Option value="PENDING">{getStatusType('PENDING')}</Option>
+        <Option value="PAID">{getStatusType('PAID')}</Option>
+        <Option value="CANCELED">{getStatusType('CANCELED')}</Option>
+      </Select>
+    );
+  }
+
+  onChangeKeyword = e => {
+    const parameters = { mobile: e.target.value };
+    const nextParameter = { ...this.state.parameters, ...parameters };
+    this.setState({
+      parameters: nextParameter
+    });
+  };
+
+  keywordForm() {
+    return <Input style={{ width: 280, marginRight: 2 }} placeholder="Số điện thoại" onChange={this.onChangeKeyword} />;
+  }
+
+  searchClick = () => {
+    this.getEntities();
+  };
+
+  clearSearchClick = () => {
+    this.setState({
+      parameters: {}
+    });
+    this.getEntities();
   };
 
   render() {
     const { houseList, match, totalItems } = this.props;
     return (
-      <div>
-        <Sidebar activeMenu="staff-management" activeSubMenu="house" />
-        <div id="page-wrapper" className="gray-bg dashbard-1">
-          <Header />
-          <h2 id="house-heading">
-            <Translate contentKey="studentexchangeApp.house.home.title">Houses</Translate>
-            <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-              <FontAwesomeIcon icon="plus" />
-              &nbsp;
-              <Translate contentKey="studentexchangeApp.house.home.createLabel">Create new House</Translate>
-            </Link>
-          </h2>
-          <div className="table-responsive">
-            <Table responsive>
-              <thead>
-                <tr>
-                  <th className="hand" onClick={this.sort('id')}>
-                    <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('avatar')}>
-                    <Translate contentKey="studentexchangeApp.house.avatar">Avatar</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('avatarLink')}>
-                    <Translate contentKey="studentexchangeApp.house.avatarLink">Avatar Link</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('actionType')}>
-                    <Translate contentKey="studentexchangeApp.house.actionType">Action Type</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('address')}>
-                    <Translate contentKey="studentexchangeApp.house.address">Address</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('money')}>
-                    <Translate contentKey="studentexchangeApp.house.money">Money</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('acreage')}>
-                    <Translate contentKey="studentexchangeApp.house.acreage">Acreage</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('acreageStreetSide')}>
-                    <Translate contentKey="studentexchangeApp.house.acreageStreetSide">Acreage Street Side</Translate>{' '}
-                    <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('discount')}>
-                    <Translate contentKey="studentexchangeApp.house.discount">Discount</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('direction')}>
-                    <Translate contentKey="studentexchangeApp.house.direction">Direction</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('directionBalcony')}>
-                    <Translate contentKey="studentexchangeApp.house.directionBalcony">Direction Balcony</Translate>{' '}
-                    <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('floor')}>
-                    <Translate contentKey="studentexchangeApp.house.floor">Floor</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('numberOfFloor')}>
-                    <Translate contentKey="studentexchangeApp.house.numberOfFloor">Number Of Floor</Translate>{' '}
-                    <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('bathRoom')}>
-                    <Translate contentKey="studentexchangeApp.house.bathRoom">Bath Room</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('bedRoom')}>
-                    <Translate contentKey="studentexchangeApp.house.bedRoom">Bed Room</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('parking')}>
-                    <Translate contentKey="studentexchangeApp.house.parking">Parking</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('summary')}>
-                    <Translate contentKey="studentexchangeApp.house.summary">Summary</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('landType')}>
-                    <Translate contentKey="studentexchangeApp.house.landType">Land Type</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('saleType')}>
-                    <Translate contentKey="studentexchangeApp.house.saleType">Sale Type</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('fee')}>
-                    <Translate contentKey="studentexchangeApp.house.fee">Fee</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('feeMax')}>
-                    <Translate contentKey="studentexchangeApp.house.feeMax">Fee Max</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('present')}>
-                    <Translate contentKey="studentexchangeApp.house.present">Present</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('hits')}>
-                    <Translate contentKey="studentexchangeApp.house.hits">Hits</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('customer')}>
-                    <Translate contentKey="studentexchangeApp.house.customer">Customer</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('mobile')}>
-                    <Translate contentKey="studentexchangeApp.house.mobile">Mobile</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('email')}>
-                    <Translate contentKey="studentexchangeApp.house.email">Email</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('facebook')}>
-                    <Translate contentKey="studentexchangeApp.house.facebook">Facebook</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('zalo')}>
-                    <Translate contentKey="studentexchangeApp.house.zalo">Zalo</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('statusType')}>
-                    <Translate contentKey="studentexchangeApp.house.statusType">Status Type</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('googleId')}>
-                    <Translate contentKey="studentexchangeApp.house.googleId">Google Id</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('latitude')}>
-                    <Translate contentKey="studentexchangeApp.house.latitude">Latitude</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('longitude')}>
-                    <Translate contentKey="studentexchangeApp.house.longitude">Longitude</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('createAt')}>
-                    <Translate contentKey="studentexchangeApp.house.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={this.sort('updateAt')}>
-                    <Translate contentKey="studentexchangeApp.house.updateAt">Update At</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.house.city">City</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.house.district">District</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.house.ward">Ward</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.house.project">Project</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.house.createBy">Create By</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="studentexchangeApp.house.updateBy">Update By</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-                {houseList.map((house, i) => (
-                  <tr key={`entity-${i}`}>
-                    <td>
-                      <Button tag={Link} to={`${match.url}/${house.id}`} color="link" size="sm">
-                        {house.id}
-                      </Button>
-                    </td>
-                    <td>
-                      {house.avatar ? (
-                        <div>
-                          <a onClick={openFile(house.avatarContentType, house.avatar)}>
-                            <img src={`data:${house.avatarContentType};base64,${house.avatar}`} style={{ maxHeight: '30px' }} />
-                            &nbsp;
-                          </a>
-                          <span>
-                            {house.avatarContentType}, {byteSize(house.avatar)}
-                          </span>
-                        </div>
-                      ) : null}
-                    </td>
-                    <td>{house.avatarLink}</td>
-                    <td>
-                      <Translate contentKey={`studentexchangeApp.UserActionType.${house.actionType}`} />
-                    </td>
-                    <td>{house.address}</td>
-                    <td>{house.money}</td>
-                    <td>{house.acreage}</td>
-                    <td>{house.acreageStreetSide}</td>
-                    <td>{house.discount}</td>
-                    <td>
-                      <Translate contentKey={`studentexchangeApp.DirectionType.${house.direction}`} />
-                    </td>
-                    <td>
-                      <Translate contentKey={`studentexchangeApp.DirectionType.${house.directionBalcony}`} />
-                    </td>
-                    <td>{house.floor}</td>
-                    <td>{house.numberOfFloor}</td>
-                    <td>{house.bathRoom}</td>
-                    <td>{house.bedRoom}</td>
-                    <td>{house.parking ? 'true' : 'false'}</td>
-                    <td>{house.summary}</td>
-                    <td>
-                      <Translate contentKey={`studentexchangeApp.LandType.${house.landType}`} />
-                    </td>
-                    <td>
-                      <Translate contentKey={`studentexchangeApp.SaleType.${house.saleType}`} />
-                    </td>
-                    <td>{house.fee}</td>
-                    <td>{house.feeMax}</td>
-                    <td>
-                      <Translate contentKey={`studentexchangeApp.PresentType.${house.present}`} />
-                    </td>
-                    <td>{house.hits}</td>
-                    <td>{house.customer}</td>
-                    <td>{house.mobile}</td>
-                    <td>{house.email}</td>
-                    <td>{house.facebook}</td>
-                    <td>{house.zalo}</td>
-                    <td>
-                      <Translate contentKey={`studentexchangeApp.StatusType.${house.statusType}`} />
-                    </td>
-                    <td>{house.googleId}</td>
-                    <td>{house.latitude}</td>
-                    <td>{house.longitude}</td>
-                    <td>
-                      <TextFormat type="date" value={house.createAt} format={APP_LOCAL_DATE_FORMAT} />
-                    </td>
-                    <td>
-                      <TextFormat type="date" value={house.updateAt} format={APP_LOCAL_DATE_FORMAT} />
-                    </td>
-                    <td>{house.cityName ? <Link to={`city/${house.cityId}`}>{house.cityName}</Link> : ''}</td>
-                    <td>{house.districtName ? <Link to={`district/${house.districtId}`}>{house.districtName}</Link> : ''}</td>
-                    <td>{house.wardName ? <Link to={`ward/${house.wardId}`}>{house.wardName}</Link> : ''}</td>
-                    <td>{house.projectName ? <Link to={`land-project/${house.projectId}`}>{house.projectName}</Link> : ''}</td>
-                    <td>{house.createByLogin ? house.createByLogin : ''}</td>
-                    <td>{house.updateByLogin ? house.updateByLogin : ''}</td>
-                    <td className="text-right">
-                      <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`${match.url}/${house.id}`} color="info" size="sm">
-                          <FontAwesomeIcon icon="eye" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.view">View</Translate>
-                          </span>
+      <Row>
+        <SearchPage location={this.props.location} history={this.props.history} />
+        <Container>
+          <Row>
+            <Col md="12">
+              {this.props.loading || this.props.updating ? (
+                <Loading />
+              ) : (
+                <Row>
+                  <Card title="Danh sách tin đăng">
+                    <Row style={{ marginBottom: 20 }}>
+                      <Container>
+                        {this.actionTypeForm()}
+                        {this.landTypeForm()}
+                        {this.saleTypeForm()}
+                        {this.statusForm()}
+                        {this.keywordForm()}
+                        <Button onClick={this.searchClick} style={{ marginRight: 2 }} type="primary">
+                          <FontAwesomeIcon icon="search" />
+                          Tìm kiếm
                         </Button>
-                        <Button tag={Link} to={`${match.url}/${house.id}/edit`} color="primary" size="sm">
-                          <FontAwesomeIcon icon="pencil-alt" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.edit">Edit</Translate>
-                          </span>
+                        <Button onClick={this.clearSearchClick}>
+                          <FontAwesomeIcon icon="trash" />
                         </Button>
-                        <Button tag={Link} to={`${match.url}/${house.id}/delete`} color="danger" size="sm">
-                          <FontAwesomeIcon icon="trash" />{' '}
-                          <span className="d-none d-md-inline">
-                            <Translate contentKey="entity.action.delete">Delete</Translate>
-                          </span>
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
-          <Row className="justify-content-center">
-            <JhiPagination
-              items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
-              activePage={this.state.activePage}
-              onSelect={this.handlePagination}
-              maxButtons={5}
-            />
+                      </Container>
+                    </Row>
+                    <Table responsive striped>
+                      <thead>
+                        <tr>
+                          <th>
+                            <Translate contentKey="landexpApp.house.actionType">Action Type</Translate>
+                          </th>
+                          <th>
+                            <Translate contentKey="landexpApp.house.landType">Land Type</Translate>
+                          </th>
+                          <th>
+                            <Translate contentKey="landexpApp.house.money">Money</Translate>
+                          </th>
+                          <th>
+                            <Translate contentKey="landexpApp.house.city">City</Translate>
+                          </th>
+                          <th>
+                            <Translate contentKey="landexpApp.house.district">District</Translate>
+                          </th>
+                          <th>
+                            <Translate contentKey="landexpApp.house.saleType">Sale Type</Translate>
+                          </th>
+                          <th>
+                            <Translate contentKey="landexpApp.house.statusType">Status Type</Translate>
+                          </th>
+                          <th>
+                            <Translate contentKey="landexpApp.house.mobile">Mobile</Translate>
+                          </th>
+                          <th />
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {houseList.map((house, i) => (
+                          <tr key={`entity-${i}`}>
+                            <td>{house.actionType === 'FOR_SELL' ? 'Bán' : 'Cho thuê'}</td>
+                            <td>{getLandType(house.landType)}</td>
+                            <td>{new Intl.NumberFormat().format(house.money)} VNĐ</td>
+                            <td>{house.cityName}</td>
+                            <td>{house.districtName}</td>
+                            <td>{getSaleType(house.saleType)}</td>
+                            {house.statusType === 'PAID' ? (
+                              <td style={{ color: 'green' }}>
+                                <strong>{getStatusType(house.statusType)}</strong>
+                              </td>
+                            ) : (
+                              <td style={{ color: 'red' }}>
+                                <strong>{getStatusType(house.statusType)}</strong>
+                              </td>
+                            )}
+                            <td>{house.mobile}</td>
+                            <td className="text-right">
+                              <div className="btn-group flex-btn-group-container">
+                                <Button onClick={this.gotoView.bind(this, house.id)}>
+                                  <FontAwesomeIcon icon="eye" />{' '}
+                                  <span className="d-none d-md-inline">
+                                    <Translate contentKey="entity.action.view">View</Translate>
+                                  </span>
+                                </Button>
+                                <Button onClick={this.gotoEdit.bind(this, house.id)} type="primary">
+                                  <FontAwesomeIcon icon="pencil-alt" />{' '}
+                                  <span className="d-none d-md-inline">
+                                    <Translate contentKey="entity.action.edit">Edit</Translate>
+                                  </span>
+                                </Button>
+                                {this.props.isManager && house.statusType !== 'PAID' ? (
+                                  <Button onClick={this.showDeleteConfirm.bind(this, house.id)} type="danger">
+                                    <FontAwesomeIcon icon="trash" />{' '}
+                                    <span className="d-none d-md-inline">
+                                      <Translate contentKey="entity.action.delete">Delete</Translate>
+                                    </span>
+                                  </Button>
+                                ) : (
+                                  ''
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                    {this.state.showDelete ? (
+                      <Modal
+                        title="Bạn có muốn xoá tin đăng này?"
+                        visible={this.state.showDelete}
+                        okText="Xóa"
+                        okType="danger"
+                        cancelText="Hủy"
+                        onOk={this.handleDeleteOk.bind(this, this.state.houseId)}
+                        onCancel={this.handleDeleteCancel}
+                      >
+                        <p>Hãy xác nhận lại thông tin trước khi thực hiện hành động xoá</p>
+                      </Modal>
+                    ) : (
+                      ''
+                    )}
+                    <Row className="justify-content-center">
+                      <JhiPagination
+                        items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
+                        activePage={this.state.activePage}
+                        onSelect={this.handlePagination}
+                        maxButtons={5}
+                      />
+                    </Row>
+                  </Card>
+                </Row>
+              )}
+            </Col>
           </Row>
-        </div>
-      </div>
+        </Container>
+      </Row>
     );
   }
 }
 
-const mapStateToProps = ({ house }: IRootState) => ({
+const mapStateToProps = ({ house, authentication }: IRootState) => ({
+  isManager: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.MANAGER]),
+  loading: house.loading,
+  updating: house.updating,
   houseList: house.entities,
   totalItems: house.totalItems
 });
 
 const mapDispatchToProps = {
-  getEntities
+  getHouses,
+  getEntities,
+  getItemEntities,
+  getStaffEntities,
+  deleteEntity
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;

@@ -25,25 +25,25 @@ export class PotentialCustomerDetail extends React.Component<IPotentialCustomerD
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="studentexchangeApp.potentialCustomer.detail.title">PotentialCustomer</Translate> [
+            <Translate contentKey="landexpApp.potentialCustomer.detail.title">PotentialCustomer</Translate> [
             <b>{potentialCustomerEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="level">
-                <Translate contentKey="studentexchangeApp.potentialCustomer.level">Level</Translate>
+                <Translate contentKey="landexpApp.potentialCustomer.level">Level</Translate>
               </span>
             </dt>
             <dd>{potentialCustomerEntity.level}</dd>
             <dt>
               <span id="description">
-                <Translate contentKey="studentexchangeApp.potentialCustomer.description">Description</Translate>
+                <Translate contentKey="landexpApp.potentialCustomer.description">Description</Translate>
               </span>
             </dt>
             <dd>{potentialCustomerEntity.description}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.potentialCustomer.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.potentialCustomer.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
@@ -51,22 +51,22 @@ export class PotentialCustomerDetail extends React.Component<IPotentialCustomerD
             </dd>
             <dt>
               <span id="updateAt">
-                <Translate contentKey="studentexchangeApp.potentialCustomer.updateAt">Update At</Translate>
+                <Translate contentKey="landexpApp.potentialCustomer.updateAt">Update At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={potentialCustomerEntity.updateAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.potentialCustomer.customer">Customer</Translate>
+              <Translate contentKey="landexpApp.potentialCustomer.customer">Customer</Translate>
             </dt>
             <dd>{potentialCustomerEntity.customerLogin ? potentialCustomerEntity.customerLogin : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.potentialCustomer.createBy">Create By</Translate>
+              <Translate contentKey="landexpApp.potentialCustomer.createBy">Create By</Translate>
             </dt>
             <dd>{potentialCustomerEntity.createByLogin ? potentialCustomerEntity.createByLogin : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.potentialCustomer.updateBy">Update By</Translate>
+              <Translate contentKey="landexpApp.potentialCustomer.updateBy">Update By</Translate>
             </dt>
             <dd>{potentialCustomerEntity.updateByLogin ? potentialCustomerEntity.updateByLogin : ''}</dd>
           </dl>

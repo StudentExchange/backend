@@ -63,11 +63,11 @@ export class HousePhoto extends React.Component<IHousePhotoProps, IHousePhotoSta
     return (
       <div>
         <h2 id="house-photo-heading">
-          <Translate contentKey="studentexchangeApp.housePhoto.home.title">House Photos</Translate>
+          <Translate contentKey="landexpApp.housePhoto.home.title">House Photos</Translate>
           <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="studentexchangeApp.housePhoto.home.createLabel">Create new House Photo</Translate>
+            <Translate contentKey="landexpApp.housePhoto.home.createLabel">Create new House Photo</Translate>
           </Link>
         </h2>
         <div className="table-responsive">
@@ -78,28 +78,28 @@ export class HousePhoto extends React.Component<IHousePhotoProps, IHousePhotoSta
                   <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('image')}>
-                  <Translate contentKey="studentexchangeApp.housePhoto.image">Image</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.housePhoto.image">Image</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('mobileLink')}>
-                  <Translate contentKey="studentexchangeApp.housePhoto.mobileLink">Mobile Link</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.housePhoto.mobileLink">Mobile Link</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('webLink')}>
-                  <Translate contentKey="studentexchangeApp.housePhoto.webLink">Web Link</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.housePhoto.webLink">Web Link</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('enabled')}>
-                  <Translate contentKey="studentexchangeApp.housePhoto.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.housePhoto.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('createAt')}>
-                  <Translate contentKey="studentexchangeApp.housePhoto.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.housePhoto.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.housePhoto.house">House</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.housePhoto.house">House</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.housePhoto.createBy">Create By</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.housePhoto.createBy">Create By</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.housePhoto.updateBy">Update By</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.housePhoto.updateBy">Update By</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>

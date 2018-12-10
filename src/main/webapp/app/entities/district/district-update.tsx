@@ -80,7 +80,7 @@ export class DistrictUpdate extends React.Component<IDistrictUpdateProps, IDistr
     const id = element.target.value.toString();
     if (id === '') {
       this.setState({
-        regionId: -1
+        regionId: '-1'
       });
     } else {
       for (const i in this.props.regions) {
@@ -97,7 +97,7 @@ export class DistrictUpdate extends React.Component<IDistrictUpdateProps, IDistr
     const id = element.target.value.toString();
     if (id === '') {
       this.setState({
-        cityId: -1
+        cityId: '-1'
       });
     } else {
       for (const i in this.props.cities) {

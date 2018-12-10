@@ -80,10 +80,8 @@ export class PotentialCustomerUpdate extends React.Component<IPotentialCustomerU
       <div>
         <Row className="justify-content-center">
           <Col md="8">
-            <h2 id="studentexchangeApp.potentialCustomer.home.createOrEditLabel">
-              <Translate contentKey="studentexchangeApp.potentialCustomer.home.createOrEditLabel">
-                Create or edit a PotentialCustomer
-              </Translate>
+            <h2 id="landexpApp.potentialCustomer.home.createOrEditLabel">
+              <Translate contentKey="landexpApp.potentialCustomer.home.createOrEditLabel">Create or edit a PotentialCustomer</Translate>
             </h2>
           </Col>
         </Row>
@@ -103,7 +101,7 @@ export class PotentialCustomerUpdate extends React.Component<IPotentialCustomerU
                 ) : null}
                 <AvGroup>
                   <Label id="levelLabel">
-                    <Translate contentKey="studentexchangeApp.potentialCustomer.level">Level</Translate>
+                    <Translate contentKey="landexpApp.potentialCustomer.level">Level</Translate>
                   </Label>
                   <AvInput
                     id="potential-customer-level"
@@ -113,40 +111,40 @@ export class PotentialCustomerUpdate extends React.Component<IPotentialCustomerU
                     value={(!isNew && potentialCustomerEntity.level) || 'NORMAL'}
                   >
                     <option value="NORMAL">
-                      <Translate contentKey="studentexchangeApp.CustomerLevel.NORMAL" />
+                      <Translate contentKey="landexpApp.CustomerLevel.NORMAL" />
                     </option>
                     <option value="SILVER">
-                      <Translate contentKey="studentexchangeApp.CustomerLevel.SILVER" />
+                      <Translate contentKey="landexpApp.CustomerLevel.SILVER" />
                     </option>
                     <option value="GOLD">
-                      <Translate contentKey="studentexchangeApp.CustomerLevel.GOLD" />
+                      <Translate contentKey="landexpApp.CustomerLevel.GOLD" />
                     </option>
                     <option value="PLATINUM">
-                      <Translate contentKey="studentexchangeApp.CustomerLevel.PLATINUM" />
+                      <Translate contentKey="landexpApp.CustomerLevel.PLATINUM" />
                     </option>
                   </AvInput>
                 </AvGroup>
                 <AvGroup>
                   <Label id="descriptionLabel" for="description">
-                    <Translate contentKey="studentexchangeApp.potentialCustomer.description">Description</Translate>
+                    <Translate contentKey="landexpApp.potentialCustomer.description">Description</Translate>
                   </Label>
                   <AvField id="potential-customer-description" type="text" name="description" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="createAtLabel" for="createAt">
-                    <Translate contentKey="studentexchangeApp.potentialCustomer.createAt">Create At</Translate>
+                    <Translate contentKey="landexpApp.potentialCustomer.createAt">Create At</Translate>
                   </Label>
                   <AvField id="potential-customer-createAt" type="date" className="form-control" name="createAt" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="updateAtLabel" for="updateAt">
-                    <Translate contentKey="studentexchangeApp.potentialCustomer.updateAt">Update At</Translate>
+                    <Translate contentKey="landexpApp.potentialCustomer.updateAt">Update At</Translate>
                   </Label>
                   <AvField id="potential-customer-updateAt" type="date" className="form-control" name="updateAt" />
                 </AvGroup>
                 <AvGroup>
                   <Label for="customer.login">
-                    <Translate contentKey="studentexchangeApp.potentialCustomer.customer">Customer</Translate>
+                    <Translate contentKey="landexpApp.potentialCustomer.customer">Customer</Translate>
                   </Label>
                   <AvInput id="potential-customer-customer" type="select" className="form-control" name="customerId">
                     <option value="" key="0" />
@@ -161,7 +159,7 @@ export class PotentialCustomerUpdate extends React.Component<IPotentialCustomerU
                 </AvGroup>
                 <AvGroup>
                   <Label for="createBy.login">
-                    <Translate contentKey="studentexchangeApp.potentialCustomer.createBy">Create By</Translate>
+                    <Translate contentKey="landexpApp.potentialCustomer.createBy">Create By</Translate>
                   </Label>
                   <AvInput id="potential-customer-createBy" type="select" className="form-control" name="createById">
                     <option value="" key="0" />
@@ -176,7 +174,7 @@ export class PotentialCustomerUpdate extends React.Component<IPotentialCustomerU
                 </AvGroup>
                 <AvGroup>
                   <Label for="updateBy.login">
-                    <Translate contentKey="studentexchangeApp.potentialCustomer.updateBy">Update By</Translate>
+                    <Translate contentKey="landexpApp.potentialCustomer.updateBy">Update By</Translate>
                   </Label>
                   <AvInput id="potential-customer-updateBy" type="select" className="form-control" name="updateById">
                     <option value="" key="0" />

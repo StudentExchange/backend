@@ -22,3 +22,14 @@ export const cleanEntity = entity => {
  */
 export const mapIdList = (idList: ReadonlyArray<any>) =>
   idList.filter((entityId: any) => entityId !== '').map((entityId: any) => ({ id: entityId }));
+
+/**
+ * Will return a list of values according to the given keys.
+ * This function is used to get a values in Many-to-many relations.
+ *
+ * @param keyList Keys.
+ * @param data Array that contains the values.
+ * @param fieldName Name of the field that contains the key in the value.
+ */
+export const keysToValues = (keyList: ReadonlyArray<any>, data: ReadonlyArray<any>, fieldName: string) =>
+  keyList.map((k: any) => data.find((e: any) => e[fieldName] === k));

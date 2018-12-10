@@ -93,8 +93,8 @@ export class HousePhotoUpdate extends React.Component<IHousePhotoUpdateProps, IH
       <div>
         <Row className="justify-content-center">
           <Col md="8">
-            <h2 id="studentexchangeApp.housePhoto.home.createOrEditLabel">
-              <Translate contentKey="studentexchangeApp.housePhoto.home.createOrEditLabel">Create or edit a HousePhoto</Translate>
+            <h2 id="landexpApp.housePhoto.home.createOrEditLabel">
+              <Translate contentKey="landexpApp.housePhoto.home.createOrEditLabel">Create or edit a HousePhoto</Translate>
             </h2>
           </Col>
         </Row>
@@ -115,7 +115,7 @@ export class HousePhotoUpdate extends React.Component<IHousePhotoUpdateProps, IH
                 <AvGroup>
                   <AvGroup>
                     <Label id="imageLabel" for="image">
-                      <Translate contentKey="studentexchangeApp.housePhoto.image">Image</Translate>
+                      <Translate contentKey="landexpApp.housePhoto.image">Image</Translate>
                     </Label>
                     <br />
                     {image ? (
@@ -144,31 +144,31 @@ export class HousePhotoUpdate extends React.Component<IHousePhotoUpdateProps, IH
                 </AvGroup>
                 <AvGroup>
                   <Label id="mobileLinkLabel" for="mobileLink">
-                    <Translate contentKey="studentexchangeApp.housePhoto.mobileLink">Mobile Link</Translate>
+                    <Translate contentKey="landexpApp.housePhoto.mobileLink">Mobile Link</Translate>
                   </Label>
                   <AvField id="house-photo-mobileLink" type="text" name="mobileLink" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="webLinkLabel" for="webLink">
-                    <Translate contentKey="studentexchangeApp.housePhoto.webLink">Web Link</Translate>
+                    <Translate contentKey="landexpApp.housePhoto.webLink">Web Link</Translate>
                   </Label>
                   <AvField id="house-photo-webLink" type="text" name="webLink" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="enabledLabel" check>
                     <AvInput id="house-photo-enabled" type="checkbox" className="form-control" name="enabled" />
-                    <Translate contentKey="studentexchangeApp.housePhoto.enabled">Enabled</Translate>
+                    <Translate contentKey="landexpApp.housePhoto.enabled">Enabled</Translate>
                   </Label>
                 </AvGroup>
                 <AvGroup>
                   <Label id="createAtLabel" for="createAt">
-                    <Translate contentKey="studentexchangeApp.housePhoto.createAt">Create At</Translate>
+                    <Translate contentKey="landexpApp.housePhoto.createAt">Create At</Translate>
                   </Label>
                   <AvField id="house-photo-createAt" type="date" className="form-control" name="createAt" />
                 </AvGroup>
                 <AvGroup>
                   <Label for="house.id">
-                    <Translate contentKey="studentexchangeApp.housePhoto.house">House</Translate>
+                    <Translate contentKey="landexpApp.housePhoto.house">House</Translate>
                   </Label>
                   <AvInput id="house-photo-house" type="select" className="form-control" name="houseId">
                     <option value="" key="0" />
@@ -183,7 +183,7 @@ export class HousePhotoUpdate extends React.Component<IHousePhotoUpdateProps, IH
                 </AvGroup>
                 <AvGroup>
                   <Label for="createBy.login">
-                    <Translate contentKey="studentexchangeApp.housePhoto.createBy">Create By</Translate>
+                    <Translate contentKey="landexpApp.housePhoto.createBy">Create By</Translate>
                   </Label>
                   <AvInput id="house-photo-createBy" type="select" className="form-control" name="createById">
                     <option value="" key="0" />
@@ -198,7 +198,7 @@ export class HousePhotoUpdate extends React.Component<IHousePhotoUpdateProps, IH
                 </AvGroup>
                 <AvGroup>
                   <Label for="updateBy.login">
-                    <Translate contentKey="studentexchangeApp.housePhoto.updateBy">Update By</Translate>
+                    <Translate contentKey="landexpApp.housePhoto.updateBy">Update By</Translate>
                   </Label>
                   <AvInput id="house-photo-updateBy" type="select" className="form-control" name="updateById">
                     <option value="" key="0" />

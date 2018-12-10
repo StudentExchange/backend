@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction } from 'react-jhipster';
+import { ICrudSearchAction, ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction } from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
 import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
@@ -36,6 +36,7 @@ export default (state: HousePhotoState = initialState, action): HousePhotoState 
     case REQUEST(ACTION_TYPES.FETCH_HOUSEPHOTO):
       return {
         ...state,
+        entities: [],
         errorMessage: null,
         updateSuccess: false,
         loading: true
@@ -124,6 +125,14 @@ export const getEntity: ICrudGetAction<IHousePhoto> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {
     type: ACTION_TYPES.FETCH_HOUSEPHOTO,
+    payload: axios.get<IHousePhoto>(requestUrl)
+  };
+};
+
+export const getImageOfHouse: ICrudGetAllAction<IHousePhoto> = id => {
+  const requestUrl = `${apiUrl}/${id}/houses`;
+  return {
+    type: ACTION_TYPES.FETCH_HOUSEPHOTO_LIST,
     payload: axios.get<IHousePhoto>(requestUrl)
   };
 };

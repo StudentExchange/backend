@@ -61,11 +61,11 @@ export class PotentialCustomer extends React.Component<IPotentialCustomerProps, 
     return (
       <div>
         <h2 id="potential-customer-heading">
-          <Translate contentKey="studentexchangeApp.potentialCustomer.home.title">Potential Customers</Translate>
+          <Translate contentKey="landexpApp.potentialCustomer.home.title">Potential Customers</Translate>
           <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="studentexchangeApp.potentialCustomer.home.createLabel">Create new Potential Customer</Translate>
+            <Translate contentKey="landexpApp.potentialCustomer.home.createLabel">Create new Potential Customer</Translate>
           </Link>
         </h2>
         <div className="table-responsive">
@@ -76,30 +76,25 @@ export class PotentialCustomer extends React.Component<IPotentialCustomerProps, 
                   <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('level')}>
-                  <Translate contentKey="studentexchangeApp.potentialCustomer.level">Level</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.potentialCustomer.level">Level</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('description')}>
-                  <Translate contentKey="studentexchangeApp.potentialCustomer.description">Description</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.potentialCustomer.description">Description</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('createAt')}>
-                  <Translate contentKey="studentexchangeApp.potentialCustomer.createAt">Create At</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.potentialCustomer.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('updateAt')}>
-                  <Translate contentKey="studentexchangeApp.potentialCustomer.updateAt">Update At</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.potentialCustomer.updateAt">Update At</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.potentialCustomer.customer">Customer</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.potentialCustomer.customer">Customer</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.potentialCustomer.createBy">Create By</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.potentialCustomer.createBy">Create By</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.potentialCustomer.updateBy">Update By</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.potentialCustomer.updateBy">Update By</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -113,7 +108,7 @@ export class PotentialCustomer extends React.Component<IPotentialCustomerProps, 
                     </Button>
                   </td>
                   <td>
-                    <Translate contentKey={`studentexchangeApp.CustomerLevel.${potentialCustomer.level}`} />
+                    <Translate contentKey={`landexpApp.CustomerLevel.${potentialCustomer.level}`} />
                   </td>
                   <td>{potentialCustomer.description}</td>
                   <td>

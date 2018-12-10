@@ -215,8 +215,8 @@ export class Sidebar extends React.Component<ISidebarProps> {
               </Link>
             </li>
             {this.userMenu()}
-            {isStaff || isManager ? this.staffMenu() : ''}
-            {isManager ? this.managerMenu() : ''}
+            {isStaff || isManager || isAdmin ? this.staffMenu() : ''}
+            {isManager || isAdmin ? this.managerMenu() : ''}
             {isAdmin ? this.adminMenu() : ''}
           </ul>
         </div>

@@ -25,91 +25,91 @@ export class UserSubscriptionDetail extends React.Component<IUserSubscriptionDet
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="studentexchangeApp.userSubscription.detail.title">UserSubscription</Translate> [
+            <Translate contentKey="landexpApp.userSubscription.detail.title">UserSubscription</Translate> [
             <b>{userSubscriptionEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="actionType">
-                <Translate contentKey="studentexchangeApp.userSubscription.actionType">Action Type</Translate>
+                <Translate contentKey="landexpApp.userSubscription.actionType">Action Type</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.actionType}</dd>
             <dt>
               <span id="keyword">
-                <Translate contentKey="studentexchangeApp.userSubscription.keyword">Keyword</Translate>
+                <Translate contentKey="landexpApp.userSubscription.keyword">Keyword</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.keyword}</dd>
             <dt>
               <span id="costFrom">
-                <Translate contentKey="studentexchangeApp.userSubscription.costFrom">Cost From</Translate>
+                <Translate contentKey="landexpApp.userSubscription.costFrom">Cost From</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.costFrom}</dd>
             <dt>
               <span id="costTo">
-                <Translate contentKey="studentexchangeApp.userSubscription.costTo">Cost To</Translate>
+                <Translate contentKey="landexpApp.userSubscription.costTo">Cost To</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.costTo}</dd>
             <dt>
               <span id="acreageFrom">
-                <Translate contentKey="studentexchangeApp.userSubscription.acreageFrom">Acreage From</Translate>
+                <Translate contentKey="landexpApp.userSubscription.acreageFrom">Acreage From</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.acreageFrom}</dd>
             <dt>
               <span id="acreageTo">
-                <Translate contentKey="studentexchangeApp.userSubscription.acreageTo">Acreage To</Translate>
+                <Translate contentKey="landexpApp.userSubscription.acreageTo">Acreage To</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.acreageTo}</dd>
             <dt>
               <span id="direction">
-                <Translate contentKey="studentexchangeApp.userSubscription.direction">Direction</Translate>
+                <Translate contentKey="landexpApp.userSubscription.direction">Direction</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.direction}</dd>
             <dt>
               <span id="floor">
-                <Translate contentKey="studentexchangeApp.userSubscription.floor">Floor</Translate>
+                <Translate contentKey="landexpApp.userSubscription.floor">Floor</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.floor}</dd>
             <dt>
               <span id="bathRoom">
-                <Translate contentKey="studentexchangeApp.userSubscription.bathRoom">Bath Room</Translate>
+                <Translate contentKey="landexpApp.userSubscription.bathRoom">Bath Room</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.bathRoom}</dd>
             <dt>
               <span id="bedRoom">
-                <Translate contentKey="studentexchangeApp.userSubscription.bedRoom">Bed Room</Translate>
+                <Translate contentKey="landexpApp.userSubscription.bedRoom">Bed Room</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.bedRoom}</dd>
             <dt>
               <span id="parking">
-                <Translate contentKey="studentexchangeApp.userSubscription.parking">Parking</Translate>
+                <Translate contentKey="landexpApp.userSubscription.parking">Parking</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.parking ? 'true' : 'false'}</dd>
             <dt>
               <span id="landType">
-                <Translate contentKey="studentexchangeApp.userSubscription.landType">Land Type</Translate>
+                <Translate contentKey="landexpApp.userSubscription.landType">Land Type</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.landType}</dd>
             <dt>
               <span id="enabled">
-                <Translate contentKey="studentexchangeApp.userSubscription.enabled">Enabled</Translate>
+                <Translate contentKey="landexpApp.userSubscription.enabled">Enabled</Translate>
               </span>
             </dt>
             <dd>{userSubscriptionEntity.enabled ? 'true' : 'false'}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.userSubscription.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.userSubscription.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
@@ -117,22 +117,22 @@ export class UserSubscriptionDetail extends React.Component<IUserSubscriptionDet
             </dd>
             <dt>
               <span id="updateAt">
-                <Translate contentKey="studentexchangeApp.userSubscription.updateAt">Update At</Translate>
+                <Translate contentKey="landexpApp.userSubscription.updateAt">Update At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={userSubscriptionEntity.updateAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.userSubscription.user">User</Translate>
+              <Translate contentKey="landexpApp.userSubscription.user">User</Translate>
             </dt>
             <dd>{userSubscriptionEntity.userLogin ? userSubscriptionEntity.userLogin : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.userSubscription.city">City</Translate>
+              <Translate contentKey="landexpApp.userSubscription.city">City</Translate>
             </dt>
             <dd>{userSubscriptionEntity.cityName ? userSubscriptionEntity.cityName : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.userSubscription.district">District</Translate>
+              <Translate contentKey="landexpApp.userSubscription.district">District</Translate>
             </dt>
             <dd>{userSubscriptionEntity.districtName ? userSubscriptionEntity.districtName : ''}</dd>
           </dl>

@@ -53,11 +53,11 @@ export class UserFinancial extends React.Component<IUserFinancialProps, IUserFin
     return (
       <div>
         <h2 id="user-financial-heading">
-          <Translate contentKey="studentexchangeApp.userFinancial.home.title">User Financials</Translate>
+          <Translate contentKey="landexpApp.userFinancial.home.title">User Financials</Translate>
           <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="studentexchangeApp.userFinancial.home.createLabel">Create new User Financial</Translate>
+            <Translate contentKey="landexpApp.userFinancial.home.createLabel">Create new User Financial</Translate>
           </Link>
         </h2>
         <div className="table-responsive">
@@ -68,34 +68,31 @@ export class UserFinancial extends React.Component<IUserFinancialProps, IUserFin
                   <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('housePrice')}>
-                  <Translate contentKey="studentexchangeApp.userFinancial.housePrice">House Price</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userFinancial.housePrice">House Price</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('savingMoney')}>
-                  <Translate contentKey="studentexchangeApp.userFinancial.savingMoney">Saving Money</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userFinancial.savingMoney">Saving Money</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('loanRate')}>
-                  <Translate contentKey="studentexchangeApp.userFinancial.loanRate">Loan Rate</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userFinancial.loanRate">Loan Rate</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('loanFromPeople')}>
-                  <Translate contentKey="studentexchangeApp.userFinancial.loanFromPeople">Loan From People</Translate>{' '}
+                  <Translate contentKey="landexpApp.userFinancial.loanFromPeople">Loan From People</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('customerMoneyHave')}>
-                  <Translate contentKey="studentexchangeApp.userFinancial.customerMoneyHave">Customer Money Have</Translate>{' '}
+                  <Translate contentKey="landexpApp.userFinancial.customerMoneyHave">Customer Money Have</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('customerMobile')}>
-                  <Translate contentKey="studentexchangeApp.userFinancial.customerMobile">Customer Mobile</Translate>{' '}
+                  <Translate contentKey="landexpApp.userFinancial.customerMobile">Customer Mobile</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('customerEmail')}>
-                  <Translate contentKey="studentexchangeApp.userFinancial.customerEmail">Customer Email</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userFinancial.customerEmail">Customer Email</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.userFinancial.user">User</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userFinancial.user">User</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>

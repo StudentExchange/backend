@@ -25,12 +25,12 @@ export class HousePhotoDetail extends React.Component<IHousePhotoDetailProps> {
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="studentexchangeApp.housePhoto.detail.title">HousePhoto</Translate> [<b>{housePhotoEntity.id}</b>]
+            <Translate contentKey="landexpApp.housePhoto.detail.title">HousePhoto</Translate> [<b>{housePhotoEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="image">
-                <Translate contentKey="studentexchangeApp.housePhoto.image">Image</Translate>
+                <Translate contentKey="landexpApp.housePhoto.image">Image</Translate>
               </span>
             </dt>
             <dd>
@@ -47,40 +47,40 @@ export class HousePhotoDetail extends React.Component<IHousePhotoDetailProps> {
             </dd>
             <dt>
               <span id="mobileLink">
-                <Translate contentKey="studentexchangeApp.housePhoto.mobileLink">Mobile Link</Translate>
+                <Translate contentKey="landexpApp.housePhoto.mobileLink">Mobile Link</Translate>
               </span>
             </dt>
             <dd>{housePhotoEntity.mobileLink}</dd>
             <dt>
               <span id="webLink">
-                <Translate contentKey="studentexchangeApp.housePhoto.webLink">Web Link</Translate>
+                <Translate contentKey="landexpApp.housePhoto.webLink">Web Link</Translate>
               </span>
             </dt>
             <dd>{housePhotoEntity.webLink}</dd>
             <dt>
               <span id="enabled">
-                <Translate contentKey="studentexchangeApp.housePhoto.enabled">Enabled</Translate>
+                <Translate contentKey="landexpApp.housePhoto.enabled">Enabled</Translate>
               </span>
             </dt>
             <dd>{housePhotoEntity.enabled ? 'true' : 'false'}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.housePhoto.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.housePhoto.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={housePhotoEntity.createAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.housePhoto.house">House</Translate>
+              <Translate contentKey="landexpApp.housePhoto.house">House</Translate>
             </dt>
             <dd>{housePhotoEntity.houseId ? housePhotoEntity.houseId : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.housePhoto.createBy">Create By</Translate>
+              <Translate contentKey="landexpApp.housePhoto.createBy">Create By</Translate>
             </dt>
             <dd>{housePhotoEntity.createByLogin ? housePhotoEntity.createByLogin : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.housePhoto.updateBy">Update By</Translate>
+              <Translate contentKey="landexpApp.housePhoto.updateBy">Update By</Translate>
             </dt>
             <dd>{housePhotoEntity.updateByLogin ? housePhotoEntity.updateByLogin : ''}</dd>
           </dl>

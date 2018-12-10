@@ -14,6 +14,7 @@ import { IRootState } from 'app/shared/reducers';
 import { getEntities } from './service-fee.reducer';
 import { IServiceFee } from 'app/shared/model/service-fee.model';
 // tslint:disable-next-line:no-unused-variable
+import { getSaleType } from 'app/shared/util/utils';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 
 export interface IServiceFeeProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}

@@ -33,8 +33,8 @@ export class PotentialCustomerDeleteDialog extends React.Component<IPotentialCus
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.potentialCustomer.delete.question">
-          <Translate contentKey="studentexchangeApp.potentialCustomer.delete.question" interpolate={{ id: potentialCustomerEntity.id }}>
+        <ModalBody id="landexpApp.potentialCustomer.delete.question">
+          <Translate contentKey="landexpApp.potentialCustomer.delete.question" interpolate={{ id: potentialCustomerEntity.id }}>
             Are you sure you want to delete this PotentialCustomer?
           </Translate>
         </ModalBody>

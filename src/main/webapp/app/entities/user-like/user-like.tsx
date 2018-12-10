@@ -24,11 +24,11 @@ export class UserLike extends React.Component<IUserLikeProps> {
     return (
       <div>
         <h2 id="user-like-heading">
-          <Translate contentKey="studentexchangeApp.userLike.home.title">User Likes</Translate>
+          <Translate contentKey="landexpApp.userLike.home.title">User Likes</Translate>
           <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="studentexchangeApp.userLike.home.createLabel">Create new User Like</Translate>
+            <Translate contentKey="landexpApp.userLike.home.createLabel">Create new User Like</Translate>
           </Link>
         </h2>
         <div className="table-responsive">
@@ -39,13 +39,13 @@ export class UserLike extends React.Component<IUserLikeProps> {
                   <Translate contentKey="global.field.id">ID</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.userLike.createAt">Create At</Translate>
+                  <Translate contentKey="landexpApp.userLike.createAt">Create At</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.userLike.house">House</Translate>
+                  <Translate contentKey="landexpApp.userLike.house">House</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.userLike.user">User</Translate>
+                  <Translate contentKey="landexpApp.userLike.user">User</Translate>
                 </th>
                 <th />
               </tr>

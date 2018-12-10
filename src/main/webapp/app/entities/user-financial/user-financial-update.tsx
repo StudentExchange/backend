@@ -76,8 +76,8 @@ export class UserFinancialUpdate extends React.Component<IUserFinancialUpdatePro
       <div>
         <Row className="justify-content-center">
           <Col md="8">
-            <h2 id="studentexchangeApp.userFinancial.home.createOrEditLabel">
-              <Translate contentKey="studentexchangeApp.userFinancial.home.createOrEditLabel">Create or edit a UserFinancial</Translate>
+            <h2 id="landexpApp.userFinancial.home.createOrEditLabel">
+              <Translate contentKey="landexpApp.userFinancial.home.createOrEditLabel">Create or edit a UserFinancial</Translate>
             </h2>
           </Col>
         </Row>
@@ -97,49 +97,49 @@ export class UserFinancialUpdate extends React.Component<IUserFinancialUpdatePro
                 ) : null}
                 <AvGroup>
                   <Label id="housePriceLabel" for="housePrice">
-                    <Translate contentKey="studentexchangeApp.userFinancial.housePrice">House Price</Translate>
+                    <Translate contentKey="landexpApp.userFinancial.housePrice">House Price</Translate>
                   </Label>
                   <AvField id="user-financial-housePrice" type="string" className="form-control" name="housePrice" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="savingMoneyLabel" for="savingMoney">
-                    <Translate contentKey="studentexchangeApp.userFinancial.savingMoney">Saving Money</Translate>
+                    <Translate contentKey="landexpApp.userFinancial.savingMoney">Saving Money</Translate>
                   </Label>
                   <AvField id="user-financial-savingMoney" type="string" className="form-control" name="savingMoney" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="loanRateLabel" for="loanRate">
-                    <Translate contentKey="studentexchangeApp.userFinancial.loanRate">Loan Rate</Translate>
+                    <Translate contentKey="landexpApp.userFinancial.loanRate">Loan Rate</Translate>
                   </Label>
                   <AvField id="user-financial-loanRate" type="string" className="form-control" name="loanRate" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="loanFromPeopleLabel" for="loanFromPeople">
-                    <Translate contentKey="studentexchangeApp.userFinancial.loanFromPeople">Loan From People</Translate>
+                    <Translate contentKey="landexpApp.userFinancial.loanFromPeople">Loan From People</Translate>
                   </Label>
                   <AvField id="user-financial-loanFromPeople" type="string" className="form-control" name="loanFromPeople" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="customerMoneyHaveLabel" for="customerMoneyHave">
-                    <Translate contentKey="studentexchangeApp.userFinancial.customerMoneyHave">Customer Money Have</Translate>
+                    <Translate contentKey="landexpApp.userFinancial.customerMoneyHave">Customer Money Have</Translate>
                   </Label>
                   <AvField id="user-financial-customerMoneyHave" type="string" className="form-control" name="customerMoneyHave" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="customerMobileLabel" for="customerMobile">
-                    <Translate contentKey="studentexchangeApp.userFinancial.customerMobile">Customer Mobile</Translate>
+                    <Translate contentKey="landexpApp.userFinancial.customerMobile">Customer Mobile</Translate>
                   </Label>
                   <AvField id="user-financial-customerMobile" type="text" name="customerMobile" />
                 </AvGroup>
                 <AvGroup>
                   <Label id="customerEmailLabel" for="customerEmail">
-                    <Translate contentKey="studentexchangeApp.userFinancial.customerEmail">Customer Email</Translate>
+                    <Translate contentKey="landexpApp.userFinancial.customerEmail">Customer Email</Translate>
                   </Label>
                   <AvField id="user-financial-customerEmail" type="text" name="customerEmail" />
                 </AvGroup>
                 <AvGroup>
                   <Label for="user.login">
-                    <Translate contentKey="studentexchangeApp.userFinancial.user">User</Translate>
+                    <Translate contentKey="landexpApp.userFinancial.user">User</Translate>
                   </Label>
                   <AvInput id="user-financial-user" type="select" className="form-control" name="userId">
                     <option value="" key="0" />

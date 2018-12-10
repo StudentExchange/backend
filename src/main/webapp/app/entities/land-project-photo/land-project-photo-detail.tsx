@@ -25,13 +25,13 @@ export class LandProjectPhotoDetail extends React.Component<ILandProjectPhotoDet
       <Row>
         <Col md="8">
           <h2>
-            <Translate contentKey="studentexchangeApp.landProjectPhoto.detail.title">LandProjectPhoto</Translate> [
+            <Translate contentKey="landexpApp.landProjectPhoto.detail.title">LandProjectPhoto</Translate> [
             <b>{landProjectPhotoEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="image">
-                <Translate contentKey="studentexchangeApp.landProjectPhoto.image">Image</Translate>
+                <Translate contentKey="landexpApp.landProjectPhoto.image">Image</Translate>
               </span>
             </dt>
             <dd>
@@ -51,22 +51,22 @@ export class LandProjectPhotoDetail extends React.Component<ILandProjectPhotoDet
             </dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.landProjectPhoto.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.landProjectPhoto.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={landProjectPhotoEntity.createAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.landProjectPhoto.landProject">Land Project</Translate>
+              <Translate contentKey="landexpApp.landProjectPhoto.landProject">Land Project</Translate>
             </dt>
             <dd>{landProjectPhotoEntity.landProjectId ? landProjectPhotoEntity.landProjectId : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.landProjectPhoto.createBy">Create By</Translate>
+              <Translate contentKey="landexpApp.landProjectPhoto.createBy">Create By</Translate>
             </dt>
             <dd>{landProjectPhotoEntity.createByLogin ? landProjectPhotoEntity.createByLogin : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.landProjectPhoto.updateBy">Update By</Translate>
+              <Translate contentKey="landexpApp.landProjectPhoto.updateBy">Update By</Translate>
             </dt>
             <dd>{landProjectPhotoEntity.updateByLogin ? landProjectPhotoEntity.updateByLogin : ''}</dd>
           </dl>

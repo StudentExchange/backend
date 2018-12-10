@@ -61,11 +61,11 @@ export class UserSubscription extends React.Component<IUserSubscriptionProps, IU
     return (
       <div>
         <h2 id="user-subscription-heading">
-          <Translate contentKey="studentexchangeApp.userSubscription.home.title">User Subscriptions</Translate>
+          <Translate contentKey="landexpApp.userSubscription.home.title">User Subscriptions</Translate>
           <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="studentexchangeApp.userSubscription.home.createLabel">Create new User Subscription</Translate>
+            <Translate contentKey="landexpApp.userSubscription.home.createLabel">Create new User Subscription</Translate>
           </Link>
         </h2>
         <div className="table-responsive">
@@ -76,62 +76,58 @@ export class UserSubscription extends React.Component<IUserSubscriptionProps, IU
                   <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('actionType')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.actionType">Action Type</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.actionType">Action Type</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('keyword')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.keyword">Keyword</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.keyword">Keyword</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('costFrom')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.costFrom">Cost From</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.costFrom">Cost From</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('costTo')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.costTo">Cost To</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.costTo">Cost To</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('acreageFrom')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.acreageFrom">Acreage From</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.acreageFrom">Acreage From</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('acreageTo')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.acreageTo">Acreage To</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.acreageTo">Acreage To</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('direction')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.direction">Direction</Translate>{' '}
-                  <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.direction">Direction</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('floor')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.floor">Floor</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.floor">Floor</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('bathRoom')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.bathRoom">Bath Room</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.bathRoom">Bath Room</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('bedRoom')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.bedRoom">Bed Room</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.bedRoom">Bed Room</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('parking')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.parking">Parking</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.parking">Parking</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('landType')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.landType">Land Type</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.landType">Land Type</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('enabled')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.enabled">Enabled</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('createAt')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.createAt">Create At</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('updateAt')}>
-                  <Translate contentKey="studentexchangeApp.userSubscription.updateAt">Update At</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.updateAt">Update At</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.userSubscription.user">User</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.user">User</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.userSubscription.city">City</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.city">City</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th>
-                  <Translate contentKey="studentexchangeApp.userSubscription.district">District</Translate> <FontAwesomeIcon icon="sort" />
+                  <Translate contentKey="landexpApp.userSubscription.district">District</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -145,7 +141,7 @@ export class UserSubscription extends React.Component<IUserSubscriptionProps, IU
                     </Button>
                   </td>
                   <td>
-                    <Translate contentKey={`studentexchangeApp.UserActionType.${userSubscription.actionType}`} />
+                    <Translate contentKey={`landexpApp.UserActionType.${userSubscription.actionType}`} />
                   </td>
                   <td>{userSubscription.keyword}</td>
                   <td>{userSubscription.costFrom}</td>
@@ -153,14 +149,14 @@ export class UserSubscription extends React.Component<IUserSubscriptionProps, IU
                   <td>{userSubscription.acreageFrom}</td>
                   <td>{userSubscription.acreageTo}</td>
                   <td>
-                    <Translate contentKey={`studentexchangeApp.DirectionType.${userSubscription.direction}`} />
+                    <Translate contentKey={`landexpApp.DirectionType.${userSubscription.direction}`} />
                   </td>
                   <td>{userSubscription.floor}</td>
                   <td>{userSubscription.bathRoom}</td>
                   <td>{userSubscription.bedRoom}</td>
                   <td>{userSubscription.parking ? 'true' : 'false'}</td>
                   <td>
-                    <Translate contentKey={`studentexchangeApp.LandType.${userSubscription.landType}`} />
+                    <Translate contentKey={`landexpApp.LandType.${userSubscription.landType}`} />
                   </td>
                   <td>{userSubscription.enabled ? 'true' : 'false'}</td>
                   <td>
