@@ -33,8 +33,8 @@ export class ArticleDeleteDialog extends React.Component<IArticleDeleteDialogPro
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.article.delete.question">
-          <Translate contentKey="studentexchangeApp.article.delete.question" interpolate={{ id: articleEntity.id }}>
+        <ModalBody id="landexpApp.article.delete.question">
+          <Translate contentKey="landexpApp.article.delete.question" interpolate={{ id: articleEntity.id }}>
             Are you sure you want to delete this Article?
           </Translate>
         </ModalBody>

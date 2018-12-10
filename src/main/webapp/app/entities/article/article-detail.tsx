@@ -30,12 +30,12 @@ export class ArticleDetail extends React.Component<IArticleDetailProps> {
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
-            <Translate contentKey="studentexchangeApp.article.detail.title">Article</Translate> [<b>{articleEntity.id}</b>]
+            <Translate contentKey="landexpApp.article.detail.title">Article</Translate> [<b>{articleEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="avatar">
-                <Translate contentKey="studentexchangeApp.article.avatar">Avatar</Translate>
+                <Translate contentKey="landexpApp.article.avatar">Avatar</Translate>
               </span>
             </dt>
             <dd>
@@ -52,37 +52,37 @@ export class ArticleDetail extends React.Component<IArticleDetailProps> {
             </dd>
             <dt>
               <span id="title">
-                <Translate contentKey="studentexchangeApp.article.title">Title</Translate>
+                <Translate contentKey="landexpApp.article.title">Title</Translate>
               </span>
             </dt>
             <dd>{articleEntity.title}</dd>
             <dt>
               <span id="summary">
-                <Translate contentKey="studentexchangeApp.article.summary">Summary</Translate>
+                <Translate contentKey="landexpApp.article.summary">Summary</Translate>
               </span>
             </dt>
             <dd>{articleEntity.summary}</dd>
             <dt>
               <span id="content">
-                <Translate contentKey="studentexchangeApp.article.content">Content</Translate>
+                <Translate contentKey="landexpApp.article.content">Content</Translate>
               </span>
             </dt>
             <dd>{articleEntity.content}</dd>
             <dt>
               <span id="statusType">
-                <Translate contentKey="studentexchangeApp.article.statusType">Status Type</Translate>
+                <Translate contentKey="landexpApp.article.statusType">Status Type</Translate>
               </span>
             </dt>
             <dd>{articleEntity.statusType}</dd>
             <dt>
               <span id="hits">
-                <Translate contentKey="studentexchangeApp.article.hits">Hits</Translate>
+                <Translate contentKey="landexpApp.article.hits">Hits</Translate>
               </span>
             </dt>
             <dd>{articleEntity.hits}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.article.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.article.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
@@ -90,22 +90,22 @@ export class ArticleDetail extends React.Component<IArticleDetailProps> {
             </dd>
             <dt>
               <span id="updateAt">
-                <Translate contentKey="studentexchangeApp.article.updateAt">Update At</Translate>
+                <Translate contentKey="landexpApp.article.updateAt">Update At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={articleEntity.updateAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.article.category">Category</Translate>
+              <Translate contentKey="landexpApp.article.category">Category</Translate>
             </dt>
             <dd>{articleEntity.categoryName ? articleEntity.categoryName : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.article.createBy">Create By</Translate>
+              <Translate contentKey="landexpApp.article.createBy">Create By</Translate>
             </dt>
             <dd>{articleEntity.createByLogin ? articleEntity.createByLogin : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.article.updateBy">Update By</Translate>
+              <Translate contentKey="landexpApp.article.updateBy">Update By</Translate>
             </dt>
             <dd>{articleEntity.updateByLogin ? articleEntity.updateByLogin : ''}</dd>
           </dl>
