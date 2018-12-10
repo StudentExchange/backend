@@ -30,30 +30,30 @@ export class CityDetail extends React.Component<ICityDetailProps> {
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
-            <Translate contentKey="studentexchangeApp.city.detail.title">City</Translate> [<b>{cityEntity.id}</b>]
+            <Translate contentKey="landexpApp.city.detail.title">City</Translate> [<b>{cityEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="name">
-                <Translate contentKey="studentexchangeApp.city.name">Name</Translate>
+                <Translate contentKey="landexpApp.city.name">Name</Translate>
               </span>
             </dt>
             <dd>{cityEntity.name}</dd>
             <dt>
               <span id="index">
-                <Translate contentKey="studentexchangeApp.city.index">Index</Translate>
+                <Translate contentKey="landexpApp.city.index">Index</Translate>
               </span>
             </dt>
             <dd>{cityEntity.index}</dd>
             <dt>
               <span id="enabled">
-                <Translate contentKey="studentexchangeApp.city.enabled">Enabled</Translate>
+                <Translate contentKey="landexpApp.city.enabled">Enabled</Translate>
               </span>
             </dt>
             <dd>{cityEntity.enabled ? 'true' : 'false'}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.city.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.city.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
@@ -61,7 +61,7 @@ export class CityDetail extends React.Component<ICityDetailProps> {
             </dd>
             <dt>
               <span id="updateAt">
-                <Translate contentKey="studentexchangeApp.city.updateAt">Update At</Translate>
+                <Translate contentKey="landexpApp.city.updateAt">Update At</Translate>
               </span>
             </dt>
             <dd>

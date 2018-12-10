@@ -33,8 +33,8 @@ export class CityDeleteDialog extends React.Component<ICityDeleteDialogProps> {
         <ModalHeader toggle={this.handleClose}>
           <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
         </ModalHeader>
-        <ModalBody id="studentexchangeApp.city.delete.question">
-          <Translate contentKey="studentexchangeApp.city.delete.question" interpolate={{ id: cityEntity.id }}>
+        <ModalBody id="landexpApp.city.delete.question">
+          <Translate contentKey="landexpApp.city.delete.question" interpolate={{ id: cityEntity.id }}>
             Are you sure you want to delete this City?
           </Translate>
         </ModalBody>

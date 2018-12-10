@@ -7,7 +7,7 @@ import { AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validatio
 import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
-
+import { Card } from 'antd';
 import Header from 'app/shared/layout/header/header';
 import Sidebar from 'app/shared/layout/sidebar/sidebar';
 
@@ -75,17 +75,8 @@ export class CityUpdate extends React.Component<ICityUpdateProps, ICityUpdateSta
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <Row className="justify-content-center">
-            <Col md="8">
-              <h2 id="studentexchangeApp.city.home.createOrEditLabel">
-                <Translate contentKey="studentexchangeApp.city.home.createOrEditLabel">Create or edit a City</Translate>
-              </h2>
-            </Col>
-          </Row>
-          <Row className="justify-content-center">
-            <Col md="8">
-              {loading ? (
-                <p>Loading...</p>
-              ) : (
+            <Card title="Thông tin tỉnh thành">
+              <Col md="12">
                 <AvForm model={isNew ? {} : cityEntity} onSubmit={this.saveEntity}>
                   {!isNew ? (
                     <AvGroup>
@@ -97,35 +88,23 @@ export class CityUpdate extends React.Component<ICityUpdateProps, ICityUpdateSta
                   ) : null}
                   <AvGroup>
                     <Label id="nameLabel" for="name">
-                      <Translate contentKey="studentexchangeApp.city.name">Name</Translate>
+                      <Translate contentKey="landexpApp.city.name">Name</Translate>
                     </Label>
                     <AvField id="city-name" type="text" name="name" />
                   </AvGroup>
                   <AvGroup>
                     <Label id="indexLabel" for="index">
-                      <Translate contentKey="studentexchangeApp.city.index">Index</Translate>
+                      <Translate contentKey="landexpApp.city.index">Index</Translate>
                     </Label>
-                    <AvField id="city-index" type="string" className="form-control" name="index" />
+                    <AvField id="city-index" type="number" className="form-control" name="index" />
                   </AvGroup>
                   <AvGroup>
                     <Label id="enabledLabel" check>
                       <AvInput id="city-enabled" type="checkbox" className="form-control" name="enabled" />
-                      <Translate contentKey="studentexchangeApp.city.enabled">Enabled</Translate>
+                      <Translate contentKey="landexpApp.city.enabled">Enabled</Translate>
                     </Label>
                   </AvGroup>
-                  <AvGroup>
-                    <Label id="createAtLabel" for="createAt">
-                      <Translate contentKey="studentexchangeApp.city.createAt">Create At</Translate>
-                    </Label>
-                    <AvField id="city-createAt" type="date" className="form-control" name="createAt" />
-                  </AvGroup>
-                  <AvGroup>
-                    <Label id="updateAtLabel" for="updateAt">
-                      <Translate contentKey="studentexchangeApp.city.updateAt">Update At</Translate>
-                    </Label>
-                    <AvField id="city-updateAt" type="date" className="form-control" name="updateAt" />
-                  </AvGroup>
-                  <Button tag={Link} id="cancel-save" to="/entity/city" replace color="info">
+                  <Button tag={Link} id="cancel-save" to="/quan-ly/tinh-thanh" replace color="info">
                     <FontAwesomeIcon icon="arrow-left" />
                     &nbsp;
                     <span className="d-none d-md-inline">
@@ -139,8 +118,8 @@ export class CityUpdate extends React.Component<ICityUpdateProps, ICityUpdateSta
                     <Translate contentKey="entity.action.save">Save</Translate>
                   </Button>
                 </AvForm>
-              )}
-            </Col>
+              </Col>
+            </Card>
           </Row>
         </div>
       </div>

@@ -67,67 +67,71 @@ export class Category extends React.Component<ICategoryProps, ICategoryState> {
         <Sidebar activeMenu="manager-management" activeSubMenu="category" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
-          <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
-            <FontAwesomeIcon icon="plus" />
-            &nbsp;
-            <Translate contentKey="landexpApp.category.home.createLabel">Create new Category</Translate>
-          </Link>
-          <Table style={{ marginTop: 20 }} responsive striped>
-            <thead>
-              <tr>
-                <th>
-                  <Translate contentKey="landexpApp.category.name">Name</Translate>
-                </th>
-                <th>Danh mục tin tức</th>
-                <th>Thứ tự hiển thị</th>
-                <th>
-                  <Translate contentKey="landexpApp.category.createAt">Create At</Translate>
-                </th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {categoryList.map((category, i) => (
-                <tr key={`entity-${i}`}>
-                  <td>{category.name}</td>
-                  <td>
-                    {category.enabled ? (
-                      <Icon type="check-square" style={{ color: 'green' }} />
-                    ) : (
-                      <Icon type="close-square" style={{ color: 'red' }} />
-                    )}
-                  </td>
-                  <td>{category.enabled ? category.index : 'Không hiển thị'}</td>
-                  <td>
-                    <TextFormat type="date" value={category.createAt} format={APP_LOCAL_DATE_FORMAT} />
-                  </td>
-                  <td className="text-right">
-                    <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`${match.url}/${category.id}/edit`} color="primary" size="sm">
-                        <FontAwesomeIcon icon="pencil-alt" />{' '}
-                        <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.edit">Edit</Translate>
-                        </span>
-                      </Button>
-                      <Button tag={Link} to={`${match.url}/${category.id}/delete`} color="danger" size="sm">
-                        <FontAwesomeIcon icon="trash" />{' '}
-                        <span className="d-none d-md-inline">
-                          <Translate contentKey="entity.action.delete">Delete</Translate>
-                        </span>
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-          <Row className="justify-content-center">
-            <JhiPagination
-              items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
-              activePage={this.state.activePage}
-              onSelect={this.handlePagination}
-              maxButtons={5}
-            />
+          <Row>
+            <Card title="Danh mục tin tức">
+              <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
+                <FontAwesomeIcon icon="plus" />
+                &nbsp;
+                <Translate contentKey="landexpApp.category.home.createLabel">Create new Category</Translate>
+              </Link>
+              <Table style={{ marginTop: 20 }} responsive striped>
+                <thead>
+                  <tr>
+                    <th>
+                      <Translate contentKey="landexpApp.category.name">Name</Translate>
+                    </th>
+                    <th>Danh mục tin tức</th>
+                    <th>Thứ tự hiển thị</th>
+                    <th>
+                      <Translate contentKey="landexpApp.category.createAt">Create At</Translate>
+                    </th>
+                    <th />
+                  </tr>
+                </thead>
+                <tbody>
+                  {categoryList.map((category, i) => (
+                    <tr key={`entity-${i}`}>
+                      <td>{category.name}</td>
+                      <td>
+                        {category.enabled ? (
+                          <Icon type="check-square" style={{ color: 'green' }} />
+                        ) : (
+                          <Icon type="close-square" style={{ color: 'red' }} />
+                        )}
+                      </td>
+                      <td>{category.enabled ? category.index : 'Không hiển thị'}</td>
+                      <td>
+                        <TextFormat type="date" value={category.createAt} format={APP_LOCAL_DATE_FORMAT} />
+                      </td>
+                      <td className="text-right">
+                        <div className="btn-group flex-btn-group-container">
+                          <Button tag={Link} to={`${match.url}/${category.id}/edit`} color="primary" size="sm">
+                            <FontAwesomeIcon icon="pencil-alt" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.edit">Edit</Translate>
+                            </span>
+                          </Button>
+                          <Button tag={Link} to={`${match.url}/${category.id}/delete`} color="danger" size="sm">
+                            <FontAwesomeIcon icon="trash" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.delete">Delete</Translate>
+                            </span>
+                          </Button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+              <Row className="justify-content-center">
+                <JhiPagination
+                  items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
+                  activePage={this.state.activePage}
+                  onSelect={this.handlePagination}
+                  maxButtons={5}
+                />
+              </Row>
+            </Card>
           </Row>
         </div>
       </div>
