@@ -109,8 +109,21 @@ export const getEntities: ICrudGetAllAction<IPayment> = (page, size, sort) => {
   };
 };
 
+export const getItemPayments: ICrudSearchAction<IPayment> = query => ({
+  type: ACTION_TYPES.FETCH_PAYMENT_LIST,
+  payload: axios.get<IPayment>(`${apiUrl}?${query}&sort=createAt,desc`)
+});
+
 export const getEntity: ICrudGetAction<IPayment> = id => {
   const requestUrl = `${apiUrl}/${id}`;
+  return {
+    type: ACTION_TYPES.FETCH_PAYMENT,
+    payload: axios.get<IPayment>(requestUrl)
+  };
+};
+
+export const getPaymentOfHouse: ICrudGetAction<IPayment> = id => {
+  const requestUrl = `${apiUrl}/${id}/houses`;
   return {
     type: ACTION_TYPES.FETCH_PAYMENT,
     payload: axios.get<IPayment>(requestUrl)
@@ -130,6 +143,16 @@ export const updateEntity: ICrudPutAction<IPayment> = entity => async dispatch =
   const result = await dispatch({
     type: ACTION_TYPES.UPDATE_PAYMENT,
     payload: axios.put(apiUrl, cleanEntity(entity))
+  });
+  dispatch(getEntities());
+  return result;
+};
+
+export const approvePayment: ICrudPutAction<IPayment> = id => async dispatch => {
+  const requestUrl = `${apiUrl}/${id}/approve`;
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_PAYMENT,
+    payload: axios.put(requestUrl)
   });
   dispatch(getEntities());
   return result;

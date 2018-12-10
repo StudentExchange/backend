@@ -80,6 +80,74 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
     this.props.history.push('/entity/payment');
   };
 
+  houseUpdate = element => {
+    const id = element.target.value.toString();
+    if (id === '') {
+      this.setState({
+        houseId: -1
+      });
+    } else {
+      for (const i in this.props.houses) {
+        if (id === this.props.houses[i].id.toString()) {
+          this.setState({
+            houseId: this.props.houses[i].id
+          });
+        }
+      }
+    }
+  };
+
+  customerUpdate = element => {
+    const login = element.target.value.toString();
+    if (login === '') {
+      this.setState({
+        customerId: -1
+      });
+    } else {
+      for (const i in this.props.users) {
+        if (login === this.props.users[i].login.toString()) {
+          this.setState({
+            customerId: this.props.users[i].id
+          });
+        }
+      }
+    }
+  };
+
+  createByUpdate = element => {
+    const login = element.target.value.toString();
+    if (login === '') {
+      this.setState({
+        createById: -1
+      });
+    } else {
+      for (const i in this.props.users) {
+        if (login === this.props.users[i].login.toString()) {
+          this.setState({
+            createById: this.props.users[i].id
+          });
+        }
+      }
+    }
+  };
+
+  updateByUpdate = element => {
+    const login = element.target.value.toString();
+    if (login === '') {
+      this.setState({
+        updateById: -1
+      });
+    } else {
+      for (const i in this.props.users) {
+        if (login === this.props.users[i].login.toString()) {
+          this.setState({
+            updateById: this.props.users[i].id
+          });
+        }
+      }
+    }
+  };
+
   render() {
     const { paymentEntity, houses, users, loading, updating } = this.props;
     const { isNew } = this.state;
@@ -91,8 +159,8 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
           <Header />
           <Row className="justify-content-center">
             <Col md="8">
-              <h2 id="studentexchangeApp.payment.home.createOrEditLabel">
-                <Translate contentKey="studentexchangeApp.payment.home.createOrEditLabel">Create or edit a Payment</Translate>
+              <h2 id="landexpApp.payment.home.createOrEditLabel">
+                <Translate contentKey="landexpApp.payment.home.createOrEditLabel">Create or edit a Payment</Translate>
               </h2>
             </Col>
           </Row>
@@ -112,25 +180,25 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
                   ) : null}
                   <AvGroup>
                     <Label id="codeLabel" for="code">
-                      <Translate contentKey="studentexchangeApp.payment.code">Code</Translate>
+                      <Translate contentKey="landexpApp.payment.code">Code</Translate>
                     </Label>
                     <AvField id="payment-code" type="text" name="code" />
                   </AvGroup>
                   <AvGroup>
                     <Label id="moneyLabel" for="money">
-                      <Translate contentKey="studentexchangeApp.payment.money">Money</Translate>
+                      <Translate contentKey="landexpApp.payment.money">Money</Translate>
                     </Label>
-                    <AvField id="payment-money" type="string" className="form-control" name="money" />
+                    <AvField id="payment-money" type="number" className="form-control" name="money" />
                   </AvGroup>
                   <AvGroup>
                     <Label id="paidTimeLabel" for="paidTime">
-                      <Translate contentKey="studentexchangeApp.payment.paidTime">Paid Time</Translate>
+                      <Translate contentKey="landexpApp.payment.paidTime">Paid Time</Translate>
                     </Label>
                     <AvField id="payment-paidTime" type="date" className="form-control" name="paidTime" />
                   </AvGroup>
                   <AvGroup>
                     <Label id="paymentStatusLabel">
-                      <Translate contentKey="studentexchangeApp.payment.paymentStatus">Payment Status</Translate>
+                      <Translate contentKey="landexpApp.payment.paymentStatus">Payment Status</Translate>
                     </Label>
                     <AvInput
                       id="payment-paymentStatus"
@@ -139,34 +207,28 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
                       name="paymentStatus"
                       value={(!isNew && paymentEntity.paymentStatus) || 'PENDING'}
                     >
-                      <option value="PENDING">
-                        <Translate contentKey="studentexchangeApp.PaymentStatusType.PENDING" />
-                      </option>
-                      <option value="PAID">
-                        <Translate contentKey="studentexchangeApp.PaymentStatusType.PAID" />
-                      </option>
-                      <option value="CANCELED">
-                        <Translate contentKey="studentexchangeApp.PaymentStatusType.CANCELED" />
-                      </option>
+                      <option value="PENDING">PENDING</option>
+                      <option value="PAID">PAID</option>
+                      <option value="CANCELED">CANCELED</option>
                     </AvInput>
                   </AvGroup>
                   <AvGroup>
                     <Label id="createAtLabel" for="createAt">
-                      <Translate contentKey="studentexchangeApp.payment.createAt">Create At</Translate>
+                      <Translate contentKey="landexpApp.payment.createAt">Create At</Translate>
                     </Label>
                     <AvField id="payment-createAt" type="date" className="form-control" name="createAt" />
                   </AvGroup>
                   <AvGroup>
                     <Label id="updateAtLabel" for="updateAt">
-                      <Translate contentKey="studentexchangeApp.payment.updateAt">Update At</Translate>
+                      <Translate contentKey="landexpApp.payment.updateAt">Update At</Translate>
                     </Label>
                     <AvField id="payment-updateAt" type="date" className="form-control" name="updateAt" />
                   </AvGroup>
                   <AvGroup>
                     <Label for="house.id">
-                      <Translate contentKey="studentexchangeApp.payment.house">House</Translate>
+                      <Translate contentKey="landexpApp.payment.house">House</Translate>
                     </Label>
-                    <AvInput id="payment-house" type="select" className="form-control" name="houseId">
+                    <AvInput id="payment-house" type="select" className="form-control" name="houseId" onChange={this.houseUpdate}>
                       <option value="" key="0" />
                       {houses
                         ? houses.map(otherEntity => (
@@ -179,9 +241,9 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
                   </AvGroup>
                   <AvGroup>
                     <Label for="customer.login">
-                      <Translate contentKey="studentexchangeApp.payment.customer">Customer</Translate>
+                      <Translate contentKey="landexpApp.payment.customer">Customer</Translate>
                     </Label>
-                    <AvInput id="payment-customer" type="select" className="form-control" name="customerId">
+                    <AvInput id="payment-customer" type="select" className="form-control" name="customerId" onChange={this.customerUpdate}>
                       <option value="" key="0" />
                       {users
                         ? users.map(otherEntity => (
@@ -194,9 +256,9 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
                   </AvGroup>
                   <AvGroup>
                     <Label for="createBy.login">
-                      <Translate contentKey="studentexchangeApp.payment.createBy">Create By</Translate>
+                      <Translate contentKey="landexpApp.payment.createBy">Create By</Translate>
                     </Label>
-                    <AvInput id="payment-createBy" type="select" className="form-control" name="createById">
+                    <AvInput id="payment-createBy" type="select" className="form-control" name="createById" onChange={this.createByUpdate}>
                       <option value="" key="0" />
                       {users
                         ? users.map(otherEntity => (
@@ -209,9 +271,9 @@ export class PaymentUpdate extends React.Component<IPaymentUpdateProps, IPayment
                   </AvGroup>
                   <AvGroup>
                     <Label for="updateBy.login">
-                      <Translate contentKey="studentexchangeApp.payment.updateBy">Update By</Translate>
+                      <Translate contentKey="landexpApp.payment.updateBy">Update By</Translate>
                     </Label>
-                    <AvInput id="payment-updateBy" type="select" className="form-control" name="updateById">
+                    <AvInput id="payment-updateBy" type="select" className="form-control" name="updateById" onChange={this.updateByUpdate}>
                       <option value="" key="0" />
                       {users
                         ? users.map(otherEntity => (

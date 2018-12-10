@@ -30,24 +30,24 @@ export class PaymentDetail extends React.Component<IPaymentDetailProps> {
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>
-            <Translate contentKey="studentexchangeApp.payment.detail.title">Payment</Translate> [<b>{paymentEntity.id}</b>]
+            <Translate contentKey="landexpApp.payment.detail.title">Payment</Translate> [<b>{paymentEntity.id}</b>]
           </h2>
           <dl className="jh-entity-details">
             <dt>
               <span id="code">
-                <Translate contentKey="studentexchangeApp.payment.code">Code</Translate>
+                <Translate contentKey="landexpApp.payment.code">Code</Translate>
               </span>
             </dt>
             <dd>{paymentEntity.code}</dd>
             <dt>
               <span id="money">
-                <Translate contentKey="studentexchangeApp.payment.money">Money</Translate>
+                <Translate contentKey="landexpApp.payment.money">Money</Translate>
               </span>
             </dt>
             <dd>{paymentEntity.money}</dd>
             <dt>
               <span id="paidTime">
-                <Translate contentKey="studentexchangeApp.payment.paidTime">Paid Time</Translate>
+                <Translate contentKey="landexpApp.payment.paidTime">Paid Time</Translate>
               </span>
             </dt>
             <dd>
@@ -55,13 +55,13 @@ export class PaymentDetail extends React.Component<IPaymentDetailProps> {
             </dd>
             <dt>
               <span id="paymentStatus">
-                <Translate contentKey="studentexchangeApp.payment.paymentStatus">Payment Status</Translate>
+                <Translate contentKey="landexpApp.payment.paymentStatus">Payment Status</Translate>
               </span>
             </dt>
             <dd>{paymentEntity.paymentStatus}</dd>
             <dt>
               <span id="createAt">
-                <Translate contentKey="studentexchangeApp.payment.createAt">Create At</Translate>
+                <Translate contentKey="landexpApp.payment.createAt">Create At</Translate>
               </span>
             </dt>
             <dd>
@@ -69,26 +69,26 @@ export class PaymentDetail extends React.Component<IPaymentDetailProps> {
             </dd>
             <dt>
               <span id="updateAt">
-                <Translate contentKey="studentexchangeApp.payment.updateAt">Update At</Translate>
+                <Translate contentKey="landexpApp.payment.updateAt">Update At</Translate>
               </span>
             </dt>
             <dd>
               <TextFormat value={paymentEntity.updateAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
             </dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.payment.house">House</Translate>
+              <Translate contentKey="landexpApp.payment.house">House</Translate>
             </dt>
             <dd>{paymentEntity.houseId ? paymentEntity.houseId : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.payment.customer">Customer</Translate>
+              <Translate contentKey="landexpApp.payment.customer">Customer</Translate>
             </dt>
             <dd>{paymentEntity.customerLogin ? paymentEntity.customerLogin : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.payment.createBy">Create By</Translate>
+              <Translate contentKey="landexpApp.payment.createBy">Create By</Translate>
             </dt>
             <dd>{paymentEntity.createByLogin ? paymentEntity.createByLogin : ''}</dd>
             <dt>
-              <Translate contentKey="studentexchangeApp.payment.updateBy">Update By</Translate>
+              <Translate contentKey="landexpApp.payment.updateBy">Update By</Translate>
             </dt>
             <dd>{paymentEntity.updateByLogin ? paymentEntity.updateByLogin : ''}</dd>
           </dl>
