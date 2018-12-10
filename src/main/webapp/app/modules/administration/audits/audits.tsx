@@ -93,7 +93,7 @@ export class AuditsPage extends React.Component<IAuditsPageProps, IAuditsPageSta
     const { fromDate, toDate } = this.state;
     return (
       <div>
-        <Sidebar activeMenu="administration" activeSubMenu="audits" />
+        <Sidebar location={this.props.location} activeMenu="administration" activeSubMenu="audits" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="audits-page-heading">Audits</h2>

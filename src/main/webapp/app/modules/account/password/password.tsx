@@ -1,4 +1,5 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import { Translate, translate } from 'react-jhipster';
 import { connect } from 'react-redux';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
@@ -12,7 +13,7 @@ import { getSession } from 'app/shared/reducers/authentication';
 import PasswordStrengthBar from 'app/shared/layout/password/password-strength-bar';
 import { savePassword, reset } from './password.reducer';
 
-export interface IUserPasswordProps extends StateProps, DispatchProps {}
+export interface IUserPasswordProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
 export interface IUserPasswordState {
   password: string;
@@ -45,7 +46,7 @@ export class PasswordPage extends React.Component<IUserPasswordProps, IUserPassw
 
     return (
       <div>
-        <Sidebar activeMenu="user-management" activeSubMenu="change-password" />
+        <Sidebar location={this.props.location} activeMenu="user-management" activeSubMenu="change-password" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <Row className="justify-content-center">

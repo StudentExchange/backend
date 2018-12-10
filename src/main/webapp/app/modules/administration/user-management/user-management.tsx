@@ -66,7 +66,7 @@ export class UserManagement extends React.Component<IUserManagementProps, IPagin
     const { users, account, match, totalItems } = this.props;
     return (
       <div>
-        <Sidebar activeMenu="administration" activeSubMenu="user-management" />
+        <Sidebar location={this.props.location} activeMenu="administration" activeSubMenu="user-management" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="user-management-page-heading">

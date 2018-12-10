@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { Translate } from 'react-jhipster';
 import { Table, Badge, Col, Row, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +12,7 @@ import { IRootState } from 'app/shared/reducers';
 import { systemHealth } from '../administration.reducer';
 import HealthModal from './health-modal';
 
-export interface IHealthPageProps extends StateProps, DispatchProps {}
+export interface IHealthPageProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
 export interface IHealthPageState {
   healthObject: any;
@@ -60,7 +61,7 @@ export class HealthPage extends React.Component<IHealthPageProps, IHealthPageSta
     const data = (health || {}).details || {};
     return (
       <div>
-        <Sidebar activeMenu="administration" activeSubMenu="health" />
+        <Sidebar location={this.props.location} activeMenu="administration" activeSubMenu="health" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="health-page-heading">Health Checks</h2>

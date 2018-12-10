@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { Table, Progress, Col, Row, Button } from 'reactstrap';
 import { Translate, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,7 +13,7 @@ import { systemMetrics, systemThreadDump } from '../administration.reducer';
 import MetricsModal from './metrics-modal';
 import { IRootState } from 'app/shared/reducers';
 
-export interface IMetricsPageProps extends StateProps, DispatchProps {}
+export interface IMetricsPageProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
 export interface IMetricsPageState {
   showModal: boolean;
@@ -269,7 +270,7 @@ export class MetricsPage extends React.Component<IMetricsPageProps, IMetricsPage
     const { servicesStats, cachesStats } = this.getStats(data);
     return (
       <div>
-        <Sidebar activeMenu="administration" activeSubMenu="metrics" />
+        <Sidebar location={this.props.location} activeMenu="administration" activeSubMenu="metrics" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="metrics-page-heading">Application Metrics</h2>

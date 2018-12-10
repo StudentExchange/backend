@@ -1,14 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { NavLink as Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Translate, translate } from 'react-jhipster';
 
-export interface ISidebarProps {
-  activeMenu: string;
-  activeSubMenu: string;
+import { IRootState } from 'app/shared/reducers';
+import { hasAnyAuthority } from 'app/shared/auth/private-route';
+import ErrorBoundary from 'app/shared/error/error-boundary';
+import { AUTHORITIES } from 'app/config/constants';
+
+export interface ISidebarProps extends StateProps, DispatchProps {
+  activeMenu?: string;
+  activeSubMenu?: string;
+  location?: any;
 }
 
-export default class Sidebar extends React.Component<ISidebarProps> {
+export class Sidebar extends React.Component<ISidebarProps> {
   userMenu() {
     const { activeMenu, activeSubMenu } = this.props;
 
@@ -158,6 +166,8 @@ export default class Sidebar extends React.Component<ISidebarProps> {
 
   render() {
     const { activeMenu, activeSubMenu } = this.props;
+    const { isAuthenticated, isAdmin, isStaff, isManager } = this.props;
+    console.log('this.props.location', this.props.location);
     // if (isAuthenticated !== true) return (<div />);
     return (
       <nav className="navbar-default navbar-static-side" role="navigation">
@@ -205,12 +215,29 @@ export default class Sidebar extends React.Component<ISidebarProps> {
               </Link>
             </li>
             {this.userMenu()}
-            {this.staffMenu()}
-            {this.managerMenu()}
-            {this.adminMenu()}
+            {isStaff || isManager ? this.staffMenu() : ''}
+            {isManager ? this.managerMenu() : ''}
+            {isAdmin ? this.adminMenu() : ''}
           </ul>
         </div>
       </nav>
     );
   }
 }
+
+const mapStateToProps = ({ authentication }: IRootState) => ({
+  isAuthenticated: authentication.isAuthenticated,
+  isAdmin: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.ADMIN]),
+  isManager: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.MANAGER]),
+  isStaff: hasAnyAuthority(authentication.account.authorities, [AUTHORITIES.STAFF])
+});
+
+const mapDispatchToProps = {};
+
+type StateProps = ReturnType<typeof mapStateToProps>;
+type DispatchProps = typeof mapDispatchToProps;
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sidebar);

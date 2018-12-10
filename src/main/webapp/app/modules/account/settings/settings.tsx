@@ -1,4 +1,5 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Alert, Row } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Translate, translate } from 'react-jhipster';
@@ -12,7 +13,7 @@ import { IRootState } from 'app/shared/reducers';
 import { getSession } from 'app/shared/reducers/authentication';
 import { saveAccountSettings, reset } from './settings.reducer';
 
-export interface IUserSettingsProps extends StateProps, DispatchProps {}
+export interface IUserSettingsProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
 export interface IUserSettingsState {
   account: any;
@@ -39,10 +40,9 @@ export class SettingsPage extends React.Component<IUserSettingsProps, IUserSetti
 
   render() {
     const { account } = this.props;
-
     return (
       <div>
-        <Sidebar activeMenu="user-management" activeSubMenu="setting" />
+        <Sidebar location={this.props.location} activeMenu="user-management" activeSubMenu="setting" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <Row className="justify-content-center">

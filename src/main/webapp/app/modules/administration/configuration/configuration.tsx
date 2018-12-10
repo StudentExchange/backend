@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { Table, Input, Row, Col, Badge } from 'reactstrap';
 import { Translate } from 'react-jhipster';
 
@@ -9,7 +10,7 @@ import Sidebar from 'app/shared/layout/sidebar/sidebar';
 import { getConfigurations, getEnv } from '../administration.reducer';
 import { IRootState } from 'app/shared/reducers';
 
-export interface IConfigurationPageProps extends StateProps, DispatchProps {}
+export interface IConfigurationPageProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
 export interface IConfigurationPageState {
   filter: string;
@@ -62,7 +63,7 @@ export class ConfigurationPage extends React.Component<IConfigurationPageProps, 
     const env = configuration && configuration.env ? configuration.env : {};
     return (
       <div>
-        <Sidebar activeMenu="administration" activeSubMenu="configuration" />
+        <Sidebar location={this.props.location} activeMenu="administration" activeSubMenu="configuration" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="configuration-page-heading">

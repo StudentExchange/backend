@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { Row, Col, Alert } from 'reactstrap';
 
 import Header from 'app/shared/layout/header/header';
@@ -12,7 +13,7 @@ import Sidebar from 'app/shared/layout/sidebar/sidebar';
 import { IRootState } from 'app/shared/reducers';
 import { getSession } from 'app/shared/reducers/authentication';
 
-export interface IHomeProp extends StateProps, DispatchProps {}
+export interface IHomeProp extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
 export class Home extends React.Component<IHomeProp> {
   componentDidMount() {
@@ -23,7 +24,7 @@ export class Home extends React.Component<IHomeProp> {
     const { account } = this.props;
     return (
       <div>
-        <Sidebar activeMenu="dashboard" activeSubMenu="" />
+        <Sidebar location={this.props.location} activeMenu="dashboard" activeSubMenu="" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2>

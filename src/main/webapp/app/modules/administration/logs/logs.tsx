@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
 import { Translate } from 'react-jhipster';
 
 import Header from 'app/shared/layout/header/header';
@@ -8,7 +9,7 @@ import Sidebar from 'app/shared/layout/sidebar/sidebar';
 import { getLoggers, changeLogLevel } from '../administration.reducer';
 import { IRootState } from 'app/shared/reducers';
 
-export interface ILogsPageProps extends StateProps, DispatchProps {}
+export interface ILogsPageProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
 export interface ILogsPageState {
   filter: string;
@@ -49,7 +50,7 @@ export class LogsPage extends React.Component<ILogsPageProps, ILogsPageState> {
     const loggers = logs ? logs.loggers : [];
     return (
       <div>
-        <Sidebar activeMenu="administration" activeSubMenu="logs" />
+        <Sidebar location={this.props.location} activeMenu="administration" activeSubMenu="logs" />
         <div id="page-wrapper" className="gray-bg dashbard-1">
           <Header />
           <h2 id="logs-page-heading">
