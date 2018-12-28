@@ -2,27 +2,28 @@
   "landexpApp": {
     "landProject": {
       "home": {
-        "title": "Land Projects",
-        "createLabel": "Thêm mới một Land Project",
-        "createOrEditLabel": "Thêm mới hoặc cập nhật Land Project"
+        "title": "Danh sách dự án",
+        "createLabel": "Thêm mới một dự án",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật",
+        "search": "Tìm dự án"
       },
-      "created": "Một Land Project mới được tạo với định danh {{ param }}",
-      "updated": "Một Land Project cập nhật với định danh {{ param }}",
-      "deleted": "Một Land Project đã xóa với định danh {{ param }}",
+      "created": "Một dự án mới được tạo",
+      "updated": "Một dự án được cập nhật",
+      "deleted": "Một dự án đã được xóa",
       "delete": {
-        "question": "Bạn có chắc là muốn xóa Land Project {{ id }}?"
+        "question": "Bạn có chắc là muốn xóa dự án {{ id }}?"
       },
       "detail": {
-        "title": "Land Project"
+        "title": "Danh sách dự án"
       },
-      "name": "Name",
-      "image": "Image",
+      "name": "Tên dự án",
+      "image": "Ảnh",
       "photos": "Photos",
-      "city": "City",
-      "district": "District",
-      "ward": "Ward",
-      "createBy": "Create By",
-      "updateBy": "Update By"
+      "city": "Tỉnh thành",
+      "district": "Quận huyện",
+      "ward": "Xã phường",
+      "createBy": "Ngày tạo",
+      "updateBy": "Ngày cập nhật"
     }
   }
 }

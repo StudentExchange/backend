@@ -2,25 +2,25 @@
   "landexpApp": {
     "city": {
       "home": {
-        "title": "Cities",
-        "createLabel": "Thêm mới một City",
-        "createOrEditLabel": "Thêm mới hoặc cập nhật City"
+        "title": "Tỉnh thành",
+        "createLabel": "Thêm mới một tỉnh thành",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật tỉnh thành",
+        "search": "Tìm tình thành"
       },
-      "created": "Một City mới được tạo với định danh {{ param }}",
-      "updated": "Một City cập nhật với định danh {{ param }}",
-      "deleted": "Một City đã xóa với định danh {{ param }}",
+      "created": "Một tỉnh thành mới được tạo",
+      "updated": "Một tỉnh thành được cập nhật",
+      "deleted": "Một tỉnh thành đã được xóa",
       "delete": {
-        "question": "Bạn có chắc là muốn xóa City {{ id }}?"
+        "question": "Bạn có chắc là muốn xóa tỉnh thành {{ id }}?"
       },
       "detail": {
-        "title": "City"
+        "title": "Tỉnh thành"
       },
-      "name": "Name",
-      "index": "Index",
-      "enabled": "Enabled",
-      "createAt": "Create At",
-      "updateAt": "Update At",
-      "districts": "Districts"
+      "name": "Tỉnh thành",
+      "enabled": "Trạng thái",
+      "index": "Thứ tự",
+      "createAt": "Ngày tạo",
+      "updateAt": "Ngày cập nhật"
     }
   }
 }

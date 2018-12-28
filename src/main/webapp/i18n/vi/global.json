@@ -52,12 +52,14 @@
     "form": {
       "username": "Tên tài khoản",
       "username.placeholder": "Nhập tên tài khoản của bạn",
+      "currentpassword": "Mật khẩu hiện tại",
+      "currentpassword.placeholder": "Mật khẩu hiện tại",
       "newpassword": "Mật khẩu mới",
       "newpassword.placeholder": "Nhập mật khẩu mới",
       "confirmpassword": "Xác nhận mật khẩu mới",
       "confirmpassword.placeholder": "Nhập lại mật khẩu mới",
-      "email": "Email",
-      "email.placeholder": "Nhập email của bạn"
+      "email": "Số điện thoại",
+      "email.placeholder": "Nhập số điện thoại của bạn"
     },
     "messages": {
       "info": {
@@ -87,10 +89,10 @@
           "maxlength": "Mật khẩu không được vượt quá 50 ký tự."
         },
         "email": {
-          "required": "Bạn phải nhập email.",
-          "invalid": "Email bạn nhập không hợp lệ.",
-          "minlength": "Email phải có ít nhất 5 ký tự.",
-          "maxlength": "Email không được vượt quá 50 ký tự."
+          "required": "Bạn phải nhập số điện thoại.",
+          "invalid": "Số điện thoại bạn nhập không hợp lệ.",
+          "minlength": "Số điện thoại phải có ít nhất 10 ký tự.",
+          "maxlength": "Số điện thoại không được vượt quá 12 ký tự."
         }
       }
     },
@@ -109,6 +111,8 @@
       "back": "Quay lại",
       "cancel": "Hủy",
       "delete": "Xóa",
+      "approve": "Xác nhận",
+      "pay": "Thanh toán",
       "edit": "Sửa",
       "open": "Mở",
       "save": "Lưu",
@@ -120,6 +124,9 @@
     },
     "delete": {
       "title": "Xác nhận hành động xóa"
+    },
+    "approve": {
+      "title": "Xác nhận giao dịch thành công"
     },
     "validation": {
       "required": "Trường này bắt buộc phải nhập.",
@@ -141,13 +148,13 @@
     "NotNull": "Trường {{ fieldName }} không được để trống!",
     "Size": "Trường {{ fieldName }} không nằm trong giới hạn tối thiểu/tối đa!",
     "userexists": "Tên đăng nhập đã được sử dụng!",
-    "emailexists": "Email đã được sử dụng!",
+    "emailexists": "Số điện thoại đã được sử dụng!",
     "idexists": "Thêm mới {{ entityName }} không được trùng với định danh đã tồn tại",
     "notfound": "Không tìm thấy",
     "nopermission": "Bạn không được phép xem tin này",
     "idnull": "Invalid Id",
     "http": {
-      "401": "Không được phép"
+      "401": "Không có quyền"
     }
   },
   "footer": "Đây là chân trang của bạn"
