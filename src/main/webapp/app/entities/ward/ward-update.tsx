@@ -76,13 +76,13 @@ export class WardUpdate extends React.Component<IWardUpdateProps, IWardUpdateSta
     const id = element.target.value.toString();
     if (id === '') {
       this.setState({
-        districtId: -1
+        districtId: '-1'
       });
     } else {
       for (const i in this.props.districts) {
         if (id === this.props.districts[i].id.toString()) {
           this.setState({
-            districtId: this.props.districts[i].id
+            districtId: this.props.districts[i].id.toString()
           });
         }
       }

@@ -24,7 +24,7 @@ import HousePrice from './house-price';
 import HouseInfoUpdate from './house-info';
 import HousePhotoUpdate from './house-photo';
 
-export interface IHouseUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: number }> {}
+export interface IHouseUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: any }> {}
 
 export interface IHouseUpdateState {
   house: any;

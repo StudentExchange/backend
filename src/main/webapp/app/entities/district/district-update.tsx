@@ -86,7 +86,7 @@ export class DistrictUpdate extends React.Component<IDistrictUpdateProps, IDistr
       for (const i in this.props.regions) {
         if (id === this.props.regions[i].id.toString()) {
           this.setState({
-            regionId: this.props.regions[i].id
+            regionId: this.props.regions[i].id.toString()
           });
         }
       }
@@ -103,7 +103,7 @@ export class DistrictUpdate extends React.Component<IDistrictUpdateProps, IDistr
       for (const i in this.props.cities) {
         if (id === this.props.cities[i].id.toString()) {
           this.setState({
-            cityId: this.props.cities[i].id
+            cityId: this.props.cities[i].id.toString()
           });
         }
       }
