@@ -9,6 +9,9 @@ import qs from 'query-string';
 import { Select, Input, Button, Modal, Card } from 'antd';
 const Option = Select.Option;
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import Loading from 'app/shared/layout/loading/loading';
 import SearchPage from 'app/shared/layout/search/search-menu';
 
@@ -155,7 +158,7 @@ export class House extends React.Component<IHouseProps, IHouseState> {
   saleTypeForm() {
     return (
       <Select
-        style={{ width: 180, marginRight: 2 }}
+        style={{ width: 140, marginRight: 2 }}
         value={this.state.parameters.saleType}
         placeholder="Loại tin"
         onChange={this.menuSaleTypeClick}
@@ -179,7 +182,7 @@ export class House extends React.Component<IHouseProps, IHouseState> {
   statusForm() {
     return (
       <Select
-        style={{ width: 180, marginRight: 2 }}
+        style={{ width: 140, marginRight: 2 }}
         value={this.state.parameters.statusType}
         placeholder="Trạng thái"
         onChange={this.menuStatusClick}
@@ -200,7 +203,7 @@ export class House extends React.Component<IHouseProps, IHouseState> {
   };
 
   keywordForm() {
-    return <Input style={{ width: 280, marginRight: 2 }} placeholder="Số điện thoại" onChange={this.onChangeKeyword} />;
+    return <Input style={{ width: 210, marginRight: 2 }} placeholder="Số điện thoại" onChange={this.onChangeKeyword} />;
   }
 
   searchClick = () => {
@@ -217,141 +220,134 @@ export class House extends React.Component<IHouseProps, IHouseState> {
   render() {
     const { houseList, match, totalItems } = this.props;
     return (
-      <Row>
-        <SearchPage location={this.props.location} history={this.props.history} />
-        <Container>
+      <div>
+        <Sidebar activeMenu="manager-management" activeSubMenu="district" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
           <Row>
-            <Col md="12">
-              {this.props.loading || this.props.updating ? (
-                <Loading />
+            <Card title="Danh sách tin đăng">
+              <Row style={{ marginBottom: 20 }}>
+                <Container>
+                  {this.actionTypeForm()}
+                  {this.landTypeForm()}
+                  {this.saleTypeForm()}
+                  {this.statusForm()}
+                  {this.keywordForm()}
+                  <Button onClick={this.searchClick} style={{ marginRight: 2 }} type="primary">
+                    <FontAwesomeIcon icon="search" />
+                    Tìm kiếm
+                  </Button>
+                  <Button onClick={this.clearSearchClick}>
+                    <FontAwesomeIcon icon="trash" />
+                  </Button>
+                </Container>
+              </Row>
+              <Table responsive striped>
+                <thead>
+                  <tr>
+                    <th>
+                      <Translate contentKey="landexpApp.house.actionType">Action Type</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.house.landType">Land Type</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.house.money">Money</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.house.city">City</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.house.district">District</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.house.saleType">Sale Type</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.house.statusType">Status Type</Translate>
+                    </th>
+                    <th>
+                      <Translate contentKey="landexpApp.house.mobile">Mobile</Translate>
+                    </th>
+                    <th />
+                  </tr>
+                </thead>
+                <tbody>
+                  {houseList.map((house, i) => (
+                    <tr key={`entity-${i}`}>
+                      <td>{house.actionType === 'FOR_SELL' ? 'Bán' : 'Cho thuê'}</td>
+                      <td>{getLandType(house.landType)}</td>
+                      <td>{new Intl.NumberFormat().format(house.money)} VNĐ</td>
+                      <td>{house.cityName}</td>
+                      <td>{house.districtName}</td>
+                      <td>{getSaleType(house.saleType)}</td>
+                      {house.statusType === 'PAID' ? (
+                        <td style={{ color: 'green' }}>
+                          <strong>{getStatusType(house.statusType)}</strong>
+                        </td>
+                      ) : (
+                        <td style={{ color: 'red' }}>
+                          <strong>{getStatusType(house.statusType)}</strong>
+                        </td>
+                      )}
+                      <td>{house.mobile}</td>
+                      <td className="text-right">
+                        <div className="btn-group flex-btn-group-container">
+                          <Button onClick={this.gotoView.bind(this, house.id)}>
+                            <FontAwesomeIcon icon="eye" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.view">View</Translate>
+                            </span>
+                          </Button>
+                          <Button onClick={this.gotoEdit.bind(this, house.id)} type="primary">
+                            <FontAwesomeIcon icon="pencil-alt" />{' '}
+                            <span className="d-none d-md-inline">
+                              <Translate contentKey="entity.action.edit">Edit</Translate>
+                            </span>
+                          </Button>
+                          {this.props.isManager && house.statusType !== 'PAID' ? (
+                            <Button onClick={this.showDeleteConfirm.bind(this, house.id)} type="danger">
+                              <FontAwesomeIcon icon="trash" />{' '}
+                              <span className="d-none d-md-inline">
+                                <Translate contentKey="entity.action.delete">Delete</Translate>
+                              </span>
+                            </Button>
+                          ) : (
+                            ''
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+              {this.state.showDelete ? (
+                <Modal
+                  title="Bạn có muốn xoá tin đăng này?"
+                  visible={this.state.showDelete}
+                  okText="Xóa"
+                  okType="danger"
+                  cancelText="Hủy"
+                  onOk={this.handleDeleteOk.bind(this, this.state.houseId)}
+                  onCancel={this.handleDeleteCancel}
+                >
+                  <p>Hãy xác nhận lại thông tin trước khi thực hiện hành động xoá</p>
+                </Modal>
               ) : (
-                <Row>
-                  <Card title="Danh sách tin đăng">
-                    <Row style={{ marginBottom: 20 }}>
-                      <Container>
-                        {this.actionTypeForm()}
-                        {this.landTypeForm()}
-                        {this.saleTypeForm()}
-                        {this.statusForm()}
-                        {this.keywordForm()}
-                        <Button onClick={this.searchClick} style={{ marginRight: 2 }} type="primary">
-                          <FontAwesomeIcon icon="search" />
-                          Tìm kiếm
-                        </Button>
-                        <Button onClick={this.clearSearchClick}>
-                          <FontAwesomeIcon icon="trash" />
-                        </Button>
-                      </Container>
-                    </Row>
-                    <Table responsive striped>
-                      <thead>
-                        <tr>
-                          <th>
-                            <Translate contentKey="landexpApp.house.actionType">Action Type</Translate>
-                          </th>
-                          <th>
-                            <Translate contentKey="landexpApp.house.landType">Land Type</Translate>
-                          </th>
-                          <th>
-                            <Translate contentKey="landexpApp.house.money">Money</Translate>
-                          </th>
-                          <th>
-                            <Translate contentKey="landexpApp.house.city">City</Translate>
-                          </th>
-                          <th>
-                            <Translate contentKey="landexpApp.house.district">District</Translate>
-                          </th>
-                          <th>
-                            <Translate contentKey="landexpApp.house.saleType">Sale Type</Translate>
-                          </th>
-                          <th>
-                            <Translate contentKey="landexpApp.house.statusType">Status Type</Translate>
-                          </th>
-                          <th>
-                            <Translate contentKey="landexpApp.house.mobile">Mobile</Translate>
-                          </th>
-                          <th />
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {houseList.map((house, i) => (
-                          <tr key={`entity-${i}`}>
-                            <td>{house.actionType === 'FOR_SELL' ? 'Bán' : 'Cho thuê'}</td>
-                            <td>{getLandType(house.landType)}</td>
-                            <td>{new Intl.NumberFormat().format(house.money)} VNĐ</td>
-                            <td>{house.cityName}</td>
-                            <td>{house.districtName}</td>
-                            <td>{getSaleType(house.saleType)}</td>
-                            {house.statusType === 'PAID' ? (
-                              <td style={{ color: 'green' }}>
-                                <strong>{getStatusType(house.statusType)}</strong>
-                              </td>
-                            ) : (
-                              <td style={{ color: 'red' }}>
-                                <strong>{getStatusType(house.statusType)}</strong>
-                              </td>
-                            )}
-                            <td>{house.mobile}</td>
-                            <td className="text-right">
-                              <div className="btn-group flex-btn-group-container">
-                                <Button onClick={this.gotoView.bind(this, house.id)}>
-                                  <FontAwesomeIcon icon="eye" />{' '}
-                                  <span className="d-none d-md-inline">
-                                    <Translate contentKey="entity.action.view">View</Translate>
-                                  </span>
-                                </Button>
-                                <Button onClick={this.gotoEdit.bind(this, house.id)} type="primary">
-                                  <FontAwesomeIcon icon="pencil-alt" />{' '}
-                                  <span className="d-none d-md-inline">
-                                    <Translate contentKey="entity.action.edit">Edit</Translate>
-                                  </span>
-                                </Button>
-                                {this.props.isManager && house.statusType !== 'PAID' ? (
-                                  <Button onClick={this.showDeleteConfirm.bind(this, house.id)} type="danger">
-                                    <FontAwesomeIcon icon="trash" />{' '}
-                                    <span className="d-none d-md-inline">
-                                      <Translate contentKey="entity.action.delete">Delete</Translate>
-                                    </span>
-                                  </Button>
-                                ) : (
-                                  ''
-                                )}
-                              </div>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
-                    {this.state.showDelete ? (
-                      <Modal
-                        title="Bạn có muốn xoá tin đăng này?"
-                        visible={this.state.showDelete}
-                        okText="Xóa"
-                        okType="danger"
-                        cancelText="Hủy"
-                        onOk={this.handleDeleteOk.bind(this, this.state.houseId)}
-                        onCancel={this.handleDeleteCancel}
-                      >
-                        <p>Hãy xác nhận lại thông tin trước khi thực hiện hành động xoá</p>
-                      </Modal>
-                    ) : (
-                      ''
-                    )}
-                    <Row className="justify-content-center">
-                      <JhiPagination
-                        items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
-                        activePage={this.state.activePage}
-                        onSelect={this.handlePagination}
-                        maxButtons={5}
-                      />
-                    </Row>
-                  </Card>
-                </Row>
+                ''
               )}
-            </Col>
+              <Row className="justify-content-center">
+                <JhiPagination
+                  items={getPaginationItemsNumber(totalItems, this.state.itemsPerPage)}
+                  activePage={this.state.activePage}
+                  onSelect={this.handlePagination}
+                  maxButtons={5}
+                />
+              </Row>
+            </Card>
           </Row>
-        </Container>
-      </Row>
+        </div>
+      </div>
     );
   }
 }

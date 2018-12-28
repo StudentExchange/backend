@@ -7,10 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tabs, Card } from 'antd';
 const TabPane = Tabs.TabPane;
 
+import Header from 'app/shared/layout/header/header';
+import Sidebar from 'app/shared/layout/sidebar/sidebar';
+
 import { IRootState } from 'app/shared/reducers';
 import { getEntities as getLandProjects } from 'app/entities/land-project/land-project.reducer';
 import { getEntity, updateEntity } from './house.reducer';
 import { getImageOfHouse, createEntity as createPhoto } from 'app/entities/house-photo/house-photo.reducer';
+import { getAllEntities as getCities } from 'app/entities/city/city.reducer';
 
 import Loading from 'app/shared/layout/loading/loading';
 import SearchPage from 'app/shared/layout/search/search-menu';
@@ -38,6 +42,7 @@ export class HouseUpdate extends React.Component<IHouseUpdateProps, IHouseUpdate
     this.props.getEntity(this.props.match.params.id);
     this.props.getImageOfHouse(this.props.match.params.id);
     this.props.getLandProjects();
+    this.props.getCities();
   }
 
   updateHouse = house => {
@@ -83,59 +88,52 @@ export class HouseUpdate extends React.Component<IHouseUpdateProps, IHouseUpdate
     };
 
     return (
-      <Row>
-        <SearchPage location={this.props.location} history={this.props.history} />
-        <Container>
+      <div>
+        <Sidebar activeMenu="manager-management" activeSubMenu="district" />
+        <div id="page-wrapper" className="gray-bg dashbard-1">
+          <Header />
           <Row>
-            <Col md="12">
-              {loading ? (
-                <Loading />
-              ) : (
-                <Row>
-                  <Card title="Thông tin chi tiết về ngôi nhà">
-                    <Tabs defaultActiveKey="1">
-                      <TabPane tab="Đặc điểm" key="1">
-                        <HouseDetail updateHouse={this.updateHouse} houseEntity={entity} />
-                      </TabPane>
-                      <TabPane tab="Giá" key="2">
-                        <HousePrice updateHouse={this.updateHouse} houseEntity={entity} />
-                      </TabPane>
-                      <TabPane tab="Địa chỉ" key="3">
-                        <HouseAddress updateHouse={this.updateHouse} houseEntity={entity} />
-                      </TabPane>
-                      <TabPane tab="Hình ảnh" key="4">
-                        <HousePhotoUpdate updateHouse={this.updateHouse} houseEntity={entity} />
-                      </TabPane>
-                      <TabPane tab="Liên hệ" key="5">
-                        <HouseInfoUpdate updateHouse={this.updateHouse} houseEntity={entity} />
-                      </TabPane>
-                    </Tabs>
-                    <Row className="justify-content-center">
-                      <Col md="12">
-                        <Col md="12">
-                          <Button tag={Link} id="cancel-save" to="/quan-ly/tin-dang" replace color="info">
-                            <FontAwesomeIcon icon="arrow-left" />
-                            &nbsp;
-                            <span className="d-none d-md-inline">
-                              <Translate contentKey="entity.action.back">Back</Translate>
-                            </span>
-                          </Button>
-                          &nbsp;
-                          <Button color="primary" id="save-entity" onClick={this.saveEntity} disabled={isInvalid || updating}>
-                            <FontAwesomeIcon icon="save" />
-                            &nbsp;
-                            <Translate contentKey="entity.action.save">Save</Translate>
-                          </Button>
-                        </Col>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Row>
-              )}
-            </Col>
+            <Card title="Thông tin chi tiết về ngôi nhà">
+              <Tabs defaultActiveKey="1">
+                <TabPane tab="Đặc điểm" key="1">
+                  <HouseDetail updateHouse={this.updateHouse} houseEntity={entity} />
+                </TabPane>
+                <TabPane tab="Giá" key="2">
+                  <HousePrice updateHouse={this.updateHouse} houseEntity={entity} />
+                </TabPane>
+                <TabPane tab="Địa chỉ" key="3">
+                  <HouseAddress updateHouse={this.updateHouse} houseEntity={entity} />
+                </TabPane>
+                <TabPane tab="Hình ảnh" key="4">
+                  <HousePhotoUpdate updateHouse={this.updateHouse} houseEntity={entity} />
+                </TabPane>
+                <TabPane tab="Liên hệ" key="5">
+                  <HouseInfoUpdate updateHouse={this.updateHouse} houseEntity={entity} />
+                </TabPane>
+              </Tabs>
+              <Row className="justify-content-center">
+                <Col md="12">
+                  <Col md="12">
+                    <Button tag={Link} id="cancel-save" to="/quan-ly/tin-dang" replace color="info">
+                      <FontAwesomeIcon icon="arrow-left" />
+                      &nbsp;
+                      <span className="d-none d-md-inline">
+                        <Translate contentKey="entity.action.back">Back</Translate>
+                      </span>
+                    </Button>
+                    &nbsp;
+                    <Button color="primary" id="save-entity" onClick={this.saveEntity} disabled={isInvalid || updating}>
+                      <FontAwesomeIcon icon="save" />
+                      &nbsp;
+                      <Translate contentKey="entity.action.save">Save</Translate>
+                    </Button>
+                  </Col>
+                </Col>
+              </Row>
+            </Card>
           </Row>
-        </Container>
-      </Row>
+        </div>
+      </div>
     );
   }
 }
@@ -151,7 +149,8 @@ const mapDispatchToProps = {
   getLandProjects,
   getEntity,
   updateEntity,
-  createPhoto
+  createPhoto,
+  getCities
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;

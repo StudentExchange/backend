@@ -33,8 +33,8 @@ const MyMapComponent: React.StatelessComponent<{
   withGoogleMap
 )(props => {
   const position = {
-    lat: props.currentPosition.latitude ? props.currentPosition.latitude : 21.0286669,
-    lng: props.currentPosition.longitude ? props.currentPosition.longitude : 105.8521484
+    lat: props.currentPosition ? props.currentPosition.latitude : 21.0286669,
+    lng: props.currentPosition ? props.currentPosition.longitude : 105.8521484
   };
   return (
     <GoogleMap zoom={16} center={position}>
