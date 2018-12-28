@@ -1,26 +1,26 @@
 {
   "reset": {
     "request": {
-      "title": "Reset your password",
+      "title": "Đặt lại mật khẩu của bạn",
       "form": {
-        "button": "Reset password"
+        "button": "Đặt lại mật khẩu"
       },
       "messages": {
-        "info": "Enter the email address you used to register",
-        "success": "Check your emails for details on how to reset your password.",
-        "notfound": "<strong>Email address isn't registered!</strong> Please check and try again"
+        "info": "Nhập địa chỉ số điện thoại mà bạn đã sử dụng để đăng ký",
+        "success": "Vui lòng kiểm tra điện thoại của bạn để xem chi tiết cách lấy lại mật khẩu.",
+        "notfound": "<strong>Số điện thoại chưa được đăng ký!</strong> Vui lòng kiểm tra lại."
       }
     },
     "finish": {
-      "title": "Reset password",
+      "title": "Đặt lại mật khẩu",
       "form": {
-        "button": "Validate new password"
+        "button": "Kiểm tra mật khẩu mới"
       },
       "messages": {
-        "info": "Choose a new password",
-        "success": "<strong>Your password has been reset.</strong> Please ",
-        "keymissing": "The reset key is missing.",
-        "error": "Your password couldn't be reset. Remember a password request is only valid for 24 hours."
+        "info": "Chọn mật khẩu mới",
+        "success": "<strong>Mật khẩu của bạn đã được đặt lại.</strong> Bạn vui lòng ",
+        "keymissing": "Không tìm thấy khóa để đặt lại mật khẩu.",
+        "error": "Không thể đặt lại mật khẩu của bạn. Lưu ý, yêu cầu đặt lại mật khẩu chỉ có hiệu lực trong 24 giờ."
       }
     }
   }

@@ -2,30 +2,31 @@
   "landexpApp": {
     "article": {
       "home": {
-        "title": "Articles",
-        "createLabel": "Create a new Article",
-        "createOrEditLabel": "Create or edit a Article"
+        "title": "Tin tức",
+        "createLabel": "Thêm mới một tin tức",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật tin tức",
+        "search": "Tìm tin tức"
       },
-      "created": "A new Article is created with identifier {{ param }}",
-      "updated": "A Article is updated with identifier {{ param }}",
-      "deleted": "A Article is deleted with identifier {{ param }}",
+      "created": "Một tin tức mới được tạo",
+      "updated": "Một tin tức được cập nhật",
+      "deleted": "Một tin tức đã được xóa",
       "delete": {
-        "question": "Are you sure you want to delete Article {{ id }}?"
+        "question": "Bạn có chắc là muốn xóa tin tức?"
       },
       "detail": {
-        "title": "Article"
+        "title": "Tin tức"
       },
-      "avatar": "Avatar",
-      "title": "Title",
-      "summary": "Summary",
-      "content": "Content",
-      "statusType": "Status Type",
-      "hits": "Hits",
-      "createAt": "Create At",
-      "updateAt": "Update At",
-      "category": "Category",
-      "createBy": "Create By",
-      "updateBy": "Update By"
+      "avatar": "Hình đại diện",
+      "title": "Tiêu đề",
+      "summary": "Tóm tắt nội dung",
+      "content": "Nội dung tin",
+      "statusType": "Trạng thái",
+      "hits": "Số lượt xem",
+      "createAt": "Ngày tạo",
+      "updateAt": "Ngày cập nhật",
+      "category": "Danh mục",
+      "createBy": "Người tạo",
+      "updateBy": "Người cập nhật"
     }
   }
 }

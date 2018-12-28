@@ -1,12 +1,12 @@
 {
   "global": {
     "title": "Landexp",
-    "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+    "browsehappy": "Bạn đang sử dụng một trình duyệt <strong>quá cũ</strong>. Vui lòng <a href=\"http://browsehappy.com/?locale=en\">nâng cấp trình duyệt</a> của bạn để có trải nghiệm tốt nhất.",
     "menu": {
-      "home": "Home",
+      "home": "Trang chủ",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
-        "main": "Entities",
+        "main": "Thực thể",
         "region": "Region",
         "city": "City",
         "district": "District",
@@ -26,73 +26,73 @@
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
-        "main": "Account",
-        "settings": "Settings",
-        "password": "Password",
-        "sessions": "Sessions",
-        "login": "Sign in",
-        "logout": "Sign out",
-        "register": "Register"
+        "main": "Tài khoản",
+        "settings": "Cài đặt",
+        "password": "Mật khẩu",
+        "sessions": "Phiên đăng nhập",
+        "login": "Đăng nhập",
+        "logout": "Đăng xuất",
+        "register": "Đăng ký"
       },
       "admin": {
-        "main": "Administration",
-        "userManagement": "User management",
-        "tracker": "User tracker",
-        "metrics": "Metrics",
-        "health": "Health",
-        "configuration": "Configuration",
-        "logs": "Logs",
-        "audits": "Audits",
+        "main": "Quản trị",
+        "userManagement": "Quản lý tài khoản",
+        "tracker": "Theo dõi người dùng",
+        "metrics": "Số liệu",
+        "health": "Tình trạng",
+        "configuration": "Cấu hình",
+        "logs": "Ghi logs",
+        "audits": "Kiểm duyệt",
         "apidocs": "API",
-        "database": "Database",
+        "database": "Cơ sở dữ liệu",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },
-      "language": "Language"
+      "language": "Ngôn ngữ"
     },
     "form": {
-      "username": "Username",
-      "username.placeholder": "Your username",
-      "currentpassword": "Current password",
-      "currentpassword.placeholder": "Current password",
-      "newpassword": "New password",
-      "newpassword.placeholder": "New password",
-      "confirmpassword": "New password confirmation",
-      "confirmpassword.placeholder": "Confirm the new password",
-      "email": "Email",
-      "email.placeholder": "Your email"
+      "username": "Tên tài khoản",
+      "username.placeholder": "Nhập tên tài khoản của bạn",
+      "currentpassword": "Mật khẩu hiện tại",
+      "currentpassword.placeholder": "Mật khẩu hiện tại",
+      "newpassword": "Mật khẩu mới",
+      "newpassword.placeholder": "Nhập mật khẩu mới",
+      "confirmpassword": "Xác nhận mật khẩu mới",
+      "confirmpassword.placeholder": "Nhập lại mật khẩu mới",
+      "email": "Số điện thoại",
+      "email.placeholder": "Nhập số điện thoại của bạn"
     },
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "If you want to ",
-          "link": "sign in",
-          "suffix": ", you can try the default accounts:<br/>- Administrator (login=\"admin\" and password=\"admin\") <br/>- User (login=\"user\" and password=\"user\")."
+          "prefix": "Nếu bạn muốn ",
+          "link": "đăng nhập",
+          "suffix": ", bạn có thể thử với tài khoản mặc định:<br/>- Quản trị viên (tài khoản=\"admin\" và mật khẩu=\"admin\") <br/>- Người dùng (tài khoản=\"user\" và mật khẩu=\"user\")."
         },
         "register": {
-          "noaccount": "You don't have an account yet?",
-          "link": "Register a new account"
+          "noaccount": "Bạn vẫn chưa có tài khoản?",
+          "link": "Đăng ký tài khoản mới"
         }
       },
       "error": {
-        "dontmatch": "The password and its confirmation do not match!"
+        "dontmatch": "Xác nhận mật khẩu không khớp!"
       },
       "validate": {
         "newpassword": {
-          "required": "Your password is required.",
-          "minlength": "Your password is required to be at least 4 characters.",
-          "maxlength": "Your password cannot be longer than 50 characters.",
-          "strength": "Password strength:"
+          "required": "Bạn phải nhập mật khẩu.",
+          "minlength": "Mật khẩu phải có ít nhất 4 ký tự.",
+          "maxlength": "Mật khẩu không được vượt quá 50 ký tự.",
+          "strength": "Độ mạnh của mật khẩu:"
         },
         "confirmpassword": {
-          "required": "Your confirmation password is required.",
-          "minlength": "Your confirmation password is required to be at least 4 characters.",
-          "maxlength": "Your confirmation password cannot be longer than 50 characters."
+          "required": "Bạn phải nhập lại mật khẩu để xác nhận.",
+          "minlength": "Mật khẩu phải có ít nhất 4 ký tự.",
+          "maxlength": "Mật khẩu không được vượt quá 50 ký tự."
         },
         "email": {
-          "required": "Your email is required.",
-          "invalid": "Your email is invalid.",
-          "minlength": "Your email is required to be at least 5 characters.",
-          "maxlength": "Your email cannot be longer than 50 characters."
+          "required": "Bạn phải nhập số điện thoại.",
+          "invalid": "Số điện thoại bạn nhập không hợp lệ.",
+          "minlength": "Số điện thoại phải có ít nhất 10 ký tự.",
+          "maxlength": "Số điện thoại không được vượt quá 12 ký tự."
         }
       }
     },
@@ -100,58 +100,62 @@
       "id": "ID"
     },
     "ribbon": {
-      "dev": "Development"
+      "dev": "Phát triển"
     },
     "item-count": "Showing {{first}} - {{second}} of {{total}} items."
   },
   "entity": {
     "action": {
-      "addblob": "Add blob",
-      "addimage": "Add image",
-      "back": "Back",
-      "cancel": "Cancel",
-      "delete": "Delete",
-      "edit": "Edit",
-      "open": "Open",
-      "save": "Save",
-      "view": "View"
+      "addblob": "Thêm nội dung",
+      "addimage": "Thêm ảnh",
+      "back": "Quay lại",
+      "cancel": "Hủy",
+      "delete": "Xóa",
+      "approve": "Xác nhận",
+      "pay": "Thanh toán",
+      "edit": "Sửa",
+      "open": "Mở",
+      "save": "Lưu",
+      "view": "Xem"
     },
     "detail": {
-      "field": "Field",
-      "value": "Value"
+      "field": "Trường",
+      "value": "Giá trị"
     },
     "delete": {
-      "title": "Confirm delete operation"
+      "title": "Xác nhận hành động xóa"
+    },
+    "approve": {
+      "title": "Xác nhận giao dịch thành công"
     },
     "validation": {
-      "required": "This field is required.",
-      "minlength": "This field is required to be at least {{ min }} characters.",
-      "maxlength": "This field cannot be longer than {{ max }} characters.",
-      "min": "This field should be at least {{ min }}.",
-      "max": "This field cannot be more than {{ max }}.",
-      "minbytes": "This field should be at least {{ min }} bytes.",
-      "maxbytes": "This field cannot be more than {{ max }} bytes.",
-      "pattern": "This field should follow pattern for {{ pattern }}.",
-      "number": "This field should be a number.",
-      "datetimelocal": "This field should be a date and time.",
-      "patternLogin": "This field can only contain letters, digits and e-mail addresses."
+      "required": "Trường này bắt buộc phải nhập.",
+      "minlength": "Trường này phải có ít nhất {{ min }} ký tự.",
+      "maxlength": "Trường này không được vượt quá {{ max }} ký tự.",
+      "min": "Trường này phải lớn hơn {{ min }}.",
+      "max": "Trường này phải nhỏ hơn {{ max }}.",
+      "minbytes": "Dung lượng trường này phải lớn hơn {{ min }} bytes.",
+      "maxbytes": "Dung lượng trường này phải nhỏ hơn {{ max }} bytes.",
+      "pattern": "Trường này phải theo định dạng {{ pattern }}.",
+      "number": "Trường này phải là một số.",
+      "datetimelocal": "Trường này phải là định dạng thời gian."
     }
   },
   "error": {
-    "internalServerError": "Internal server error",
-    "server.not.reachable": "Server not reachable",
-    "url.not.found": "Not found",
-    "NotNull": "Field {{ fieldName }} cannot be empty!",
-    "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
-    "userexists": "Login name already used!",
-    "emailexists": "Email is already in use!",
-    "idexists": "A new {{ entityName }} cannot already have an ID",
-    "notfound": "Not found",
-    "nopermission": "No permission",
+    "internalServerError": "Lỗi máy chủ nội bộ",
+    "server.not.reachable": "Không tìm thấy máy chủ",
+    "url.not.found": "Không tìm thấy",
+    "NotNull": "Trường {{ fieldName }} không được để trống!",
+    "Size": "Trường {{ fieldName }} không nằm trong giới hạn tối thiểu/tối đa!",
+    "userexists": "Tên đăng nhập đã được sử dụng!",
+    "emailexists": "Số điện thoại đã được sử dụng!",
+    "idexists": "Thêm mới {{ entityName }} không được trùng với định danh đã tồn tại",
+    "notfound": "Không tìm thấy",
+    "nopermission": "Bạn không được phép xem tin này",
     "idnull": "Invalid Id",
     "http": {
-      "401": "Unauthorized"
+      "401": "Không có quyền"
     }
   },
-  "footer": "This is your footer"
+  "footer": "Đây là chân trang của bạn"
 }

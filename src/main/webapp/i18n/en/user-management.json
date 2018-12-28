@@ -1,30 +1,30 @@
 {
   "userManagement": {
     "home": {
-      "title": "Users",
-      "createLabel": "Create a new user",
-      "createOrEditLabel": "Create or edit a user"
+      "title": "Tài khoản",
+      "createLabel": "Tạo tài khoản mới",
+      "createOrEditLabel": "Tạo hoặc sửa tài khoản"
     },
-    "created": "A new user is created with identifier {{ param }}",
-    "updated": "An user is updated with identifier {{ param }}",
-    "deleted": "An user is deleted with identifier {{ param }}",
+    "created": "Một tài khoản mới đã được tạo với định danh {{ param }}",
+    "updated": "Một tài khoản đã được cập nhật với định danh {{ param }}",
+    "deleted": "Một tài khoản đã bị xóa với định danh {{ param }}",
     "delete": {
-      "question": "Are you sure you want to delete user {{ login }}?"
+      "question": "Bạn có chắc chắn muốn xóa tài khoản {{ login }}?"
     },
     "detail": {
-      "title": "User"
+      "title": "Tài khoản"
     },
-    "login": "Login",
-    "firstName": "First name",
-    "lastName": "Last name",
-    "email": "Email",
-    "activated": "Activated",
-    "deactivated": "Deactivated",
-    "profiles": "Profiles",
-    "langKey": "Language",
-    "createdBy": "Created by",
-    "createdDate": "Created date",
-    "lastModifiedBy": "Modified by",
-    "lastModifiedDate": "Modified date"
+    "login": "Tên đăng nhập",
+    "firstName": "Tên",
+    "lastName": "Họ",
+    "email": "Số điện thoại",
+    "activated": "Kích hoạt",
+    "deactivated": "Khóa",
+    "profiles": "Các quyền",
+    "langKey": "Ngôn ngữ",
+    "createdBy": "Người tạo",
+    "createdDate": "Ngày tạo",
+    "lastModifiedBy": "Người sửa",
+    "lastModifiedDate": "Ngày sửa"
   }
 }

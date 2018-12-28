@@ -1,23 +1,23 @@
 {
   "register": {
-    "title": "Registration",
+    "title": "Đăng ký",
     "form": {
-      "button": "Register"
+      "button": "Đăng ký"
     },
     "messages": {
       "validate": {
         "login": {
-          "required": "Your username is required.",
-          "minlength": "Your username is required to be at least 1 character.",
-          "maxlength": "Your username cannot be longer than 50 characters.",
-          "pattern": "Your username can only contain letters and digits."
+          "required": "Bạn phải nhập tên tài khoản.",
+          "minlength": "Tên tài khoản phải có ít nhất 1 ký tự.",
+          "maxlength": "Tên tài khoản không được vượt quá 50 ký tự.",
+          "pattern": "Tên tài khoản chỉ có thể chứa các ký tự in thường và số."
         }
       },
-      "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
+      "success": "<strong>Đăng ký thành công!</strong> Đăng nhập để sử dụng dịch vụ.",
       "error": {
-        "fail": "<strong>Registration failed!</strong> Please try again later.",
-        "userexists": "<strong>Login name already registered!</strong> Please choose another one.",
-        "emailexists": "<strong>Email is already in use!</strong> Please choose another one."
+        "fail": "<strong>Đăng ký thất bại!</strong> Vui lòng thử lại sau.",
+        "userexists": "<strong>Tên tài khoản này đã được sử dụng!</strong> Bạn vui lòng chọn tên tài khoản khác.",
+        "emailexists": "<strong>Số điện thoại này đã được sử dụng!</strong> Bạn vui lòng nhập số điện thoại khác."
       }
     }
   }

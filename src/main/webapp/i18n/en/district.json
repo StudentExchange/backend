@@ -2,26 +2,26 @@
   "landexpApp": {
     "district": {
       "home": {
-        "title": "Districts",
-        "createLabel": "Create a new District",
-        "createOrEditLabel": "Create or edit a District"
+        "title": "Quận huyện",
+        "createLabel": "Thêm mới một quận huyện",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật quận huyện",
+        "search": "Tìm quận huyện"
       },
-      "created": "A new District is created with identifier {{ param }}",
-      "updated": "A District is updated with identifier {{ param }}",
-      "deleted": "A District is deleted with identifier {{ param }}",
+      "created": "Một quận huyện mới được tạo",
+      "updated": "Một quận huyện được cập nhật",
+      "deleted": "Một quận huyện đã được xóa",
       "delete": {
-        "question": "Are you sure you want to delete District {{ id }}?"
+        "question": "Bạn có chắc là muốn xóa quận huyện {{ id }}?"
       },
       "detail": {
-        "title": "District"
+        "title": "Quận huyện"
       },
-      "name": "Name",
-      "enabled": "Enabled",
-      "createAt": "Create At",
-      "updateAt": "Update At",
-      "region": "Region",
-      "city": "City",
-      "wards": "Wards"
+      "name": "Quận huyện",
+      "enabled": "Trạng thái",
+      "createAt": "Ngày tạo",
+      "updateAt": "Ngày cập nhật",
+      "region": "Khu vực",
+      "city": "Tỉnh thành"
     }
   }
 }

@@ -2,21 +2,22 @@
   "landexpApp": {
     "serviceFee": {
       "home": {
-        "title": "Service Fees",
-        "createLabel": "Create a new Service Fee",
-        "createOrEditLabel": "Create or edit a Service Fee"
+        "title": "Bảng phí dịch vụ",
+        "createLabel": "Thêm mới phí dịch vụ",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật phí dịch vụ",
+        "search": "Tìm phí dịch vụ"
       },
-      "created": "A new Service Fee is created with identifier {{ param }}",
-      "updated": "A Service Fee is updated with identifier {{ param }}",
-      "deleted": "A Service Fee is deleted with identifier {{ param }}",
+      "created": "Một phí dịch vụ mới được tạo",
+      "updated": "Một phí dịch vụ được cập nhật",
+      "deleted": "Một phí dịch vụ đã được xóa",
       "delete": {
-        "question": "Are you sure you want to delete Service Fee {{ id }}?"
+        "question": "Bạn có chắc là muốn xóa phí dịch vụ {{ id }}?"
       },
       "detail": {
-        "title": "Service Fee"
+        "title": "Bảng phí dịch vụ"
       },
-      "saleType": "Sale Type",
-      "fee": "Fee"
+      "saleType": "Loại phí",
+      "fee": "Giá tiền"
     }
   }
 }

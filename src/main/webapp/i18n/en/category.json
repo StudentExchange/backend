@@ -2,22 +2,24 @@
   "landexpApp": {
     "category": {
       "home": {
-        "title": "Categories",
-        "createLabel": "Create a new Category",
-        "createOrEditLabel": "Create or edit a Category"
+        "title": "Danh mục tin tức",
+        "createLabel": "Thêm mới một danh mục",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật",
+        "search": "Tìm danh mục"
       },
-      "created": "A new Category is created with identifier {{ param }}",
-      "updated": "A Category is updated with identifier {{ param }}",
-      "deleted": "A Category is deleted with identifier {{ param }}",
+      "created": "Một danh mục mới được tạo",
+      "updated": "Một danh mục được cập nhật",
+      "deleted": "Một danh mục đã được xóa",
       "delete": {
-        "question": "Are you sure you want to delete Category {{ id }}?"
+        "question": "Bạn có chắc là muốn xóa danh mục {{ id }}?"
       },
       "detail": {
-        "title": "Category"
+        "title": "Danh mục tin tức"
       },
-      "name": "Name",
-      "createAt": "Create At",
-      "updateAt": "Update At"
+      "name": "Tên",
+      "nameAlias": "Name Alias",
+      "createAt": "Ngày tạo",
+      "updateAt": "Ngày cập nhật"
     }
   }
 }

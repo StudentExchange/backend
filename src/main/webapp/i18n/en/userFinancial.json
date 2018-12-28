@@ -2,27 +2,28 @@
   "landexpApp": {
     "userFinancial": {
       "home": {
-        "title": "User Financials",
-        "createLabel": "Create a new User Financial",
-        "createOrEditLabel": "Create or edit a User Financial"
+        "title": "Tư vấn tài chính",
+        "createLabel": "Thêm mới một thông tin tư vấn",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật",
+        "search": "Tìm thông tin của khách hàng"
       },
-      "created": "A new User Financial is created with identifier {{ param }}",
-      "updated": "A User Financial is updated with identifier {{ param }}",
-      "deleted": "A User Financial is deleted with identifier {{ param }}",
+      "created": "Thông tin tư vấn đã được gửi thành công",
+      "updated": "Một thông tin tư vấn được cập nhật",
+      "deleted": "Một thông tin tư vấn đã được xóa",
       "delete": {
-        "question": "Are you sure you want to delete User Financial {{ id }}?"
+        "question": "Bạn có chắc là muốn xóa thông tin tư vấn tài chính {{ id }}?"
       },
       "detail": {
-        "title": "User Financial"
+        "title": "Tư vấn tài chính"
       },
-      "housePrice": "House Price",
-      "savingMoney": "Saving Money",
-      "loanRate": "Loan Rate",
-      "loanFromPeople": "Loan From People",
-      "customerMoneyHave": "Customer Money Have",
-      "customerMobile": "Customer Mobile",
-      "customerEmail": "Customer Email",
-      "user": "User"
+      "housePrice": "Giá nhà",
+      "houseAcreage": "Diện tích",
+      "loanRate": "Lãi vay",
+      "loanFromPeople": "Vay từ người thân",
+      "customerMoneyHave": "Số tiền phải có",
+      "customerMobile": "Số điện thoại",
+      "customerEmail": "Email",
+      "user": "Khách hàng"
     }
   }
 }

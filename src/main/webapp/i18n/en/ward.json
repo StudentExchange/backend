@@ -2,24 +2,25 @@
   "landexpApp": {
     "ward": {
       "home": {
-        "title": "Wards",
-        "createLabel": "Create a new Ward",
-        "createOrEditLabel": "Create or edit a Ward"
+        "title": "Xã phường",
+        "createLabel": "Thêm mới một xã phường",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật xã phường",
+        "search": "Tìm xã phường"
       },
-      "created": "A new Ward is created with identifier {{ param }}",
-      "updated": "A Ward is updated with identifier {{ param }}",
-      "deleted": "A Ward is deleted with identifier {{ param }}",
+      "created": "Một xã phường mới được tạo",
+      "updated": "Một xã phường được cập nhật",
+      "deleted": "Một xã phường đã được xóa",
       "delete": {
-        "question": "Are you sure you want to delete Ward {{ id }}?"
+        "question": "Bạn có chắc là muốn xóa {{ id }}?"
       },
       "detail": {
-        "title": "Ward"
+        "title": "Xã phường"
       },
-      "name": "Name",
-      "enabled": "Enabled",
-      "createAt": "Create At",
-      "updateAt": "Update At",
-      "district": "District"
+      "name": "Xa phường",
+      "enabled": "Trạng thái",
+      "createAt": "Ngày tạo",
+      "updateAt": "Ngày cập nhật",
+      "district": "Quận huyện"
     }
   }
 }

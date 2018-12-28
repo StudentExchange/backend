@@ -1,101 +1,94 @@
 {
   "metrics": {
-    "title": "Application Metrics",
-    "refresh.button": "Refresh",
-    "updating": "Updating...",
+    "title": "Các số liệu của chương trình",
+    "refresh.button": "Làm mới",
+    "updating": "Đang cập nhật...",
     "jvm": {
-      "title": "JVM Metrics",
+      "title": "Số liệu của máy ảo Java",
       "memory": {
-        "title": "Memory",
-        "total": "Total Memory",
-        "heap": "Heap Memory",
-        "nonheap": "Non-Heap Memory"
+        "title": "Bộ nhớ",
+        "total": "Tổng bộ nhớ",
+        "heap": "Bộ nhớ heap",
+        "nonheap": "Bộ nhớ không nằm trong heap"
       },
       "threads": {
-        "title": "Threads",
-        "all": "All",
-        "runnable": "Runnable",
-        "timedwaiting": "Timed waiting",
-        "waiting": "Waiting",
-        "blocked": "Blocked",
+        "title": "Các luồng",
+        "all": "Tất cả",
+        "runnable": "Đang chạy",
+        "timedwaiting": "Đang chờ (đã lên lịch)",
+        "waiting": "Đang chờ",
+        "blocked": "Đã khóa",
         "dump": {
-          "title": "Threads dump",
-          "id": "Id: ",
-          "blockedtime": "Blocked Time",
-          "blockedcount": "Blocked Count",
-          "waitedtime": "Waited Time",
-          "waitedcount": "Waited Count",
-          "lockname": "Lock name",
-          "stacktrace": "Stacktrace",
-          "show": "Show Stacktrace",
-          "hide": "Hide Stacktrace"
+          "title": "Bản ghi các luồng",
+          "id": "Định danh: ",
+          "blockedtime": "Thời gian khóa",
+          "blockedcount": "Số lượng khóa",
+          "waitedtime": "Thời gian đợi",
+          "waitedcount": "Số lượng đợi",
+          "lockname": "Tên khóa",
+          "stacktrace": "Chi tiết",
+          "show": "Hiển thị chi tiết",
+          "hide": "Ẩn chi tiết"
         }
       },
       "gc": {
-        "title": "Garbage collections",
-        "marksweepcount": "Mark Sweep count",
-        "marksweeptime": "Mark Sweep time",
-        "scavengecount": "Scavenge count",
-        "scavengetime": "Scavenge time"
+        "title": "Tự động dọn dẹp",
+        "marksweepcount": "Số lần kiểm tra",
+        "marksweeptime": "Thời gian kiểm tra",
+        "scavengecount": "Số lần dọn dẹp",
+        "scavengetime": "Thời gian dọn dẹp"
       },
       "http": {
-        "title": "HTTP requests (events per second)",
-        "active": "Active requests:",
-        "total": "Total requests:",
+        "title": "Số lượng yêu cầu HTTP (số sự kiện trên giây)",
+        "active": "Số yêu cầu đang thực thi:",
+        "total": "Tổng số yêu cầu:",
         "table": {
-          "code": "Code",
-          "count": "Count",
-          "mean": "Mean",
-          "average": "Average"
+          "code": "Mã",
+          "count": "Số lượng",
+          "mean": "Bình quân",
+          "average": "Trung bình"
         },
         "code": {
-          "ok": "Ok",
-          "notfound": "Not found",
-          "servererror": "Server Error"
+          "ok": "Thành công",
+          "notfound": "Không tìm thấy",
+          "servererror": "Lỗi máy chủ"
         }
       }
     },
     "servicesstats": {
-      "title": "Services statistics (time in millisecond)",
+      "title": "Thống kê các dịch vụ (thời gian tính theo mili giây)",
       "table": {
-        "name": "Service name",
-        "count": "Count",
-        "mean": "Mean",
-        "min": "Min",
-        "max": "Max",
-        "p50": "p50",
-        "p75": "p75",
-        "p95": "p95",
-        "p99": "p99"
+        "name": "Tên dịch vụ",
+        "count": "Số lượng",
+        "mean": "Bình quân",
+        "min": "Tối thiểu",
+        "max": "Tối đa",
+        "p50": "50%",
+        "p75": "75%",
+        "p95": "95%",
+        "p99": "99%"
       }
     },
-    "cache": {
-      "title": "Cache statistics",
-      "cachename": "Cache name",
-      "hits": "Cache Hits",
-      "misses": "Cache Misses",
-      "gets": "Cache Gets",
-      "puts": "Cache Puts",
-      "removals": "Cache Removals",
-      "evictions": "Cache Evictions",
-      "hitPercent": "Cache Hit %",
-      "missPercent": "Cache Miss %",
-      "averageGetTime": "Average get time (µs)",
-      "averagePutTime": "Average put time (µs)",
-      "averageRemoveTime": "Average remove time (µs)"
+    "ehcache": {
+      "title": "Thống kê Ehcache",
+      "cachename": "Tên cache",
+      "objects": "Các đối tượng",
+      "hits": "Tìm thấy",
+      "misses": "Không tìm thấy",
+      "evictioncount": "Xóa khỏi cache"
     },
     "datasource": {
-      "usage": "Usage",
-      "title": "DataSource statistics (time in millisecond)",
-      "name": "Pool usage",
-      "count": "Count",
-      "mean": "Mean",
-      "min": "Min",
-      "max": "Max",
-      "p50": "p50",
-      "p75": "p75",
-      "p95": "p95",
-      "p99": "p99"
+      "usage": "Sử dụng",
+      "title": "Thống kê truy cập cơ sở dữ liệu (thời gian tính theo mili giây)",
+      "name": "Sử dụng vùng chứa",
+      "count": "Số lượng",
+      "mean": "Bình quân",
+      "min": "Tối thiểu",
+      "max": "Tối đa",
+      "p50": "50%",
+      "p75": "75%",
+      "p95": "95%",
+      "p99": "99%"
     }
   }
 }

@@ -18,7 +18,7 @@ import { getEntity, updateEntity, createEntity, reset } from './region.reducer';
 import { IRegion } from 'app/shared/model/region.model';
 // tslint:disable-next-line:no-unused-variable
 import { convertDateTimeFromServer } from 'app/shared/util/date-utils';
-import { mapIdList } from 'app/shared/util/entity-utils';
+import { mapIdList, keysToValues } from 'app/shared/util/entity-utils';
 
 export interface IRegionUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 

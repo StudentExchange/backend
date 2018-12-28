@@ -3,14 +3,14 @@
     "userLike": {
       "home": {
         "title": "User Likes",
-        "createLabel": "Create a new User Like",
-        "createOrEditLabel": "Create or edit a User Like"
+        "createLabel": "Thêm mới một User Like",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật User Like"
       },
-      "created": "A new User Like is created with identifier {{ param }}",
-      "updated": "A User Like is updated with identifier {{ param }}",
-      "deleted": "A User Like is deleted with identifier {{ param }}",
+      "created": "Một User Like mới được tạo với định danh {{ param }}",
+      "updated": "Một User Like cập nhật với định danh {{ param }}",
+      "deleted": "Một User Like đã xóa với định danh {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete User Like {{ id }}?"
+        "question": "Bạn có chắc là muốn xóa User Like {{ id }}?"
       },
       "detail": {
         "title": "User Like"

@@ -1,28 +1,28 @@
 {
   "health": {
-    "title": "Health Checks",
-    "refresh.button": "Refresh",
-    "stacktrace": "Stacktrace",
+    "title": "Tình trạng hệ thống",
+    "refresh.button": "Làm mới",
+    "stacktrace": "Theo dõi",
     "details": {
-      "details": "Details",
-      "properties": "Properties",
-      "name": "Name",
-      "value": "Value",
-      "error": "Error"
+      "details": "Chi tiết",
+      "properties": "Các thuộc tính",
+      "name": "Tên",
+      "value": "Giá trị",
+      "error": "Lỗi"
     },
     "indicator": {
-      "diskSpace": "Disk space",
+      "diskSpace": "Dung lượng trống",
       "mail": "Email",
-      "db": "Database"
+      "db": "Cơ sở dữ liệu"
     },
     "table": {
-      "service": "Service name",
-      "status": "Status"
+      "service": "Tên dịch vụ",
+      "status": "Trạng thái"
     },
     "status": {
       "UNKNOWN": "UNKNOWN",
-      "UP": "UP",
-      "DOWN": "DOWN"
+      "UP": "Đang hoạt động",
+      "DOWN": "Đã tắt"
     }
   }
 }
